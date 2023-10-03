@@ -1,8 +1,38 @@
-# React + Vite
+# Online Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a project from The Odin Project (www.theodinproject.com) for simulating an Online Shop.
 
-Currently, two official plugins are available:
+## Notes and tasks
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Components I need
+
+### Main page
+
+[] - Product cards containing items with their info (image, product name, description, price)
+[] - Button to add product to cart
+[] - Button to add product to whishlist
+[] - Category panel which filter product list by category
+[] - Search input
+[] - Filter button
+[] - Sort button
+
+### Cart page
+
+Show a list of all products that have been put in the cart. Each container should have:
+
+- Product image
+- Product name
+- Price
+- Quantity to buy
+- Remove product from cart
+
+Show a payment summary.
+
+- Sum of all products prices (Total)
+- Possible products to add before checkout
+- Button to go to checkout
+- Additional services (optional)
+
+### Product page
+
+Check if it's better to shop a new page or integrate the information inside the current page (Main)
