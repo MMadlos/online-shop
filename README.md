@@ -4,6 +4,8 @@ This is a project from The Odin Project (www.theodinproject.com) for simulating 
 
 ## Notes and tasks
 
+API: https://fakestoreapi.com/
+
 ### Components I need
 
 ### Main page
