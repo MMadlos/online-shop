@@ -2,6 +2,8 @@
 main {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+	justify-items: center;
+	align-self: center;
 	gap: 8px;
 	padding: 0 20px;
 
@@ -11,12 +13,11 @@ main {
 
 		display: flex;
 		justify-content: center;
-		align-items: center;
 
 		> img {
 			max-height: 300px;
-			max-width: 30%;
-			object-fit: cover;
+			max-width: 40%;
+			object-fit: contain;
 			background-color: white;
 			padding: 16px;
 		}
@@ -27,6 +28,22 @@ main {
 			gap: 8px;
 
 			padding: 16px;
+			min-height: 350px;
+			max-height: 500px;
+
+			#description {
+				font-size: 14px;
+			}
+
+			#price {
+				font-weight: 700;
+			}
+
+			.rate-container {
+				display: flex;
+				gap: 8px;
+				font-size: 12px;
+			}
 
 			> button#add-cart {
 				padding: 4px;

@@ -13,8 +13,11 @@ function ProductCard({ product }) {
 				<h2 id="name">{name}</h2>
 				<p id="description">{description}</p>
 				<p id="price">{price}</p>
-				<p id="rate">{rate}</p>
-				<p id="count-rates">{countRates}</p>
+				<div className="rate-container">
+					<p id="rate">{rate}</p>
+					<i className="fa-solid fa-star-half-stroke" />
+					<p id="count-rates">{countRates}</p>
+				</div>
 				<button id="add-cart">Add to cart</button>
 			</div>
 		</div>
