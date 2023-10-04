@@ -1,5 +1,5 @@
 import "./App.css"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { mockProducts } from "./consts/mockProducts"
 
 import Header from "./components/Header"
@@ -27,12 +27,14 @@ function sortProductsByCategory(productList, category) {
 
 function App() {
 	const [productList, setProductList] = useState(mockProducts)
+	const [selectedCategory, setSelectedCategory] = useState("All categories")
 
 	function handleClickCategory(e) {
 		const categoryName = e.target.textContent
 		const filteredProducts = sortProductsByCategory(mockProducts, categoryName)
 
 		setProductList(categoryName === "All categories" ? mockProducts : filteredProducts)
+		setSelectedCategory(categoryName)
 	}
 
 	return (
@@ -41,6 +43,7 @@ function App() {
 			<CategoryBar
 				productsList={mockProducts}
 				onClick={handleClickCategory}
+				selectedCategory={selectedCategory}
 			/>
 			<main>
 				{productList.map((product) => {

@@ -26,6 +26,11 @@ header {
 		color: grey;
 		cursor: pointer;
 	}
+
+	.category.selected {
+		font-weight: 700;
+		color: blue;
+	}
 }
 
 /* MAIN */
