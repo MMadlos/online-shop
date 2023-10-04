@@ -1,4 +1,5 @@
 import "./App.css"
+import { useState, useEffect } from "react"
 import { mockProducts } from "./consts/mockProducts"
 
 import Header from "./components/Header"
@@ -18,20 +19,31 @@ function mappedProduct(product) {
 	}
 }
 
-// function sortProductsByCategory(productList) {}
+function sortProductsByCategory(productList, category) {
+	const filteredProducts = productList.filter((product) => product.category.toLowerCase() === category.toLowerCase())
+
+	return filteredProducts
+}
 
 function App() {
-	// const first = mappedProduct(mockProducts[0])
-	// const second = mappedProduct(mockProducts[1])
-	// const third = mappedProduct(mockProducts[2])
-	// const fourth = mappedProduct(mockProducts[3])
+	const [productList, setProductList] = useState(mockProducts)
+
+	function handleClickCategory(e) {
+		const categoryName = e.target.textContent
+		const filteredProducts = sortProductsByCategory(mockProducts, categoryName)
+
+		setProductList(categoryName === "All categories" ? mockProducts : filteredProducts)
+	}
 
 	return (
 		<>
 			<Header />
-			<CategoryBar productsList={mockProducts} />
+			<CategoryBar
+				productsList={mockProducts}
+				onClick={handleClickCategory}
+			/>
 			<main>
-				{mockProducts.map((product) => {
+				{productList.map((product) => {
 					const PRODUCT = mappedProduct(product)
 					return (
 						<ProductCard

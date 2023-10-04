@@ -5,7 +5,6 @@ function capitalizeText(text) {
 	return word
 }
 
-// Get list of categories
 function getCategories(productList) {
 	let Categories = []
 	productList.forEach((product) => {
