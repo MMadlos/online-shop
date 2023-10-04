@@ -16,6 +16,13 @@ header {
 	}
 }
 
+/* CATEGORY LIST */
+.category-container {
+	display: flex;
+	gap: 16px;
+	padding: 8px 0;
+}
+
 /* MAIN */
 main {
 	display: grid;
