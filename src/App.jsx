@@ -1,6 +1,7 @@
 import "./App.css"
 import { useState } from "react"
 import { mockProducts } from "./consts/mockProducts"
+import { mappedProductList } from "./utilities/utilities"
 
 import Header from "./components/Header"
 import CategoryBar from "./components/CategoryBar"
@@ -12,55 +13,35 @@ function sortProductsByCategory(productList, category) {
 	return filteredProducts
 }
 
-function mappedProductList(products) {
-	const productsList = products
-
-	let mappedProductList = []
-	productsList.forEach((product) => {
-		const mappedProduct = {
-			id: product.id,
-			name: product.title,
-			price: product.price,
-			description: product.description,
-			category: product.category,
-			url: product.image,
-			rate: product.rating.rate,
-			countRates: product.rating.count,
-			isAdded: false,
-		}
-
-		mappedProductList.push(mappedProduct)
-	})
-
-	return mappedProductList
-}
-
 function App() {
-	const [productList, setProductList] = useState(mockProducts)
+	const mappedProducts = mappedProductList(mockProducts)
+
+	const [productList, setProductList] = useState(mappedProducts)
 	const [selectedCategory, setSelectedCategory] = useState("All categories")
 	const [cartList, setCartList] = useState([])
 
 	function handleClickCategory(e) {
 		const categoryName = e.target.textContent
-		const filteredProducts = sortProductsByCategory(mockProducts, categoryName)
+		const filteredProducts = sortProductsByCategory(mappedProducts, categoryName)
 
-		setProductList(categoryName === "All categories" ? mockProducts : filteredProducts)
+		setProductList(categoryName === "All categories" ? mappedProducts : filteredProducts)
 		setSelectedCategory(categoryName)
 	}
 
 	function handleClickAddCart(e) {
 		const productID = Number(e.target.closest(".product-card").dataset.productId)
 
-		const product = productList.filter((product) => product.id === productID)
+		const productFiltered = productList.filter((product) => product.id === productID)
+		productFiltered[0].isAdded = true
 
-		setCartList((prev) => [...prev, ...product])
+		setCartList((prev) => [...prev, ...productFiltered])
 	}
 
 	return (
 		<>
 			<Header cartQuantity={cartList.length} />
 			<CategoryBar
-				productsList={mockProducts}
+				productsList={mappedProducts}
 				onClickCategory={handleClickCategory}
 				selectedCategory={selectedCategory}
 			/>

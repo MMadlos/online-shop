@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 
 function ProductCard({ product, onClickAddCart }) {
-	const { id, name, description, price, url, rate, countRates } = product
+	const { id, name, description, price, url, rate, countRates, isAdded } = product
 
 	return (
 		<div
@@ -12,20 +12,25 @@ function ProductCard({ product, onClickAddCart }) {
 				alt="#"
 			/>
 			<div className="product-info">
-				<h2 id="name">{name}</h2>
-				<p id="description">{description}</p>
-				<p id="price">{"$ " + price}</p>
-				<div className="rate-container">
-					<p id="rate">{rate}</p>
-					<i className="fa-solid fa-star-half-stroke" />
-					<p id="count-rates">{countRates}</p>
+				<div className="product-info-container">
+					<h2 id="name">{name}</h2>
+					<p id="description">{description}</p>
+					<p id="price">{"$ " + price}</p>
+					<div className="rate-container">
+						<p id="rate">{rate}</p>
+						<i className="fa-solid fa-star-half-stroke" />
+						<p id="count-rates">{countRates}</p>
+					</div>
 				</div>
-				<button
-					id="add-cart"
-					onClick={onClickAddCart}>
-					Add to cart
-				</button>
-				<button id="remove-cart">Remove from cart</button>
+				{!isAdded ? (
+					<button
+						id="add-cart"
+						onClick={onClickAddCart}>
+						Add to cart
+					</button>
+				) : (
+					<button id="remove-cart">Remove from cart</button>
+				)}
 			</div>
 		</div>
 	)

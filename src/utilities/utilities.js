@@ -6,11 +6,32 @@ function capitalizeText(text) {
 }
 
 function getCategories(productList) {
-	let Categories = []
+	let categoriesList = []
 	productList.forEach((product) => {
-		Categories.push(product.category)
+		categoriesList.push(product.category)
 	})
-	return [...new Set(Categories)]
+	return [...new Set(categoriesList)]
 }
 
-export { capitalizeText, getCategories }
+function mappedProductList(products) {
+	let mappedProductList = []
+	products.forEach((product) => {
+		const mappedProduct = {
+			id: product.id,
+			name: product.title,
+			price: product.price,
+			description: product.description,
+			category: product.category,
+			url: product.image,
+			rate: product.rating.rate,
+			countRates: product.rating.count,
+			isAdded: false,
+		}
+
+		mappedProductList.push(mappedProduct)
+	})
+
+	return mappedProductList
+}
+
+export { mappedProductList, capitalizeText, getCategories }

@@ -66,31 +66,38 @@ main {
 		.product-info {
 			display: flex;
 			flex-direction: column;
+			justify-content: space-between;
+
 			gap: 8px;
 
 			padding: 16px;
-			min-height: 350px;
-			max-height: 500px;
 
-			#description {
-				-webkit-line-clamp: 2;
-				-webkit-box-orient: vertical;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				display: -webkit-box;
-			}
-
-			#price {
-				font-weight: 700;
-			}
-
-			.rate-container {
+			.product-info-container {
 				display: flex;
+				flex-direction: column;
 				gap: 8px;
-				font-size: 12px;
+
+				#name,
+				#description {
+					-webkit-line-clamp: 2;
+					-webkit-box-orient: vertical;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					display: -webkit-box;
+				}
+
+				#price {
+					font-weight: 700;
+				}
+
+				.rate-container {
+					display: flex;
+					gap: 8px;
+					font-size: 12px;
+				}
 			}
 
-			> button#add-cart {
+			> button {
 				padding: 4px;
 			}
 		}
