@@ -10,7 +10,7 @@ API: https://fakestoreapi.com/
 
 ### Main page
 
-[] - Product cards containing items with their info (image, product name, description, price)
+[x] - Product cards containing items with their info (image, product name, description, price)
 [] - Button to add product to cart
 [] - Button to add product to whishlist
 [] - Category panel which filter product list by category

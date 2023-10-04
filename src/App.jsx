@@ -1,5 +1,7 @@
 import "./App.css"
 import { mockProducts } from "./consts/mockProducts"
+
+import Header from "./components/Header"
 import ProductCard from "./components/ProductCard"
 
 function mappedProduct(product) {
@@ -22,12 +24,15 @@ function App() {
 	const fourth = mappedProduct(mockProducts[3])
 
 	return (
-		<main>
-			<ProductCard product={first} />
-			<ProductCard product={second} />
-			<ProductCard product={third} />
-			<ProductCard product={fourth} />
-		</main>
+		<>
+			<Header />
+			<main>
+				<ProductCard product={first} />
+				<ProductCard product={second} />
+				<ProductCard product={third} />
+				<ProductCard product={fourth} />
+			</main>
+		</>
 	)
 }
 
