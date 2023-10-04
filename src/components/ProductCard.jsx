@@ -14,7 +14,7 @@ function ProductCard({ product, onClickAddCart }) {
 			<div className="product-info">
 				<h2 id="name">{name}</h2>
 				<p id="description">{description}</p>
-				<p id="price">{price}</p>
+				<p id="price">{"$ " + price}</p>
 				<div className="rate-container">
 					<p id="rate">{rate}</p>
 					<i className="fa-solid fa-star-half-stroke" />

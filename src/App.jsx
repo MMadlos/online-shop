@@ -12,6 +12,29 @@ function sortProductsByCategory(productList, category) {
 	return filteredProducts
 }
 
+function mappedProductList(products) {
+	const productsList = products
+
+	let mappedProductList = []
+	productsList.forEach((product) => {
+		const mappedProduct = {
+			id: product.id,
+			name: product.title,
+			price: product.price,
+			description: product.description,
+			category: product.category,
+			url: product.image,
+			rate: product.rating.rate,
+			countRates: product.rating.count,
+			isAdded: false,
+		}
+
+		mappedProductList.push(mappedProduct)
+	})
+
+	return mappedProductList
+}
+
 function App() {
 	const [productList, setProductList] = useState(mockProducts)
 	const [selectedCategory, setSelectedCategory] = useState("All categories")
@@ -24,8 +47,6 @@ function App() {
 		setProductList(categoryName === "All categories" ? mockProducts : filteredProducts)
 		setSelectedCategory(categoryName)
 	}
-
-	// Cuando hago click en Add to cart, debe aparecer el número de productos en Cart.
 
 	function handleClickAddCart(e) {
 		const productID = Number(e.target.closest(".product-card").dataset.productId)

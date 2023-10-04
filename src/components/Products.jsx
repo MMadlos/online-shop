@@ -10,6 +10,7 @@ function mappedProduct(product) {
 		url: product.image,
 		rate: product.rating.rate,
 		countRates: product.rating.count,
+		isAdded: false,
 	}
 }
 
