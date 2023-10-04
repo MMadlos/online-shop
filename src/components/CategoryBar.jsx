@@ -1,24 +1,17 @@
 import { capitalizeText, getCategories } from "../utilities/utilities"
 
 function CategoryBar({ productsList, onClick, selectedCategory }) {
-	const categoryList = getCategories(productsList)
-
-	function isSelectedCategory(category) {
-		return selectedCategory.toLowerCase() === category ? "selected" : ""
-	}
+	const categoryList = ["All categories", ...getCategories(productsList)]
 
 	return (
 		<div className="category-container">
-			<div className={`category ${isSelectedCategory("All categories")}`}>
-				<a onClick={onClick}>All categories</a>
-			</div>
 			{categoryList.map((category) => {
-				const ifSelected = isSelectedCategory(category)
+				const addClassIfSelected = selectedCategory.toLowerCase() === category.toLowerCase() ? "category selected" : "category"
 
 				return (
 					<div
 						key={category}
-						className={`category ${ifSelected}`}>
+						className={addClassIfSelected}>
 						<a onClick={onClick}>{capitalizeText(category)}</a>
 					</div>
 				)
