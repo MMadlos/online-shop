@@ -37,6 +37,27 @@ function App() {
 		setCartList((prev) => [...prev, ...productFiltered])
 	}
 
+	function handleClickRemoveCart(e) {
+		const productID = Number(e.target.closest(".product-card").dataset.productId)
+
+		// 1. Eliminar el producto de la lista de compra
+		const newCart = cartList.filter((product) => product.id !== productID)
+		setCartList(newCart)
+
+		// 2. Modificar "isAdded" de la lista de productos
+
+		const newProductList = productList
+		const itemFiltered = newProductList.filter((product) => product.id === productID)[0]
+
+		itemFiltered.isAdded = false
+
+		const indexItemFiltered = newProductList.indexOf(itemFiltered)
+		newProductList.splice(indexItemFiltered, 1, itemFiltered)
+
+		// setProductList(newProductList)
+		//TODO - Investigar por qué no se necesita setProductList() para que detecte que se ha eliminado
+	}
+
 	return (
 		<>
 			<Header cartQuantity={cartList.length} />
@@ -48,6 +69,7 @@ function App() {
 			<ProductsList
 				productList={productList}
 				onClickAddCart={handleClickAddCart}
+				onClickRemoveCart={handleClickRemoveCart}
 			/>
 		</>
 	)

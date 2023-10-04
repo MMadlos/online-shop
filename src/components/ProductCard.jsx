@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 
-function ProductCard({ product, onClickAddCart }) {
+function ProductCard({ product, onClickAddCart, onClickRemoveCart }) {
 	const { id, name, description, price, url, rate, countRates, isAdded } = product
 
 	return (
@@ -29,7 +29,11 @@ function ProductCard({ product, onClickAddCart }) {
 						Add to cart
 					</button>
 				) : (
-					<button id="remove-cart">Remove from cart</button>
+					<button
+						id="remove-cart"
+						onClick={onClickRemoveCart}>
+						Remove from cart
+					</button>
 				)}
 			</div>
 		</div>

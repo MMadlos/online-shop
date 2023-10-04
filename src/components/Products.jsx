@@ -1,6 +1,6 @@
 import ProductCard from "./ProductCard"
 
-function ProductsList({ productList, onClickAddCart }) {
+function ProductsList({ productList, onClickAddCart, onClickRemoveCart }) {
 	return (
 		<main>
 			{productList.map((product) => {
@@ -9,6 +9,7 @@ function ProductsList({ productList, onClickAddCart }) {
 						key={product.id}
 						product={product}
 						onClickAddCart={onClickAddCart}
+						onClickRemoveCart={onClickRemoveCart}
 					/>
 				)
 			})}
