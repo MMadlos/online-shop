@@ -21,6 +21,11 @@ header {
 	display: flex;
 	gap: 16px;
 	padding: 8px 0;
+
+	.category:hover {
+		color: grey;
+		cursor: pointer;
+	}
 }
 
 /* MAIN */
@@ -32,11 +37,17 @@ main {
 	gap: 8px;
 
 	.product-card {
+		overflow: hidden;
 		border: 1px solid lightgrey;
+		border-radius: 8px;
 		height: min-content;
 
 		display: flex;
 		justify-content: center;
+
+		&:hover {
+			border: 1px solid grey;
+		}
 
 		> img {
 			max-height: 300px;
