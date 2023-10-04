@@ -19,6 +19,7 @@ function ProductCard({ product }) {
 					<p id="count-rates">{countRates}</p>
 				</div>
 				<button id="add-cart">Add to cart</button>
+				<button id="remove-cart">Remove from cart</button>
 			</div>
 		</div>
 	)

@@ -4,20 +4,7 @@ import { mockProducts } from "./consts/mockProducts"
 
 import Header from "./components/Header"
 import CategoryBar from "./components/CategoryBar"
-import ProductCard from "./components/ProductCard"
-
-function mappedProduct(product) {
-	return {
-		id: product.id,
-		name: product.title,
-		price: product.price,
-		description: product.description,
-		category: product.category,
-		url: product.image,
-		rate: product.rating.rate,
-		countRates: product.rating.count,
-	}
-}
+import ProductsList from "./components/Products"
 
 function sortProductsByCategory(productList, category) {
 	const filteredProducts = productList.filter((product) => product.category.toLowerCase() === category.toLowerCase())
@@ -45,17 +32,7 @@ function App() {
 				onClick={handleClickCategory}
 				selectedCategory={selectedCategory}
 			/>
-			<main>
-				{productList.map((product) => {
-					const PRODUCT = mappedProduct(product)
-					return (
-						<ProductCard
-							key={PRODUCT.id}
-							product={PRODUCT}
-						/>
-					)
-				})}
-			</main>
+			<ProductsList productList={productList} />
 		</>
 	)
 }

@@ -1,4 +1,4 @@
-function Header() {
+function Header({ cartQuantity = 0 }) {
 	return (
 		<header>
 			<div className="logo-container">
@@ -9,7 +9,7 @@ function Header() {
 					<a href="#">Ver en Github</a>
 				</li>
 				<li>
-					<a href="#">Cart</a>
+					<a href="#">Cart ({cartQuantity})</a>
 				</li>
 			</ul>
 		</header>
