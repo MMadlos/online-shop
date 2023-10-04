@@ -1,6 +1,6 @@
 import { capitalizeText, getCategories } from "../utilities/utilities"
 
-function CategoryBar({ productsList, onClick, selectedCategory }) {
+function CategoryBar({ productsList, onClickCategory, selectedCategory }) {
 	const categoryList = ["All categories", ...getCategories(productsList)]
 
 	return (
@@ -12,7 +12,7 @@ function CategoryBar({ productsList, onClick, selectedCategory }) {
 					<div
 						key={category}
 						className={addClassIfSelected}>
-						<a onClick={onClick}>{capitalizeText(category)}</a>
+						<a onClick={onClickCategory}>{capitalizeText(category)}</a>
 					</div>
 				)
 			})}

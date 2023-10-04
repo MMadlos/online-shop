@@ -13,7 +13,7 @@ function mappedProduct(product) {
 	}
 }
 
-function ProductsList({ productList }) {
+function ProductsList({ productList, onClickAddCart }) {
 	return (
 		<main>
 			{productList.map((product) => {
@@ -22,6 +22,7 @@ function ProductsList({ productList }) {
 					<ProductCard
 						key={PRODUCT.id}
 						product={PRODUCT}
+						onClickAddCart={onClickAddCart}
 					/>
 				)
 			})}

@@ -15,6 +15,7 @@ function sortProductsByCategory(productList, category) {
 function App() {
 	const [productList, setProductList] = useState(mockProducts)
 	const [selectedCategory, setSelectedCategory] = useState("All categories")
+	const [cartList, setCartList] = useState([])
 
 	function handleClickCategory(e) {
 		const categoryName = e.target.textContent
@@ -24,15 +25,28 @@ function App() {
 		setSelectedCategory(categoryName)
 	}
 
+	// Cuando hago click en Add to cart, debe aparecer el número de productos en Cart.
+
+	function handleClickAddCart(e) {
+		const productID = Number(e.target.closest(".product-card").dataset.productId)
+
+		const product = productList.filter((product) => product.id === productID)
+
+		setCartList((prev) => [...prev, ...product])
+	}
+
 	return (
 		<>
-			<Header />
+			<Header cartQuantity={cartList.length} />
 			<CategoryBar
 				productsList={mockProducts}
-				onClick={handleClickCategory}
+				onClickCategory={handleClickCategory}
 				selectedCategory={selectedCategory}
 			/>
-			<ProductsList productList={productList} />
+			<ProductsList
+				productList={productList}
+				onClickAddCart={handleClickAddCart}
+			/>
 		</>
 	)
 }

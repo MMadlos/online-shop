@@ -1,10 +1,12 @@
 import PropTypes from "prop-types"
 
-function ProductCard({ product }) {
-	const { name, description, price, url, rate, countRates } = product
+function ProductCard({ product, onClickAddCart }) {
+	const { id, name, description, price, url, rate, countRates } = product
 
 	return (
-		<div className="product-card">
+		<div
+			className="product-card"
+			data-product-id={id}>
 			<img
 				src={url}
 				alt="#"
@@ -18,7 +20,11 @@ function ProductCard({ product }) {
 					<i className="fa-solid fa-star-half-stroke" />
 					<p id="count-rates">{countRates}</p>
 				</div>
-				<button id="add-cart">Add to cart</button>
+				<button
+					id="add-cart"
+					onClick={onClickAddCart}>
+					Add to cart
+				</button>
 				<button id="remove-cart">Remove from cart</button>
 			</div>
 		</div>
