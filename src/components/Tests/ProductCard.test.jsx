@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react"
+import { describe, it, expect, vi } from "vitest"
+import userEvent from "@testing-library/user-event"
+
 import ProductCard from "../ProductCard"
-import { describe, it, expect } from "vitest"
 
 describe("ProductCard", () => {
 	const product = {
@@ -39,14 +41,77 @@ describe("ProductCard", () => {
 		render(<ProductCard product={product} />)
 		expect(screen.getByText(countRates)).toBeInTheDocument()
 	})
-	it("renders button add when the item is not added to cart", () => {
+	it('renders button "add" when the item is not added to cart', () => {
 		const newProduct = { isAdded: false }
 		render(<ProductCard product={newProduct} />)
 		expect(screen.getByRole("button").textContent).toBe("Add to cart")
 	})
-	it("renders button remove when the item has been added to cart", () => {
+	it('renders button "remove" when the item has been added to cart', () => {
 		const newProduct = { isAdded: true }
 		render(<ProductCard product={newProduct} />)
 		expect(screen.getByRole("button").textContent).toBe("Remove from cart")
+	})
+
+	it("should call the onClickAddCart function when clicked", async () => {
+		const onClick = vi.fn()
+		const user = userEvent.setup()
+		const newProduct = { isAdded: false }
+
+		render(
+			<ProductCard
+				product={newProduct}
+				onClickAddCart={onClick}
+			/>
+		)
+
+		const button = screen.getByRole("button")
+		await user.click(button)
+
+		expect(onClick).toHaveBeenCalled()
+	})
+	it("should not call onClickAddCart function when it isn't clicked", async () => {
+		const onClick = vi.fn()
+		const newProduct = { isAdded: false }
+
+		render(
+			<ProductCard
+				product={newProduct}
+				onClickAddCart={onClick}
+			/>
+		)
+
+		expect(onClick).not.toHaveBeenCalled()
+	})
+
+	it("should call the onClickRemoveCart function when clicked", async () => {
+		const onClickRemoveCart = vi.fn()
+		const user = userEvent.setup()
+		const newProduct = { isAdded: true }
+
+		render(
+			<ProductCard
+				product={newProduct}
+				onClickRemoveCart={onClickRemoveCart}
+			/>
+		)
+
+		const button = screen.getByRole("button")
+		await user.click(button)
+
+		expect(onClickRemoveCart).toHaveBeenCalled()
+	})
+
+	it("should not call onClickRemoveCart function when it isn't clicked", async () => {
+		const onClickRemoveCart = vi.fn()
+		const newProduct = { isAdded: true }
+
+		render(
+			<ProductCard
+				product={newProduct}
+				onClickRemoveCart={onClickRemoveCart}
+			/>
+		)
+
+		expect(onClickRemoveCart).not.toHaveBeenCalled()
 	})
 })
