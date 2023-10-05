@@ -27,4 +27,11 @@ function mapProductList(products) {
 	}))
 }
 
-export { mapProductList, capitalizeText, getCategories }
+function sortProductsByCategory(productList, category) {
+	if (category === "All categories") return productList
+
+	const filteredProducts = productList.filter((product) => product.category.toLowerCase() === category.toLowerCase())
+	return filteredProducts
+}
+
+export { mapProductList, capitalizeText, getCategories, sortProductsByCategory }

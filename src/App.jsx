@@ -1,18 +1,11 @@
 import "./App.css"
 import { useState, useEffect } from "react"
 import { mockProducts } from "./consts/mockProducts"
-import { mapProductList } from "./utilities/utilities"
+import { mapProductList, sortProductsByCategory } from "./utilities/utilities"
 
 import Header from "./components/Header"
 import CategoryBar from "./components/CategoryBar"
 import ProductsList from "./components/Products"
-
-function sortProductsByCategory(productList, category) {
-	if (category === "All categories") return productList
-
-	const filteredProducts = productList.filter((product) => product.category.toLowerCase() === category.toLowerCase())
-	return filteredProducts
-}
 
 function App() {
 	const mappedProducts = mapProductList(mockProducts)

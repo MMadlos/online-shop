@@ -22,6 +22,12 @@ function ProductCard({ product, onClickAddCart, onClickRemoveCart }) {
 						<p id="count-rates">{countRates}</p>
 					</div>
 				</div>
+				{isAdded && (
+					<div className="product-added">
+						<i className="fa-solid fa-check" />
+						<p>Added to cart</p>
+					</div>
+				)}
 				{!isAdded ? (
 					<button
 						id="add-cart"
