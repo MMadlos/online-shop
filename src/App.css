@@ -30,6 +30,10 @@ header {
 	.category.selected {
 		font-weight: 700;
 		color: blue;
+
+		&:hover {
+			cursor: default;
+		}
 	}
 }
 

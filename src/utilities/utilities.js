@@ -13,25 +13,18 @@ function getCategories(productList) {
 	return [...new Set(categoriesList)]
 }
 
-function mappedProductList(products) {
-	let mappedProductList = []
-	products.forEach((product) => {
-		const mappedProduct = {
-			id: product.id,
-			name: product.title,
-			price: product.price,
-			description: product.description,
-			category: product.category,
-			url: product.image,
-			rate: product.rating.rate,
-			countRates: product.rating.count,
-			isAdded: false,
-		}
-
-		mappedProductList.push(mappedProduct)
-	})
-
-	return mappedProductList
+function mapProductList(products) {
+	return products.map((product) => ({
+		id: product.id,
+		name: product.title,
+		price: product.price,
+		description: product.description,
+		category: product.category,
+		url: product.image,
+		rate: product.rating.rate,
+		countRates: product.rating.count,
+		isAdded: false,
+	}))
 }
 
-export { mappedProductList, capitalizeText, getCategories }
+export { mapProductList, capitalizeText, getCategories }

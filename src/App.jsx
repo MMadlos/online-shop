@@ -1,7 +1,7 @@
 import "./App.css"
 import { useState } from "react"
 import { mockProducts } from "./consts/mockProducts"
-import { mappedProductList } from "./utilities/utilities"
+import { mapProductList } from "./utilities/utilities"
 
 import Header from "./components/Header"
 import CategoryBar from "./components/CategoryBar"
@@ -14,7 +14,7 @@ function sortProductsByCategory(productList, category) {
 }
 
 function App() {
-	const mappedProducts = mappedProductList(mockProducts)
+	const mappedProducts = mapProductList(mockProducts)
 
 	const [productList, setProductList] = useState(mappedProducts)
 	const [selectedCategory, setSelectedCategory] = useState("All categories")
@@ -22,8 +22,9 @@ function App() {
 
 	function handleClickCategory(e) {
 		const categoryName = e.target.textContent
-		const filteredProducts = sortProductsByCategory(mappedProducts, categoryName)
+		if (categoryName === selectedCategory) return
 
+		const filteredProducts = sortProductsByCategory(mappedProducts, categoryName)
 		setProductList(categoryName === "All categories" ? mappedProducts : filteredProducts)
 		setSelectedCategory(categoryName)
 	}
@@ -31,19 +32,33 @@ function App() {
 	function handleClickAddCart(e) {
 		const productID = Number(e.target.closest(".product-card").dataset.productId)
 
-		// 1.Añadir el producto a la lista de compra
-		const productFiltered = productList.filter((product) => product.id === productID)
+		const [productSelected] = productList.filter((product) => product.id === productID)
+		console.log(productSelected)
 
-		const productToAddCart = productFiltered
-		productToAddCart[0].isAdded = true
-		setCartList((prev) => [...prev, ...productToAddCart])
+		// Check if the item is already in the cartList
+		const isInCart = cartList.includes(productSelected)
 
-		// TODO - 2. Modificar "isAdded" de la lista de productos
-		const indexProductFiltered = productList.indexOf(productFiltered)
+		if (!isInCart) {
+			setCartList((prev) => [...prev, productSelected])
 
-		const newProductList = productList
-		newProductList.splice(indexProductFiltered, 1, productToAddCart)
-		setProductList(newProductList)
+			// Change value of isAdded to true in the productList of the item Selected
+
+			// - Find the index of the item selected in the productList
+			const indexProductSelected = productList.indexOf(productSelected)
+			console.log(productList[indexProductSelected])
+
+			// - Create a new array and replace the old product with the new one in the same index
+			let newProductList = []
+			productList.forEach((product, index) => {
+				if (index !== indexProductSelected) newProductList.push(product)
+				if (index === indexProductSelected) {
+					const newProductSelected = { ...productSelected, isAdded: true }
+					newProductList.push(newProductSelected)
+				}
+			})
+
+			setProductList(newProductList)
+		}
 	}
 
 	function handleClickRemoveCart(e) {
@@ -55,14 +70,17 @@ function App() {
 
 		// 2. Modificar "isAdded" de la lista de productos
 
-		const newProductList = productList
-		const itemFiltered = newProductList.filter((product) => product.id === productID)[0]
+		const itemFiltered = productList.filter((product) => product.id === productID)[0]
+		const indexItemFiltered = productList.indexOf(itemFiltered)
 
 		itemFiltered.isAdded = false
 
-		const indexItemFiltered = newProductList.indexOf(itemFiltered)
-		newProductList.splice(indexItemFiltered, 1, itemFiltered)
-
+		let newProductList = []
+		productList.forEach((product, index) => {
+			newProductList.push(index === indexItemFiltered ? itemFiltered : product)
+		})
+		console.log(newProductList)
+		console.log(productList)
 		setProductList(newProductList)
 	}
 
