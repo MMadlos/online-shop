@@ -1,7 +1,12 @@
+import { Link } from "react-router-dom"
+
 function Cart({ productList }) {
 	return (
 		<section id="cart">
-			{productList.map((product) => {
+			<Link to="/">Return to shop</Link>
+			<p>Cart</p>
+
+			{productList?.map((product) => {
 				const { id, name, price, url, quantity } = product
 				return (
 					<div

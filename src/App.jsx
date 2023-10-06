@@ -1,4 +1,5 @@
 import "./App.css"
+import { Routes, Route } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { mockProducts } from "./consts/mockProducts"
 import { mapProductList, sortProductsByCategory } from "./utilities/utilities"
@@ -69,18 +70,34 @@ function App() {
 	return (
 		<>
 			<Header cartQuantity={cartList.length} />
-			<p>Cart</p>
-			<Cart productList={cartList} />
-			<CategoryBar
-				productsList={mappedProducts}
-				onClickCategory={handleClickCategory}
-				selectedCategory={selectedCategory}
-			/>
-			<ProductsList
-				productList={filteredProductList}
-				onClickAddCart={handleClickAddCart}
-				onClickRemoveCart={handleClickRemoveCart}
-			/>
+
+			<Routes>
+				<Route
+					path="/"
+					element={
+						<>
+							<CategoryBar
+								productsList={mappedProducts}
+								onClickCategory={handleClickCategory}
+								selectedCategory={selectedCategory}
+							/>
+							<ProductsList
+								productList={filteredProductList}
+								onClickAddCart={handleClickAddCart}
+								onClickRemoveCart={handleClickRemoveCart}
+							/>
+						</>
+					}
+				/>
+				<Route
+					path="/cart"
+					element={
+						<>
+							<Cart productList={cartList} />
+						</>
+					}
+				/>
+			</Routes>
 		</>
 	)
 }

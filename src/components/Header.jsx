@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 function Header({ cartQuantity = 0 }) {
 	return (
 		<header>
@@ -9,7 +11,7 @@ function Header({ cartQuantity = 0 }) {
 					<a href="#">Ver en Github</a>
 				</li>
 				<li>
-					<a href="#">Cart ({cartQuantity})</a>
+					<Link to="cart">Cart ({cartQuantity})</Link>
 				</li>
 			</ul>
 		</header>
