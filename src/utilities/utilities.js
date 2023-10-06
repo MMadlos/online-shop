@@ -24,6 +24,7 @@ function mapProductList(products) {
 		rate: product.rating.rate,
 		countRates: product.rating.count,
 		isAdded: false,
+		quantity: 0,
 	}))
 }
 
