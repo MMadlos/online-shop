@@ -114,3 +114,34 @@ main {
 		}
 	}
 }
+
+/* CART SECTION */
+section#cart {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	.product-card-cart {
+		border: 1px solid red;
+		border-radius: 8px;
+
+		.product-info {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 32px;
+
+			padding: 8px 16px;
+
+			> img {
+				--side: 150px;
+				max-height: var(--side);
+				max-width: var(--side);
+				aspect-ratio: 1 / 1;
+
+				object-position: center;
+				object-fit: contain;
+			}
+		}
+	}
+}
