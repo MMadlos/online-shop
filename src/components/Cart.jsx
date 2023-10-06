@@ -2,7 +2,7 @@ function Cart({ productList }) {
 	return (
 		<section id="cart">
 			{productList.map((product) => {
-				const { id, name, price, url } = product
+				const { id, name, price, url, quantity } = product
 				return (
 					<div
 						key={id}
@@ -19,7 +19,7 @@ function Cart({ productList }) {
 							<p>{price}</p>
 							<div className="product-quantity">
 								<p>Quantity</p>
-								<p>1</p>
+								<p>{quantity}</p>
 							</div>
 							<button>Remove</button>
 						</div>

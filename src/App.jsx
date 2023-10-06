@@ -35,9 +35,15 @@ function App() {
 		if (isInCart) return
 		setCartList((prev) => [...prev, productSelected])
 
+		productSelected.quantity++
+
 		// Change value of isAdded to true in the productList of the item Selected
 		let newProductList = []
-		productList.forEach((product) => newProductList.push(product.id !== productID ? product : { ...productSelected, isAdded: true }))
+		productList.forEach((product) => {
+			const newProduct = { ...productSelected, isAdded: true }
+
+			newProductList.push(product.id !== productID ? product : newProduct)
+		})
 
 		setProductList(newProductList)
 	}
@@ -50,6 +56,8 @@ function App() {
 
 		// Change value of isAdded to false in the productList of the item Selected
 		const [productSelected] = productList.filter((product) => product.id === productID)
+
+		productSelected.quantity = 0
 
 		let newProductList = []
 		productList.forEach((product) => {
