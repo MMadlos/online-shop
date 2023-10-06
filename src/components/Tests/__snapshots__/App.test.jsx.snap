@@ -1,0 +1,290 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`App > Renders App 1`] = `
+<div>
+  <header>
+    <div
+      class="logo-container"
+    >
+      <h1>
+        Online shop
+      </h1>
+    </div>
+    <ul>
+      <li>
+        <a
+          href="#"
+        >
+          Ver en Github
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+        >
+          Cart (
+          0
+          )
+        </a>
+      </li>
+    </ul>
+  </header>
+  <div
+    class="category-container"
+  >
+    <div
+      class="category"
+    >
+      <a>
+        All categories
+      </a>
+    </div>
+    <div
+      class="category selected"
+    >
+      <a>
+        Men's clothing
+      </a>
+    </div>
+    <div
+      class="category"
+    >
+      <a>
+        Jewelery
+      </a>
+    </div>
+    <div
+      class="category"
+    >
+      <a>
+        Electronics
+      </a>
+    </div>
+    <div
+      class="category"
+    >
+      <a>
+        Women's clothing
+      </a>
+    </div>
+  </div>
+  <main>
+    <div
+      class="product-card"
+      data-product-id="1"
+    >
+      <img
+        alt="#"
+        src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+      />
+      <div
+        class="product-info"
+      >
+        <div
+          class="product-info-container"
+        >
+          <h2
+            id="name"
+          >
+            Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
+          </h2>
+          <p
+            id="description"
+          >
+            Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday
+          </p>
+          <p
+            id="price"
+          >
+            $ 109.95
+          </p>
+          <div
+            class="rate-container"
+          >
+            <p
+              id="rate"
+            >
+              3.9
+            </p>
+            <i
+              class="fa-solid fa-star-half-stroke"
+            />
+            <p
+              id="count-rates"
+            >
+              120
+            </p>
+          </div>
+        </div>
+        <button
+          id="add-cart"
+        >
+          Add to cart
+        </button>
+      </div>
+    </div>
+    <div
+      class="product-card"
+      data-product-id="2"
+    >
+      <img
+        alt="#"
+        src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+      />
+      <div
+        class="product-info"
+      >
+        <div
+          class="product-info-container"
+        >
+          <h2
+            id="name"
+          >
+            Mens Casual Premium Slim Fit T-Shirts 
+          </h2>
+          <p
+            id="description"
+          >
+            Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.
+          </p>
+          <p
+            id="price"
+          >
+            $ 22.3
+          </p>
+          <div
+            class="rate-container"
+          >
+            <p
+              id="rate"
+            >
+              4.1
+            </p>
+            <i
+              class="fa-solid fa-star-half-stroke"
+            />
+            <p
+              id="count-rates"
+            >
+              259
+            </p>
+          </div>
+        </div>
+        <button
+          id="add-cart"
+        >
+          Add to cart
+        </button>
+      </div>
+    </div>
+    <div
+      class="product-card"
+      data-product-id="3"
+    >
+      <img
+        alt="#"
+        src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+      />
+      <div
+        class="product-info"
+      >
+        <div
+          class="product-info-container"
+        >
+          <h2
+            id="name"
+          >
+            Mens Cotton Jacket
+          </h2>
+          <p
+            id="description"
+          >
+            great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.
+          </p>
+          <p
+            id="price"
+          >
+            $ 55.99
+          </p>
+          <div
+            class="rate-container"
+          >
+            <p
+              id="rate"
+            >
+              4.7
+            </p>
+            <i
+              class="fa-solid fa-star-half-stroke"
+            />
+            <p
+              id="count-rates"
+            >
+              500
+            </p>
+          </div>
+        </div>
+        <button
+          id="add-cart"
+        >
+          Add to cart
+        </button>
+      </div>
+    </div>
+    <div
+      class="product-card"
+      data-product-id="4"
+    >
+      <img
+        alt="#"
+        src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg"
+      />
+      <div
+        class="product-info"
+      >
+        <div
+          class="product-info-container"
+        >
+          <h2
+            id="name"
+          >
+            Mens Casual Slim Fit
+          </h2>
+          <p
+            id="description"
+          >
+            The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.
+          </p>
+          <p
+            id="price"
+          >
+            $ 15.99
+          </p>
+          <div
+            class="rate-container"
+          >
+            <p
+              id="rate"
+            >
+              2.1
+            </p>
+            <i
+              class="fa-solid fa-star-half-stroke"
+            />
+            <p
+              id="count-rates"
+            >
+              430
+            </p>
+          </div>
+        </div>
+        <button
+          id="add-cart"
+        >
+          Add to cart
+        </button>
+      </div>
+    </div>
+  </main>
+</div>
+`;
