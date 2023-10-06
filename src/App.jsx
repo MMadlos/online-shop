@@ -6,6 +6,7 @@ import { mapProductList, sortProductsByCategory } from "./utilities/utilities"
 import Header from "./components/Header"
 import CategoryBar from "./components/CategoryBar"
 import ProductsList from "./components/Products"
+import Cart from "./components/Cart"
 
 function App() {
 	const mappedProducts = mapProductList(mockProducts)
@@ -60,6 +61,8 @@ function App() {
 	return (
 		<>
 			<Header cartQuantity={cartList.length} />
+			<p>Cart</p>
+			<Cart productList={cartList} />
 			<CategoryBar
 				productsList={mappedProducts}
 				onClickCategory={handleClickCategory}

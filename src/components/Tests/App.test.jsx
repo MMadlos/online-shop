@@ -34,10 +34,22 @@ describe("App", () => {
 		expect(screen.getByText("Cart (0)")).toBeInTheDocument()
 	})
 
-	it("initially selects 'Men's clothing' category", () => {
+	it("initially renders 'Men's clothing' category", () => {
 		const { container } = render(<App />)
 
 		const categorySelected = container.querySelector(".selected")
 		expect(categorySelected.textContent).toBe("Men's clothing")
+	})
+
+	it("selects nother category after clicking another category", async () => {
+		const user = userEvent.setup()
+
+		const { container } = render(<App />)
+
+		const electronicsCategory = screen.getByText("Electronics")
+		await user.click(electronicsCategory)
+
+		const categorySelected = container.querySelector(".selected")
+		expect(categorySelected.textContent).toBe("Electronics")
 	})
 })
