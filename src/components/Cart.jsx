@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-function Cart({ productList }) {
+function Cart({ productList, onClickRemoveCart }) {
 	return (
 		<section id="cart">
 			<Link to="/">Return to shop</Link>
@@ -11,7 +11,8 @@ function Cart({ productList }) {
 				return (
 					<div
 						key={id}
-						className="product-card-cart">
+						className="product-card cart"
+						data-product-id={id}>
 						<div className="product-info">
 							<img
 								src={url}
@@ -26,7 +27,11 @@ function Cart({ productList }) {
 								<p>Quantity</p>
 								<p>{quantity}</p>
 							</div>
-							<button>Remove</button>
+							<button
+								id="remove-cart"
+								onClick={onClickRemoveCart}>
+								Remove
+							</button>
 						</div>
 					</div>
 				)

@@ -93,7 +93,10 @@ function App() {
 					path="/cart"
 					element={
 						<>
-							<Cart productList={cartList} />
+							<Cart
+								productList={cartList}
+								onClickRemoveCart={handleClickRemoveCart}
+							/>
 						</>
 					}
 				/>

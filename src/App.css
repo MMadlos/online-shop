@@ -121,7 +121,7 @@ section#cart {
 	flex-direction: column;
 	gap: 16px;
 
-	.product-card-cart {
+	.product-card.cart {
 		border: 1px solid red;
 		border-radius: 8px;
 
