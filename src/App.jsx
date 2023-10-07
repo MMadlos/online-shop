@@ -2,7 +2,7 @@ import "./App.css"
 import { Routes, Route } from "react-router-dom"
 import { useState } from "react"
 import { mockProducts } from "./consts/mockProducts"
-import { mapProductList, filterProductsByCategory } from "./utilities/utilities"
+import { mapProductList, filterProductsByCategory, getProductByID, toggleIsProductAddedTo } from "./utilities/utilities"
 
 import Header from "./components/Header"
 import HomePage from "./components/Pages/Home"
@@ -17,28 +17,19 @@ function App() {
 
 	const filteredProductsByCategory = filterProductsByCategory(productList, selectedCategory)
 
-	function handleClickCategory(e) {
-		const categoryName = e.target.textContent
-		setSelectedCategory(categoryName)
-	}
+	const handleClickCategory = (e) => setSelectedCategory(e.target.textContent)
 
 	function handleClickAddCart(e) {
 		const productID = Number(e.target.closest(".product-card").dataset.productId)
-		const [productSelected] = filteredProductsByCategory.filter((product) => product.id === productID)
+		const [productSelected] = getProductByID(filteredProductsByCategory, productID)
 
-		const isInCart = cartList.includes(productSelected)
-		if (isInCart) return
+		if (cartList.includes(productSelected)) return
+
 		setCartList((prev) => [...prev, productSelected])
 
 		productSelected.quantity++
 
-		let newProductList = []
-		productList.forEach((product) => {
-			const newProduct = { ...productSelected, isAdded: true }
-
-			newProductList.push(product.id !== productID ? product : newProduct)
-		})
-
+		const newProductList = toggleIsProductAddedTo(true, productSelected, productList)
 		setProductList(newProductList)
 	}
 
@@ -48,14 +39,10 @@ function App() {
 		const newCart = cartList.filter((product) => product.id !== productID)
 		setCartList(newCart)
 
-		const [productSelected] = productList.filter((product) => product.id === productID)
-
+		const [productSelected] = getProductByID(productList, productID)
 		productSelected.quantity = 0
 
-		let newProductList = []
-		productList.forEach((product) => {
-			newProductList.push(product.id !== productID ? product : { ...productSelected, isAdded: false })
-		})
+		const newProductList = toggleIsProductAddedTo(false, productSelected, productList)
 		setProductList(newProductList)
 	}
 

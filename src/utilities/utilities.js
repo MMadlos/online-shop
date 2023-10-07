@@ -34,4 +34,19 @@ function filterProductsByCategory(productList, category) {
 	return productList.filter((product) => product.category.toLowerCase() === category.toLowerCase())
 }
 
-export { mapProductList, capitalizeText, getCategories, filterProductsByCategory }
+function getProductByID(productList, ID) {
+	return productList.filter((product) => product.id === ID)
+}
+
+function toggleIsProductAddedTo(boolean, productSelected, productList) {
+	let newProductList = []
+
+	productList.forEach((product) => {
+		const newProduct = { ...productSelected, isAdded: boolean }
+		newProductList.push(product.id !== productSelected.id ? product : newProduct)
+	})
+
+	return newProductList
+}
+
+export { mapProductList, capitalizeText, getCategories, filterProductsByCategory, getProductByID, toggleIsProductAddedTo }
