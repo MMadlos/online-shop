@@ -1,6 +1,6 @@
 import "./App.css"
 import { Routes, Route } from "react-router-dom"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { mockProducts } from "./consts/mockProducts"
 import { mapProductList, filterProductsByCategory, getProductByID, toggleIsProductAddedTo } from "./utilities/utilities"
 
@@ -15,13 +15,19 @@ function App() {
 	const [selectedCategory, setSelectedCategory] = useState("Men's clothing")
 	const [cartList, setCartList] = useState([])
 
-	const filteredProductsByCategory = filterProductsByCategory(productList, selectedCategory)
+	const [productsToShow, setProductsToShow] = useState([])
+	const [isProductFound, setIsProductFound] = useState(true)
+
+	useEffect(() => {
+		const filteredProducts = filterProductsByCategory(productList, selectedCategory)
+		setProductsToShow(filteredProducts)
+	}, [productList, selectedCategory])
 
 	const handleClickCategory = (e) => setSelectedCategory(e.target.textContent)
 
 	function handleClickAddCart(e) {
 		const productID = Number(e.target.closest(".product-card").dataset.productId)
-		const [productSelected] = getProductByID(filteredProductsByCategory, productID)
+		const [productSelected] = getProductByID(productsToShow, productID)
 
 		if (cartList.includes(productSelected)) return
 
@@ -46,6 +52,16 @@ function App() {
 		setProductList(newProductList)
 	}
 
+	function handleChangeSearch(e) {
+		const query = e.target.value
+
+		const filteredProducts = filterProductsByCategory(productList, selectedCategory)
+		const productsFound = filteredProducts.filter((product) => product.name.includes(query) || product.name.startsWith(query))
+
+		setIsProductFound(productsFound.length === 0 ? false : true)
+		setProductsToShow(productsFound.length === 0 ? filteredProducts : productsFound)
+	}
+
 	return (
 		<>
 			<Header cartQuantity={cartList.length} />
@@ -58,9 +74,11 @@ function App() {
 							categoryList={mappedProducts}
 							onClickCategory={handleClickCategory}
 							selectedCategory={selectedCategory}
-							productList={filteredProductsByCategory}
+							productList={productsToShow}
 							onClickAddCart={handleClickAddCart}
 							onClickRemoveCart={handleClickRemoveCart}
+							onChangeSearch={handleChangeSearch}
+							isFound={isProductFound}
 						/>
 					}
 				/>

@@ -42,8 +42,12 @@ function toggleIsProductAddedTo(boolean, productSelected, productList) {
 	let newProductList = []
 
 	productList.forEach((product) => {
-		const newProduct = { ...productSelected, isAdded: boolean }
-		newProductList.push(product.id !== productSelected.id ? product : newProduct)
+		if (product.id !== productSelected.id) {
+			newProductList.push(product)
+		} else {
+			const newProduct = { ...productSelected, isAdded: boolean }
+			newProductList.push(newProduct)
+		}
 	})
 
 	return newProductList
