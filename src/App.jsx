@@ -65,25 +65,19 @@ function App() {
 
 	function handleClickSort() {
 		// Create loop: if it's default, go to BA. If it's BA, go to AB. If it's AB, go to Default
-		if (sort === "default") {
-			const productsSorted = productsToShow.sort((a, b) => b.price - a.price)
-			setProductsToShow([...productsSorted])
-			setSort("BA")
-			return
+		const isDefault = sort === "default"
+		const isLowestToHighest = sort === "BA"
+		const isHighestToLowest = sort === "AB"
+
+		function sortProducts() {
+			if (isDefault) return productsToShow.sort((a, b) => b.price - a.price)
+			if (isLowestToHighest) return productsToShow.sort((a, b) => a.price - b.price)
+			if (isHighestToLowest) return filterProductsByCategory(productList, selectedCategory)
 		}
 
-		if (sort === "BA") {
-			const productsSorted = productsToShow.sort((a, b) => a.price - b.price)
-			setProductsToShow([...productsSorted])
-			setSort("AB")
-			return
-		}
-		if (sort === "AB") {
-			const productsSorted = filterProductsByCategory(productList, selectedCategory)
-			setProductsToShow([...productsSorted])
-			setSort("default")
-			return
-		}
+		const productsSorted = sortProducts()
+		setProductsToShow([...productsSorted])
+		setSort(isDefault ? "BA" : isLowestToHighest ? "AB" : "default")
 	}
 
 	return (
