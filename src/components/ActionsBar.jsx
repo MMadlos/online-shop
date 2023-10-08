@@ -1,4 +1,4 @@
-function ActionsBar({ onChange, isFound }) {
+function ActionsBar({ onChange, isFound, onClickSort }) {
 	return (
 		<div className="action-bar">
 			<input
@@ -7,10 +7,10 @@ function ActionsBar({ onChange, isFound }) {
 				placeholder="Mens Cotton Jacket"
 				onChange={onChange}
 			/>
-			{!isFound && <p> Product not found with your search</p>}
+			{!isFound && <p id="search-not-found"> Product not found with your search</p>}
 			<div className="buttons-container">
 				<button>Filter</button>
-				<button>Sort</button>
+				<button onClick={onClickSort}>Sort by price</button>
 			</div>
 		</div>
 	)

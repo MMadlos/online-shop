@@ -54,6 +54,10 @@ header {
 			padding: 8px 16px;
 		}
 	}
+
+	#search-not-found {
+		color: red;
+	}
 }
 
 /* MAIN */

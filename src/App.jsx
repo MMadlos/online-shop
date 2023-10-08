@@ -17,6 +17,7 @@ function App() {
 
 	const [productsToShow, setProductsToShow] = useState([])
 	const [isProductFound, setIsProductFound] = useState(true)
+	const [sort, setSort] = useState("default")
 
 	useEffect(() => {
 		const filteredProducts = filterProductsByCategory(productList, selectedCategory)
@@ -62,6 +63,29 @@ function App() {
 		setProductsToShow(productsFound.length === 0 ? filteredProducts : productsFound)
 	}
 
+	function handleClickSort() {
+		// Create loop: if it's default, go to BA. If it's BA, go to AB. If it's AB, go to Default
+		if (sort === "default") {
+			const productsSorted = productsToShow.sort((a, b) => b.price - a.price)
+			setProductsToShow([...productsSorted])
+			setSort("BA")
+			return
+		}
+
+		if (sort === "BA") {
+			const productsSorted = productsToShow.sort((a, b) => a.price - b.price)
+			setProductsToShow([...productsSorted])
+			setSort("AB")
+			return
+		}
+		if (sort === "AB") {
+			const productsSorted = filterProductsByCategory(productList, selectedCategory)
+			setProductsToShow([...productsSorted])
+			setSort("default")
+			return
+		}
+	}
+
 	return (
 		<>
 			<Header cartQuantity={cartList.length} />
@@ -79,6 +103,7 @@ function App() {
 							onClickRemoveCart={handleClickRemoveCart}
 							onChangeSearch={handleChangeSearch}
 							isFound={isProductFound}
+							onClickSort={handleClickSort}
 						/>
 					}
 				/>

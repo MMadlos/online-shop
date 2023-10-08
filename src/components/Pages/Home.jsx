@@ -2,7 +2,7 @@ import CategoryBar from "../CategoryBar"
 import ActionsBar from "../ActionsBar"
 import ProductsList from "../Products"
 
-function HomePage({ categoryList, onClickCategory, selectedCategory, productList, onClickAddCart, onClickRemoveCart, onChangeSearch, isFound }) {
+function HomePage({ categoryList, onClickCategory, selectedCategory, productList, onClickAddCart, onClickRemoveCart, onChangeSearch, isFound, onClickSort }) {
 	return (
 		<>
 			<CategoryBar
@@ -13,6 +13,7 @@ function HomePage({ categoryList, onClickCategory, selectedCategory, productList
 			<ActionsBar
 				onChange={onChangeSearch}
 				isFound={isFound}
+				onClickSort={onClickSort}
 			/>
 			<ProductsList
 				productList={productList}

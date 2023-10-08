@@ -17,9 +17,9 @@ function ProductCard({ product, onClickAddCart, onClickRemoveCart }) {
 					<p id="description">{description}</p>
 					<p id="price">{"$ " + price}</p>
 					<div className="rate-container">
+						<i className="fa-solid fa-star" />
 						<p id="rate">{rate}</p>
-						<i className="fa-solid fa-star-half-stroke" />
-						<p id="count-rates">{countRates}</p>
+						<p id="count-rates">({countRates})</p>
 					</div>
 				</div>
 				{isAdded && (
