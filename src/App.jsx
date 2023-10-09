@@ -1,12 +1,28 @@
 import "./App.css"
+import { Outlet } from "react-router-dom"
 import { Routes, Route } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 import { mockProducts } from "./consts/mockProducts"
 import { mapProductList, filterProductsByCategory, getProductByID, toggleIsProductAddedTo } from "./utilities/utilities"
 
 import Header from "./components/Header"
 import HomePage from "./components/Pages/Home"
 import Cart from "./components/Cart"
+
+export const ShopContext = createContext({
+	productList: [],
+	selectedCategory: "Men's clothing",
+	cartList: [],
+	productsToShow: [],
+	isProductFound: true,
+	sort: "default",
+
+	handleClickCategory: () => {},
+	handleClickAddCart: () => {},
+	handleClickRemoveCart: () => {},
+	handleChangeSearch: () => {},
+	handleClickSort: () => {},
+})
 
 function App() {
 	const mappedProducts = mapProductList(mockProducts)
@@ -82,35 +98,52 @@ function App() {
 
 	return (
 		<>
-			<Header cartQuantity={cartList.length} />
+			<ShopContext.Provider
+				value={{
+					productList,
+					selectedCategory,
+					cartList,
+					productsToShow,
+					isProductFound,
+					sort,
 
-			<Routes>
-				<Route
-					path="/"
-					element={
-						<HomePage
-							categoryList={mappedProducts}
-							onClickCategory={handleClickCategory}
-							selectedCategory={selectedCategory}
-							productList={productsToShow}
-							onClickAddCart={handleClickAddCart}
-							onClickRemoveCart={handleClickRemoveCart}
-							onChangeSearch={handleChangeSearch}
-							isFound={isProductFound}
-							onClickSort={handleClickSort}
-						/>
-					}
-				/>
-				<Route
-					path="/cart"
-					element={
-						<Cart
-							productList={cartList}
-							onClickRemoveCart={handleClickRemoveCart}
-						/>
-					}
-				/>
-			</Routes>
+					handleClickCategory,
+					handleClickAddCart,
+					handleClickRemoveCart,
+					handleChangeSearch,
+					handleClickSort,
+				}}>
+				<Header /*cartQuantity={cartList.length}*/ />
+				{/* <Outlet /> */}
+
+				<Routes>
+					<Route
+						path="/"
+						element={
+							<HomePage
+								categoryList={mappedProducts}
+								onClickCategory={handleClickCategory}
+								selectedCategory={selectedCategory}
+								productList={productsToShow}
+								onClickAddCart={handleClickAddCart}
+								onClickRemoveCart={handleClickRemoveCart}
+								onChangeSearch={handleChangeSearch}
+								isFound={isProductFound}
+								onClickSort={handleClickSort}
+							/>
+						}
+					/>
+					<Route
+						path="/cart"
+						element={
+							<Cart
+								productList={cartList}
+								onClickRemoveCart={handleClickRemoveCart}
+							/>
+						}
+					/>
+				</Routes>
+			</ShopContext.Provider>
 		</>
 	)
 }
