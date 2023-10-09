@@ -1,13 +1,10 @@
 import "./App.css"
 import { Outlet } from "react-router-dom"
-import { Routes, Route } from "react-router-dom"
 import { createContext, useEffect, useState } from "react"
 import { mockProducts } from "./consts/mockProducts"
 import { mapProductList, filterProductsByCategory, getProductByID, toggleIsProductAddedTo } from "./utilities/utilities"
 
 import Header from "./components/Header"
-import HomePage from "./components/Pages/Home"
-import Cart from "./components/Cart"
 
 export const ShopContext = createContext({
 	productList: [],
@@ -114,19 +111,7 @@ function App() {
 					handleClickSort,
 				}}>
 				<Header />
-
 				<Outlet />
-
-				{/* <Routes>
-					<Route
-						path="/"
-						element={<HomePage />}
-					/>
-					<Route
-						path="/cart"
-						element={<Cart />}
-					/>
-				</Routes> */}
 			</ShopContext.Provider>
 		</>
 	)
