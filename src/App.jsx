@@ -115,9 +115,9 @@ function App() {
 				}}>
 				<Header />
 
-				{/* <Outlet /> */}
+				<Outlet />
 
-				<Routes>
+				{/* <Routes>
 					<Route
 						path="/"
 						element={<HomePage />}
@@ -126,7 +126,7 @@ function App() {
 						path="/cart"
 						element={<Cart />}
 					/>
-				</Routes>
+				</Routes> */}
 			</ShopContext.Provider>
 		</>
 	)

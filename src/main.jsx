@@ -11,12 +11,12 @@ import HomePage from "./components/Pages/Home.jsx"
 
 const router = createBrowserRouter([
 	{
-		path: "*",
+		path: "/",
 		element: <App />,
-		// children: [
-		// 	{ index: true, element: <HomePage /> },
-		// 	{ path: "cart", element: <Cart /> },
-		// ],
+		children: [
+			{ index: true, element: <HomePage /> },
+			{ path: "cart", element: <Cart /> },
+		],
 	},
 ])
 
