@@ -19,7 +19,10 @@ export const ShopContext = createContext({
 	handleClickRemoveCart: () => {},
 	handleChangeSearch: () => {},
 	handleClickSort: () => {},
+	handleClickProduct: () => {},
 })
+
+export const FilterContext = createContext({})
 
 function App() {
 	const mappedProducts = mapProductList(mockProducts)
@@ -76,25 +79,28 @@ function App() {
 		setProductsToShow(productsFound.length === 0 ? filteredProducts : productsFound)
 	}
 
+	const isDefault = sort === "default"
+	const isLowestToHighest = sort === "BA"
+	const isHighestToLowest = sort === "AB"
+
+	function sortProducts(product) {
+		if (isDefault) return product.sort((a, b) => b.price - a.price)
+		if (isLowestToHighest) return product.sort((a, b) => a.price - b.price)
+		if (isHighestToLowest) return filterProductsByCategory(productList, selectedCategory)
+	}
+
 	function handleClickSort() {
-		// Create loop: if it's default, go to BA. If it's BA, go to AB. If it's AB, go to Default
-		const isDefault = sort === "default"
-		const isLowestToHighest = sort === "BA"
-		const isHighestToLowest = sort === "AB"
-
-		function sortProducts() {
-			if (isDefault) return productsToShow.sort((a, b) => b.price - a.price)
-			if (isLowestToHighest) return productsToShow.sort((a, b) => a.price - b.price)
-			if (isHighestToLowest) return filterProductsByCategory(productList, selectedCategory)
-		}
-
-		const productsSorted = sortProducts()
+		const productsSorted = sortProducts(productsToShow)
 		setProductsToShow([...productsSorted])
 		setSort(isDefault ? "BA" : isLowestToHighest ? "AB" : "default")
 	}
 
+	const cartQuantity = cartList.length
+
 	return (
 		<>
+			<Header cartQuantity={cartQuantity} />
+
 			<ShopContext.Provider
 				value={{
 					productList,
@@ -110,7 +116,6 @@ function App() {
 					handleChangeSearch,
 					handleClickSort,
 				}}>
-				<Header />
 				<Outlet />
 			</ShopContext.Provider>
 		</>

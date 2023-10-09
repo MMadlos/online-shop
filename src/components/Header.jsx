@@ -1,12 +1,6 @@
 import { Link } from "react-router-dom"
-import { useContext } from "react"
-import { ShopContext } from "../App"
 
-function Header() {
-	const { cartList } = useContext(ShopContext)
-
-	const cartQuantity = cartList.length
-
+function Header({ cartQuantity }) {
 	return (
 		<header>
 			<div className="logo-container">
