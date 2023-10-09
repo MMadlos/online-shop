@@ -1,7 +1,12 @@
 import { capitalizeText, getCategories } from "../utilities/utilities"
 
-function CategoryBar({ productsList, onClickCategory, selectedCategory }) {
-	const categoryList = ["All categories", ...getCategories(productsList)]
+import { useContext } from "react"
+import { ShopContext } from "../App"
+
+function CategoryBar() {
+	const { productList, handleClickCategory, selectedCategory } = useContext(ShopContext)
+
+	const categoryList = ["All categories", ...getCategories(productList)]
 
 	return (
 		<div className="category-container">
@@ -12,7 +17,7 @@ function CategoryBar({ productsList, onClickCategory, selectedCategory }) {
 					<div
 						key={category}
 						className={addClassIfSelected}>
-						<a onClick={onClickCategory}>{capitalizeText(category)}</a>
+						<a onClick={handleClickCategory}>{capitalizeText(category)}</a>
 					</div>
 				)
 			})}

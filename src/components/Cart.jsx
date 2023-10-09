@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom"
+import { useContext } from "react"
+import { ShopContext } from "../App"
 
-function Cart({ productList, onClickRemoveCart }) {
+function Cart() {
+	const { cartList, handleClickRemoveCart } = useContext(ShopContext)
+
 	return (
 		<section id="cart">
 			<Link to="/">Return to shop</Link>
 			<p>Cart</p>
 
-			{productList?.map((product) => {
+			{cartList?.map((product) => {
 				const { id, name, price, url, quantity } = product
 				return (
 					<div
@@ -29,7 +33,7 @@ function Cart({ productList, onClickRemoveCart }) {
 							</div>
 							<button
 								id="remove-cart"
-								onClick={onClickRemoveCart}>
+								onClick={handleClickRemoveCart}>
 								Remove
 							</button>
 						</div>

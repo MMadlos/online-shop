@@ -1,15 +1,19 @@
 import ProductCard from "./ProductCard"
+import { useContext } from "react"
+import { ShopContext } from "../App"
 
-function ProductsList({ productList, onClickAddCart, onClickRemoveCart }) {
+function ProductsList() {
+	const { productsToShow, handleClickAddCart, handleClickRemoveCart } = useContext(ShopContext)
+
 	return (
 		<main>
-			{productList.map((product) => {
+			{productsToShow.map((product) => {
 				return (
 					<ProductCard
 						key={product.id}
 						product={product}
-						onClickAddCart={onClickAddCart}
-						onClickRemoveCart={onClickRemoveCart}
+						onClickAddCart={handleClickAddCart}
+						onClickRemoveCart={handleClickRemoveCart}
 					/>
 				)
 			})}

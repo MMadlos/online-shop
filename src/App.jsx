@@ -113,34 +113,18 @@ function App() {
 					handleChangeSearch,
 					handleClickSort,
 				}}>
-				<Header /*cartQuantity={cartList.length}*/ />
+				<Header />
+
 				{/* <Outlet /> */}
 
 				<Routes>
 					<Route
 						path="/"
-						element={
-							<HomePage
-								categoryList={mappedProducts}
-								onClickCategory={handleClickCategory}
-								selectedCategory={selectedCategory}
-								productList={productsToShow}
-								onClickAddCart={handleClickAddCart}
-								onClickRemoveCart={handleClickRemoveCart}
-								onChangeSearch={handleChangeSearch}
-								isFound={isProductFound}
-								onClickSort={handleClickSort}
-							/>
-						}
+						element={<HomePage />}
 					/>
 					<Route
 						path="/cart"
-						element={
-							<Cart
-								productList={cartList}
-								onClickRemoveCart={handleClickRemoveCart}
-							/>
-						}
+						element={<Cart />}
 					/>
 				</Routes>
 			</ShopContext.Provider>

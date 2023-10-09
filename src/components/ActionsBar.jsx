@@ -1,16 +1,21 @@
-function ActionsBar({ onChange, isFound, onClickSort }) {
+import { useContext } from "react"
+import { ShopContext } from "../App"
+
+function ActionsBar() {
+	const { handleChangeSearch, isProductFound, handleClickSort } = useContext(ShopContext)
+
 	return (
 		<div className="action-bar">
 			<input
 				type="search"
 				id="search"
 				placeholder="Mens Cotton Jacket"
-				onChange={onChange}
+				onChange={handleChangeSearch}
 			/>
-			{!isFound && <p id="search-not-found"> Product not found with your search</p>}
+			{!isProductFound && <p id="search-not-found"> Product not found with your search</p>}
 			<div className="buttons-container">
 				<button>Filter</button>
-				<button onClick={onClickSort}>Sort by price</button>
+				<button onClick={handleClickSort}>Sort by price</button>
 			</div>
 		</div>
 	)
