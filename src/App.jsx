@@ -20,6 +20,7 @@ export const ShopContext = createContext({
 	handleClickRemoveCart: () => {},
 	handleChangeSearch: () => {},
 	handleClickSort: () => {},
+	handleCounter: () => {},
 })
 
 function App() {
@@ -45,6 +46,8 @@ function App() {
 	function handleClickAddCart(e) {
 		e.preventDefault()
 		e.stopPropagation()
+
+		// TODO -> Pendiente refactor. No es lo mismo add cart en HomePage() que en ProductPage()
 
 		const { dataset } = e.target.closest(".product-card") || e.target.closest(".product-info")
 
@@ -107,6 +110,69 @@ function App() {
 		setSort(isDefault ? "BA" : isLowestToHighest ? "AB" : "default")
 	}
 
+	function handleCounter(e) {
+		e.preventDefault()
+		e.stopPropagation()
+
+		const buttonID = e.target.id
+		const productID = Number(e.target.closest("[data-product-id]").dataset.productId)
+		const [productSelected] = getProductByID(productList, productID)
+
+		if (buttonID === "increase") {
+			let newProductList = []
+			productSelected.quantity++
+
+			productList.forEach((product) => {
+				if (product.id !== productSelected.id) {
+					newProductList.push(product)
+				} else {
+					const newProduct = { ...productSelected }
+					newProductList.push(newProduct)
+				}
+			})
+
+			setProductList(newProductList)
+
+			let newCartList = []
+			cartList.forEach((product) => {
+				if (product.id !== productSelected.id) {
+					newCartList.push(product)
+				} else {
+					const newProduct = { ...productSelected }
+					newCartList.push(newProduct)
+				}
+			})
+			setCartList(newCartList)
+		}
+		if (buttonID === "decrease") {
+			if (productSelected.quantity === 0) return
+			productSelected.quantity--
+
+			let newProductList = []
+			productList.forEach((product) => {
+				if (product.id !== productSelected.id) {
+					newProductList.push(product)
+				} else {
+					const newProduct = { ...productSelected }
+					newProductList.push(newProduct)
+				}
+			})
+
+			setProductList(newProductList)
+
+			let newCartList = []
+			cartList.forEach((product) => {
+				if (product.id !== productSelected.id) {
+					newCartList.push(product)
+				} else {
+					const newProduct = { ...productSelected }
+					newCartList.push(newProduct)
+				}
+			})
+			setCartList(newCartList)
+		}
+	}
+
 	const cartQuantity = cartList.length
 
 	return (
@@ -128,6 +194,7 @@ function App() {
 					handleClickRemoveCart,
 					handleChangeSearch,
 					handleClickSort,
+					handleCounter,
 				}}>
 				<Outlet />
 			</ShopContext.Provider>
