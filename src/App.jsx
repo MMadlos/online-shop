@@ -2,7 +2,7 @@ import "./App.css"
 import { Outlet } from "react-router-dom"
 import { createContext, useEffect, useState } from "react"
 import { mockProducts } from "./consts/mockProducts"
-import { mapProductList, filterProductsByCategory, getProductByID, toggleIsProductAddedTo } from "./utilities/utilities"
+import { mapProductList, filterProductsByCategory, getProductByID, toggleIsProductAddedTo, getCategories } from "./utilities/utilities"
 
 import Header from "./components/Header"
 
@@ -13,6 +13,7 @@ export const ShopContext = createContext({
 	productsToShow: [],
 	isProductFound: true,
 	sort: "default",
+	categoryList: [],
 
 	handleClickCategory: () => {},
 	handleClickAddCart: () => {},
@@ -21,12 +22,12 @@ export const ShopContext = createContext({
 	handleClickSort: () => {},
 })
 
-export const FilterContext = createContext({})
-
 function App() {
 	const mappedProducts = mapProductList(mockProducts)
 
 	const [productList, setProductList] = useState(mappedProducts)
+	const categoryList = ["All categories", ...getCategories(productList)]
+
 	const [selectedCategory, setSelectedCategory] = useState("Men's clothing")
 	const [cartList, setCartList] = useState([])
 
@@ -115,6 +116,7 @@ function App() {
 			<ShopContext.Provider
 				value={{
 					productList,
+					categoryList,
 					selectedCategory,
 					cartList,
 					productsToShow,
@@ -129,6 +131,9 @@ function App() {
 				}}>
 				<Outlet />
 			</ShopContext.Provider>
+			{/* <footer>
+				<p>Created by M.Madlos</p>
+			</footer> */}
 		</>
 	)
 }
