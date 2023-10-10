@@ -1,11 +1,21 @@
 function ProductInfo({ product }) {
-	const { name, price, quantity } = product
+	const { name, description, price, url, rate, countRates, isAdded, quantity } = product
 
 	return (
 		<div className="product-info">
-			<h3>{name}</h3>
-			<p>{price}</p>
-			<p>{quantity}</p>
+			<img
+				src={url}
+				alt="#"
+			/>
+			<div className="info-container">
+				<h1>{name}</h1>
+				<p>{`${rate} (${countRates})`}</p>
+				<p>{description}</p>
+
+				<p className="price">{`$ ${price}`}</p>
+
+				{isAdded ? <p>{quantity}</p> : <button>Add to cart</button>}
+			</div>
 		</div>
 	)
 }

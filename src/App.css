@@ -168,3 +168,26 @@ section#cart {
 		}
 	}
 }
+
+/* PRODUCT INFO */
+div.product-info {
+	display: flex;
+	gap: 32px;
+
+	> img {
+		max-height: 50vh;
+	}
+
+	.info-container {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+		.price {
+			font-size: 1.5rem;
+		}
+
+		> button {
+			padding: 8px 16px;
+		}
+	}
+}

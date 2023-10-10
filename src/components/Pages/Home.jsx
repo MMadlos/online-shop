@@ -1,6 +1,6 @@
 import CategoryBar from "../CategoryBar"
 import ActionsBar from "../ActionsBar"
-import ProductsList from "../Products"
+import ProductsList from "../ProductsList"
 
 function HomePage() {
 	return (

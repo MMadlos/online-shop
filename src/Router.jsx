@@ -3,7 +3,7 @@ import App from "./App.jsx"
 import Cart from "./components/Cart.jsx"
 import HomePage from "./components/Pages/Home.jsx"
 import ErrorPage from "./components/Pages/ErrorPage.jsx"
-import Product from "./components/Pages/Product.jsx"
+import ProductPage from "./components/Pages/ProductPage.jsx"
 
 const Router = () => {
 	const router = createBrowserRouter([
@@ -15,7 +15,7 @@ const Router = () => {
 				{ path: "cart", element: <Cart /> },
 				{
 					path: "product/:productID",
-					element: <Product />,
+					element: <ProductPage />,
 				},
 			],
 			errorElement: <ErrorPage />,

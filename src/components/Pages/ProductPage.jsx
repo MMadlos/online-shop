@@ -3,7 +3,7 @@ import ProductInfo from "../ProductInfo"
 import { useContext } from "react"
 import { ShopContext } from "../../App"
 
-function Product() {
+function ProductPage() {
 	const { productID } = useParams()
 	const { productList } = useContext(ShopContext)
 
@@ -20,4 +20,4 @@ function Product() {
 	)
 }
 
-export default Product
+export default ProductPage

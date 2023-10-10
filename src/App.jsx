@@ -19,7 +19,6 @@ export const ShopContext = createContext({
 	handleClickRemoveCart: () => {},
 	handleChangeSearch: () => {},
 	handleClickSort: () => {},
-	handleClickProduct: () => {},
 })
 
 export const FilterContext = createContext({})
@@ -43,6 +42,9 @@ function App() {
 	const handleClickCategory = (e) => setSelectedCategory(e.target.textContent)
 
 	function handleClickAddCart(e) {
+		e.preventDefault()
+		e.stopPropagation()
+
 		const productID = Number(e.target.closest(".product-card").dataset.productId)
 		const [productSelected] = getProductByID(productsToShow, productID)
 
@@ -57,6 +59,9 @@ function App() {
 	}
 
 	function handleClickRemoveCart(e) {
+		e.preventDefault()
+		e.stopPropagation()
+
 		const productID = Number(e.target.closest(".product-card").dataset.productId)
 
 		const newCart = cartList.filter((product) => product.id !== productID)
@@ -73,7 +78,9 @@ function App() {
 		const query = e.target.value
 
 		const filteredProducts = filterProductsByCategory(productList, selectedCategory)
-		const productsFound = filteredProducts.filter((product) => product.name.includes(query) || product.name.startsWith(query))
+		const productsFound = filteredProducts.filter(
+			(product) => product.name.toLowerCase().includes(query.toLowerCase()) || product.name.startsWith(query.toLowerCase())
+		)
 
 		setIsProductFound(productsFound.length === 0 ? false : true)
 		setProductsToShow(productsFound.length === 0 ? filteredProducts : productsFound)

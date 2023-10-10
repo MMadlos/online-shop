@@ -5,7 +5,7 @@ function ProductCard({ product, onClickAddCart, onClickRemoveCart }) {
 	const { id, name, description, price, url, rate, countRates, isAdded } = product
 
 	return (
-		<Link to={"product" + "/" + id}>
+		<Link to={`product/${id}`}>
 			<div
 				className="product-card"
 				data-product-id={id}>
