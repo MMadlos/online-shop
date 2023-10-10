@@ -45,7 +45,11 @@ function App() {
 		e.preventDefault()
 		e.stopPropagation()
 
-		const productID = Number(e.target.closest(".product-card").dataset.productId)
+		const { dataset } = e.target.closest(".product-card") || e.target.closest(".product-info")
+
+		console.log(dataset)
+
+		const productID = Number(dataset.productId)
 		const [productSelected] = getProductByID(productsToShow, productID)
 
 		if (cartList.includes(productSelected)) return
@@ -62,7 +66,9 @@ function App() {
 		e.preventDefault()
 		e.stopPropagation()
 
-		const productID = Number(e.target.closest(".product-card").dataset.productId)
+		const { dataset } = e.target.closest(".product-card") || e.target.closest(".product-info")
+
+		const productID = Number(dataset.productId)
 
 		const newCart = cartList.filter((product) => product.id !== productID)
 		setCartList(newCart)

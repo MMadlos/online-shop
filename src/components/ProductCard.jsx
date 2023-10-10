@@ -1,5 +1,6 @@
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
+import ShopButton from "./ShopButton"
 
 function ProductCard({ product, onClickAddCart, onClickRemoveCart }) {
 	const { id, name, description, price, url, rate, countRates, isAdded } = product
@@ -31,17 +32,15 @@ function ProductCard({ product, onClickAddCart, onClickRemoveCart }) {
 						</div>
 					)}
 					{!isAdded ? (
-						<button
-							id="add-cart"
-							onClick={onClickAddCart}>
-							Add to cart
-						</button>
+						<ShopButton
+							type="Add"
+							onClick={onClickAddCart}
+						/>
 					) : (
-						<button
-							id="remove-cart"
-							onClick={onClickRemoveCart}>
-							Remove from cart
-						</button>
+						<ShopButton
+							type="Remove"
+							onClick={onClickRemoveCart}
+						/>
 					)}
 				</div>
 			</div>
