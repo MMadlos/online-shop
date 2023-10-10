@@ -3,7 +3,7 @@ import { useContext } from "react"
 import { ShopContext } from "../App"
 
 function ProductsList() {
-	const { productsToShow, handleClickAddCart, handleClickRemoveCart, handleClickProduct } = useContext(ShopContext)
+	const { productsToShow } = useContext(ShopContext)
 
 	return (
 		<main>
@@ -12,9 +12,6 @@ function ProductsList() {
 					<ProductCard
 						key={product.id}
 						product={product}
-						onClickAddCart={handleClickAddCart}
-						onClickRemoveCart={handleClickRemoveCart}
-						onClickProduct={handleClickProduct}
 					/>
 				)
 			})}

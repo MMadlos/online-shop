@@ -1,23 +1,30 @@
-function ShopButton({ type, onClick }) {
-	if (type === "Add") {
+import { useContext } from "react"
+import { ShopContext } from "../App"
+
+function ShopButton({ isAdded }) {
+	const { handleClickAddCart, handleClickRemoveCart } = useContext(ShopContext)
+	if (!isAdded) {
 		return (
 			<button
 				id="add-cart"
-				onClick={onClick}>
+				onClick={handleClickAddCart}>
 				Add to cart
 			</button>
 		)
-	}
-
-	if (type === "Remove") {
+	} else {
 		return (
-			<button
-				id="remove-cart"
-				onClick={onClick}>
-				Remove from cart
-			</button>
+			<>
+				<div className="product-added">
+					<i className="fa-solid fa-check" />
+					<p>Added to cart</p>
+				</div>
+				<button
+					id="remove-cart"
+					onClick={handleClickRemoveCart}>
+					Remove from cart
+				</button>
+			</>
 		)
 	}
 }
-
 export default ShopButton

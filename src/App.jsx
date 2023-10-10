@@ -47,8 +47,6 @@ function App() {
 
 		const { dataset } = e.target.closest(".product-card") || e.target.closest(".product-info")
 
-		console.log(dataset)
-
 		const productID = Number(dataset.productId)
 		const [productSelected] = getProductByID(productsToShow, productID)
 

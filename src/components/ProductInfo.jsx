@@ -1,10 +1,8 @@
 import ShopButton from "./ShopButton"
-import { useContext } from "react"
-import { ShopContext } from "../App"
+import Counter from "./Counter"
 
 function ProductInfo({ product }) {
-	const { handleClickAddCart, handleClickRemoveCart } = useContext(ShopContext)
-	const { id, name, description, price, url, rate, countRates, isAdded, quantity } = product
+	const { id, name, description, price, url, rate, countRates, quantity, isAdded } = product
 
 	return (
 		<div
@@ -21,20 +19,8 @@ function ProductInfo({ product }) {
 
 				<p className="price">{`$ ${price}`}</p>
 
-				{isAdded ? (
-					<>
-						<p>{quantity}</p>
-						<ShopButton
-							type="Remove"
-							onClick={handleClickRemoveCart}
-						/>
-					</>
-				) : (
-					<ShopButton
-						type="Add"
-						onClick={handleClickAddCart}
-					/>
-				)}
+				<Counter quantity={quantity} />
+				<ShopButton isAdded={isAdded} />
 			</div>
 		</div>
 	)

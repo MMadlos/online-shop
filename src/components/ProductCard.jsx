@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 import ShopButton from "./ShopButton"
 
-function ProductCard({ product, onClickAddCart, onClickRemoveCart }) {
+function ProductCard({ product }) {
 	const { id, name, description, price, url, rate, countRates, isAdded } = product
 
 	return (
@@ -25,23 +25,7 @@ function ProductCard({ product, onClickAddCart, onClickRemoveCart }) {
 							<p id="count-rates">({countRates})</p>
 						</div>
 					</div>
-					{isAdded && (
-						<div className="product-added">
-							<i className="fa-solid fa-check" />
-							<p>Added to cart</p>
-						</div>
-					)}
-					{!isAdded ? (
-						<ShopButton
-							type="Add"
-							onClick={onClickAddCart}
-						/>
-					) : (
-						<ShopButton
-							type="Remove"
-							onClick={onClickRemoveCart}
-						/>
-					)}
+					<ShopButton isAdded={isAdded} />
 				</div>
 			</div>
 		</Link>
