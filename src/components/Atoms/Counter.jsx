@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { ShopContext } from "../App"
+import { ShopContext } from "../../App"
 
 function Counter({ quantity }) {
 	const { handleCounter } = useContext(ShopContext)
