@@ -3,8 +3,8 @@ import { ShopContext } from "../App"
 import { useParams } from "react-router-dom"
 
 import ErrorProduct from "./Pages/ErrorProduct"
-import ShopButton from "./Atoms/ShopButton"
 import Counter from "./Atoms/Counter"
+import AddCartButton from "./Atoms/AddCartButton"
 
 function ProductDetails({ productSelected }) {
 	const { id, name, description, price, url, rate, countRates, quantity, isAdded } = productSelected
@@ -25,7 +25,7 @@ function ProductDetails({ productSelected }) {
 				<p className="price">{`$ ${price}`}</p>
 
 				<Counter quantity={quantity} />
-				<ShopButton isAdded={isAdded} />
+				<AddCartButton context="info" />
 			</div>
 		</div>
 	)

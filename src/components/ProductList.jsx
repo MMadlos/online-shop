@@ -29,9 +29,8 @@ function ProductCard({ product }) {
 						</div>
 					</div>
 
-					{!isAdded ? (
-						<AddCartButton context="card" />
-					) : (
+					{!isAdded && <AddCartButton context="card" />}
+					{isAdded && (
 						<>
 							<div className="product-added">
 								<i className="fa-solid fa-check" />
