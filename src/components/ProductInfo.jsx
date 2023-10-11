@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 
 import ErrorProduct from "./Pages/ErrorProduct"
 import ShopButton from "./Atoms/ShopButton"
-import Counter from "./Counter"
+import Counter from "./Atoms/Counter"
 
 function ProductDetails({ productSelected }) {
 	const { id, name, description, price, url, rate, countRates, quantity, isAdded } = productSelected

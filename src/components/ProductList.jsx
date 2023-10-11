@@ -2,7 +2,8 @@ import { useContext } from "react"
 import { ShopContext } from "../App"
 import { Link } from "react-router-dom"
 
-import ShopButton from "./Atoms/ShopButton"
+import AddCartButton from "./Atoms/AddCartButton"
+import RemoveCartButton from "./Atoms/RemoveCartButton"
 
 function ProductCard({ product }) {
 	const { id, name, description, price, url, rate, countRates, isAdded } = product
@@ -27,7 +28,18 @@ function ProductCard({ product }) {
 							<p id="count-rates">({countRates})</p>
 						</div>
 					</div>
-					<ShopButton isAdded={isAdded} />
+
+					{!isAdded ? (
+						<AddCartButton context="card" />
+					) : (
+						<>
+							<div className="product-added">
+								<i className="fa-solid fa-check" />
+								<p>Added to cart</p>
+							</div>
+							<RemoveCartButton />
+						</>
+					)}
 				</div>
 			</div>
 		</Link>
