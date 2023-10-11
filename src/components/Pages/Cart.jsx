@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
 import { useContext } from "react"
-import { ShopContext } from "../App"
+import { ShopContext } from "../../App"
 
-import Counter from "./Counter"
+import Counter from "../Counter"
 
 function ProductCart({ product }) {
 	const { handleClickRemoveCart } = useContext(ShopContext)

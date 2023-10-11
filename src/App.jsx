@@ -2,7 +2,7 @@ import "./App.css"
 import { Outlet } from "react-router-dom"
 import { createContext, useEffect, useState } from "react"
 import { mockProducts } from "./consts/mockProducts"
-import { mapProductList, filterProductsByCategory, getProductByID, toggleIsProductAddedTo, getCategories } from "./utilities/utilities"
+import { mapProductList, filterProductsByCategory, getProductByID, toggleIsProductAddedTo, getCategories, increaseCounter } from "./utilities/utilities"
 
 import Header from "./components/Header"
 
@@ -114,37 +114,26 @@ function App() {
 		e.preventDefault()
 		e.stopPropagation()
 
-		const buttonID = e.target.id
+		const buttonType = e.target.id // "increase" or "decrease"
 		const productID = Number(e.target.closest("[data-product-id]").dataset.productId)
 		const [productSelected] = getProductByID(productList, productID)
 
-		if (buttonID === "increase") {
-			let newProductList = []
+		// const newProductList = counterQuantity(buttonType, productSelected, productList)
+		// const newCartList = counterQuantity(buttonType, productSelected, cartList)
+
+		// setProductList(newProductList)
+		// setCartList(newCartList)
+
+		if (buttonType === "increase") {
 			productSelected.quantity++
 
-			productList.forEach((product) => {
-				if (product.id !== productSelected.id) {
-					newProductList.push(product)
-				} else {
-					const newProduct = { ...productSelected }
-					newProductList.push(newProduct)
-				}
-			})
-
+			const newProductList = increaseCounter(productSelected, productList)
 			setProductList(newProductList)
 
-			let newCartList = []
-			cartList.forEach((product) => {
-				if (product.id !== productSelected.id) {
-					newCartList.push(product)
-				} else {
-					const newProduct = { ...productSelected }
-					newCartList.push(newProduct)
-				}
-			})
+			const newCartList = increaseCounter(productSelected, cartList)
 			setCartList(newCartList)
 		}
-		if (buttonID === "decrease") {
+		if (buttonType === "decrease") {
 			if (productSelected.quantity === 0) return
 			productSelected.quantity--
 

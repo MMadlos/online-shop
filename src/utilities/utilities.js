@@ -53,4 +53,39 @@ function toggleIsProductAddedTo(boolean, productSelected, productList) {
 	return newProductList
 }
 
-export { mapProductList, capitalizeText, getCategories, filterProductsByCategory, getProductByID, toggleIsProductAddedTo }
+function counterQuantity(type, selectedProduct, listOfProducts) {
+	if (type === "increase") selectedProduct.quantity++
+	if (type === "decrease") {
+		if (selectedProduct.quantity === 0) return
+
+		selectedProduct.quantity--
+	}
+
+	let newList = []
+	listOfProducts.forEach((product) => {
+		if (product.id !== selectedProduct.id) {
+			newList.push(product)
+		} else {
+			const newProduct = { ...selectedProduct }
+			newList.push(newProduct)
+		}
+	})
+
+	return newList
+}
+
+function increaseCounter(productSelected, productList) {
+	let newProductList = []
+
+	productList.forEach((product) => {
+		if (product.id !== productSelected.id) {
+			newProductList.push(product)
+		} else {
+			const newProduct = { ...productSelected }
+			newProductList.push(newProduct)
+		}
+	})
+	return newProductList
+}
+
+export { mapProductList, capitalizeText, getCategories, filterProductsByCategory, getProductByID, toggleIsProductAddedTo, counterQuantity, increaseCounter }
