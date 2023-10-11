@@ -35,7 +35,8 @@ function filterProductsByCategory(productList, category) {
 }
 
 function getProductByID(productList, ID) {
-	return productList.filter((product) => product.id === ID)
+	const [product] = productList.filter((product) => product.id === ID)
+	return product
 }
 
 function toggleIsProductAddedTo(boolean, productSelected, productList) {
@@ -53,28 +54,7 @@ function toggleIsProductAddedTo(boolean, productSelected, productList) {
 	return newProductList
 }
 
-function counterQuantity(type, selectedProduct, listOfProducts) {
-	if (type === "increase") selectedProduct.quantity++
-	if (type === "decrease") {
-		if (selectedProduct.quantity === 0) return
-
-		selectedProduct.quantity--
-	}
-
-	let newList = []
-	listOfProducts.forEach((product) => {
-		if (product.id !== selectedProduct.id) {
-			newList.push(product)
-		} else {
-			const newProduct = { ...selectedProduct }
-			newList.push(newProduct)
-		}
-	})
-
-	return newList
-}
-
-function increaseCounter(productSelected, productList) {
+function replaceProductInList(productSelected, productList) {
 	let newProductList = []
 
 	productList.forEach((product) => {
@@ -88,4 +68,4 @@ function increaseCounter(productSelected, productList) {
 	return newProductList
 }
 
-export { mapProductList, capitalizeText, getCategories, filterProductsByCategory, getProductByID, toggleIsProductAddedTo, counterQuantity, increaseCounter }
+export { mapProductList, capitalizeText, getCategories, filterProductsByCategory, getProductByID, toggleIsProductAddedTo, replaceProductInList }

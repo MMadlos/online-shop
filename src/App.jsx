@@ -2,7 +2,7 @@ import "./App.css"
 import { Outlet } from "react-router-dom"
 import { createContext, useEffect, useState } from "react"
 import { mockProducts } from "./consts/mockProducts"
-import { mapProductList, filterProductsByCategory, getProductByID, toggleIsProductAddedTo, getCategories, increaseCounter } from "./utilities/utilities"
+import { mapProductList, filterProductsByCategory, getProductByID, toggleIsProductAddedTo, getCategories, replaceProductInList } from "./utilities/utilities"
 
 import Header from "./components/Header"
 
@@ -52,7 +52,7 @@ function App() {
 		const { dataset } = e.target.closest(".product-card") || e.target.closest(".product-info")
 
 		const productID = Number(dataset.productId)
-		const [productSelected] = getProductByID(productsToShow, productID)
+		const productSelected = getProductByID(productsToShow, productID)
 
 		if (cartList.includes(productSelected)) return
 
@@ -68,14 +68,13 @@ function App() {
 		e.preventDefault()
 		e.stopPropagation()
 
-		const { dataset } = e.target.closest(".product-card") || e.target.closest(".product-info")
-
+		const { dataset } = e.target.closest("[data-product-id]")
 		const productID = Number(dataset.productId)
 
 		const newCart = cartList.filter((product) => product.id !== productID)
 		setCartList(newCart)
 
-		const [productSelected] = getProductByID(productList, productID)
+		const productSelected = getProductByID(productList, productID)
 		productSelected.quantity = 0
 
 		const newProductList = toggleIsProductAddedTo(false, productSelected, productList)
@@ -94,17 +93,17 @@ function App() {
 		setProductsToShow(productsFound.length === 0 ? filteredProducts : productsFound)
 	}
 
-	const isDefault = sort === "default"
-	const isLowestToHighest = sort === "BA"
-	const isHighestToLowest = sort === "AB"
-
-	function sortProducts(product) {
-		if (isDefault) return product.sort((a, b) => b.price - a.price)
-		if (isLowestToHighest) return product.sort((a, b) => a.price - b.price)
-		if (isHighestToLowest) return filterProductsByCategory(productList, selectedCategory)
-	}
-
 	function handleClickSort() {
+		const isDefault = sort === "default"
+		const isLowestToHighest = sort === "BA"
+		const isHighestToLowest = sort === "AB"
+
+		function sortProducts(product) {
+			if (isDefault) return product.sort((a, b) => b.price - a.price)
+			if (isLowestToHighest) return product.sort((a, b) => a.price - b.price)
+			if (isHighestToLowest) return filterProductsByCategory(productList, selectedCategory)
+		}
+
 		const productsSorted = sortProducts(productsToShow)
 		setProductsToShow([...productsSorted])
 		setSort(isDefault ? "BA" : isLowestToHighest ? "AB" : "default")
@@ -116,50 +115,19 @@ function App() {
 
 		const buttonType = e.target.id // "increase" or "decrease"
 		const productID = Number(e.target.closest("[data-product-id]").dataset.productId)
-		const [productSelected] = getProductByID(productList, productID)
+		const productSelected = getProductByID(productList, productID)
 
-		// const newProductList = counterQuantity(buttonType, productSelected, productList)
-		// const newCartList = counterQuantity(buttonType, productSelected, cartList)
+		if (buttonType === "increase") productSelected.quantity++
 
-		// setProductList(newProductList)
-		// setCartList(newCartList)
-
-		if (buttonType === "increase") {
-			productSelected.quantity++
-
-			const newProductList = increaseCounter(productSelected, productList)
-			setProductList(newProductList)
-
-			const newCartList = increaseCounter(productSelected, cartList)
-			setCartList(newCartList)
-		}
-		if (buttonType === "decrease") {
-			if (productSelected.quantity === 0) return
+		if ((buttonType === "decrease") & (productSelected.quantity !== 0)) {
 			productSelected.quantity--
-
-			let newProductList = []
-			productList.forEach((product) => {
-				if (product.id !== productSelected.id) {
-					newProductList.push(product)
-				} else {
-					const newProduct = { ...productSelected }
-					newProductList.push(newProduct)
-				}
-			})
-
-			setProductList(newProductList)
-
-			let newCartList = []
-			cartList.forEach((product) => {
-				if (product.id !== productSelected.id) {
-					newCartList.push(product)
-				} else {
-					const newProduct = { ...productSelected }
-					newCartList.push(newProduct)
-				}
-			})
-			setCartList(newCartList)
 		}
+
+		const newProductList = replaceProductInList(productSelected, productList)
+		const newCartList = replaceProductInList(productSelected, cartList)
+
+		setProductList(newProductList)
+		setCartList(newCartList)
 	}
 
 	const cartQuantity = cartList.length
