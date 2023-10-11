@@ -1,9 +1,23 @@
 import { Link, useParams } from "react-router-dom"
 import ProductInfo from "../ProductInfo"
+import ErrorProduct from "./ErrorProduct"
 import { useContext } from "react"
 import { ShopContext } from "../../App"
 
+import CategoryBar from "../CategoryBar"
+
 function ProductPage() {
+	return (
+		<>
+			<CategoryBar />
+			<Link to="/">Return to results</Link>
+			<ProductSection />
+			{/* <Recomended /> */}
+		</>
+	)
+}
+
+function ProductSection() {
 	const { productID } = useParams()
 	const { productList } = useContext(ShopContext)
 
@@ -12,10 +26,9 @@ function ProductPage() {
 
 	return (
 		<section className="product-info">
-			<Link to="/">Return to Home</Link>
 			<h2>Product section</h2>
 
-			{productSelected ? <ProductInfo product={productSelected} /> : <p>No hay producto</p>}
+			{productSelected ? <ProductInfo product={productSelected} /> : <ErrorProduct />}
 		</section>
 	)
 }

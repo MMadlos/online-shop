@@ -1,13 +1,13 @@
 import CategoryBar from "../CategoryBar"
 import ActionsBar from "../ActionsBar"
-import ProductsList from "../ProductsList"
+import ProductList from "../ProductList"
 
 function HomePage() {
 	return (
 		<>
 			<CategoryBar />
 			<ActionsBar />
-			<ProductsList />
+			<ProductList />
 		</>
 	)
 }

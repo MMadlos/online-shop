@@ -2,7 +2,7 @@ import ProductCard from "./ProductCard"
 import { useContext } from "react"
 import { ShopContext } from "../App"
 
-function ProductsList() {
+function ProductList() {
 	const { productsToShow } = useContext(ShopContext)
 
 	return (
@@ -19,4 +19,4 @@ function ProductsList() {
 	)
 }
 
-export default ProductsList
+export default ProductList

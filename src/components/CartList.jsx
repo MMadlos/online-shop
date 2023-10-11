@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom"
 import { useContext } from "react"
-import { ShopContext } from "../../App"
+import { ShopContext } from "../App"
 
-import Counter from "../Counter"
+import Counter from "./Counter"
 
-function ProductCart({ product }) {
+function CartProduct({ product }) {
 	const { handleClickRemoveCart } = useContext(ShopContext)
 
 	const { id, name, price, url, quantity } = product
@@ -37,7 +37,7 @@ function ProductCart({ product }) {
 	)
 }
 
-function Cart() {
+function CartList() {
 	const { cartList } = useContext(ShopContext)
 
 	return (
@@ -47,7 +47,7 @@ function Cart() {
 
 			{cartList?.map((product) => {
 				return (
-					<ProductCart
+					<CartProduct
 						key={product.id}
 						product={product}
 					/>
@@ -57,4 +57,4 @@ function Cart() {
 	)
 }
 
-export default Cart
+export default CartList
