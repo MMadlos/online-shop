@@ -1,13 +1,13 @@
-import ErrorProduct from "./ErrorProduct"
 import { useContext } from "react"
-import { ShopContext } from "../../App"
+import { ShopContext } from "../App"
 import { useParams } from "react-router-dom"
 
-import ShopButton from "./ShopButton"
+import ErrorProduct from "./Pages/ErrorProduct"
+import ShopButton from "./Atoms/ShopButton"
 import Counter from "./Counter"
 
-function ProductInfo({ product }) {
-	const { id, name, description, price, url, rate, countRates, quantity, isAdded } = product
+function ProductDetails({ productSelected }) {
+	const { id, name, description, price, url, rate, countRates, quantity, isAdded } = productSelected
 
 	return (
 		<div
@@ -31,20 +31,19 @@ function ProductInfo({ product }) {
 	)
 }
 
-function ProductSection() {
+function ProductInfo() {
 	const { productID } = useParams()
 	const { productList } = useContext(ShopContext)
 
-	// Find the product in the productList
 	const [productSelected] = productList.filter((product) => product.id === Number(productID))
 
 	return (
 		<section className="product-info">
 			<h2>Product section</h2>
 
-			{productSelected ? <ProductInfo product={productSelected} /> : <ErrorProduct />}
+			{productSelected ? <ProductDetails productSelected={productSelected} /> : <ErrorProduct />}
 		</section>
 	)
 }
 
-export default ProductSection
+export default ProductInfo

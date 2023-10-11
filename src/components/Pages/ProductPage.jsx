@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-import ProductSection from "../ProductInfo"
+import ProductInfo from "../ProductInfo"
 import CategoryBar from "../CategoryBar"
 
 function ProductPage() {
@@ -8,7 +8,7 @@ function ProductPage() {
 		<>
 			<CategoryBar />
 			<Link to="/">Return to results</Link>
-			<ProductSection />
+			<ProductInfo />
 			{/* <Recomended /> */}
 		</>
 	)
