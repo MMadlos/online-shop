@@ -1,4 +1,5 @@
 import { capitalizeText } from "../utilities/utilities"
+import { Link } from "react-router-dom"
 
 import { useContext } from "react"
 import { ShopContext } from "../App"
@@ -16,7 +17,12 @@ function CategoryBar() {
 					<div
 						key={category}
 						className={"category" + addClassIfSelected}>
-						<a onClick={handleClickCategory}>{capitalizeText(category)}</a>
+						<Link
+							key={category}
+							to="/"
+							onClick={handleClickCategory}>
+							{capitalizeText(category)}
+						</Link>
 					</div>
 				)
 			})}
