@@ -25,7 +25,10 @@ function CartProduct({ product }) {
 						<strong>{name}</strong>
 					</p>
 					<p>{price}</p>
-					<Counter quantity={quantity} />
+					<Counter
+						context="cart"
+						currentQuantity={quantity}
+					/>
 					<button
 						id="remove-cart"
 						onClick={handleClickRemoveCart}>

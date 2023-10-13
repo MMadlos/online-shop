@@ -7,7 +7,7 @@ import Counter from "./Atoms/Counter"
 import AddCartButton from "./Atoms/AddCartButton"
 
 function ProductDetails({ productSelected }) {
-	const { id, name, description, price, url, rate, countRates, quantity, isAdded } = productSelected
+	const { id, name, description, price, url, rate, countRates, quantity } = productSelected
 
 	return (
 		<div
@@ -24,7 +24,10 @@ function ProductDetails({ productSelected }) {
 
 				<p className="price">{`$ ${price}`}</p>
 
-				<Counter quantity={quantity} />
+				<Counter
+					context="product"
+					quantity={quantity}
+				/>
 				<AddCartButton context="info" />
 			</div>
 		</div>

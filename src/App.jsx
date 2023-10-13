@@ -20,7 +20,7 @@ export const ShopContext = createContext({
 	handleClickRemoveCart: () => {},
 	handleChangeSearch: () => {},
 	handleClickSort: () => {},
-	handleCounter: () => {},
+	// handleCounter: () => {},
 })
 
 function App() {
@@ -49,19 +49,61 @@ function App() {
 
 		// TODO -> Pendiente refactor. No es lo mismo add cart en HomePage() que en ProductPage()
 
-		const { dataset } = e.target.closest(".product-card") || e.target.closest(".product-info")
+		// Si se hace click en HomePage() -> Se añade el producto con quantity = 1
+		// Si se hace click en ProductInfo() -> Se añade la cantidad que aparece en el Counter a la cantidad que ya había antes: product.quantity = product.quantity + counterQuantity
+
+		const getSection = e.target.closest(".product-card") || e.target.closest(".product-info")
+		const getClass = getSection.classList.value
+		const { dataset } = getSection
 
 		const productID = Number(dataset.productId)
 		const productSelected = getProductByID(productsToShow, productID)
+		console.log(productSelected.quantity)
 
-		if (cartList.includes(productSelected)) return
+		if (getClass === "product-card") {
+			setCartList((prev) => [...prev, productSelected])
+			console.log(productSelected.quantity)
 
-		setCartList((prev) => [...prev, productSelected])
+			productSelected.quantity++
+			const newProductList = toggleIsProductAddedTo(true, productSelected, productList)
+			setProductList(newProductList)
+		}
+		if (getClass === "product-info") {
+			const containerElement = e.target.closest(".info-container")
+			const counterElement = containerElement.querySelector(".counter > p")
+			const counterQuantity = Number(counterElement.textContent)
 
-		productSelected.quantity++
+			console.log(productSelected.quantity)
 
-		const newProductList = toggleIsProductAddedTo(true, productSelected, productList)
-		setProductList(newProductList)
+			productSelected.quantity += counterQuantity
+
+			console.log(productSelected.quantity)
+
+			const isProductInCart = cartList.some((product) => product.id === productSelected.id)
+
+			// Si el producto existe en el carrito:
+			// -> se añade counterQuantity a productQuantity -> product.quantity = product.quantity + counterQuantity
+			// if (cartList.includes(productSelected)) -> Se actualiza el valor
+			if (isProductInCart) {
+				const newCartList = replaceProductInList(productSelected, cartList)
+				setCartList(newCartList)
+
+				const newProductList = replaceProductInList(productSelected, productList)
+				setProductList(newProductList)
+				return
+			}
+
+			//  Si el producto NO existe en el carrito:
+			//  product.quantity = counterQuantity
+			//  -> Se añade el producto
+			if (!isProductInCart) {
+				setCartList((prev) => [...prev, productSelected])
+
+				const newProductList = toggleIsProductAddedTo(true, productSelected, productList)
+				setProductList(newProductList)
+				return
+			}
+		}
 	}
 
 	function handleClickRemoveCart(e) {
@@ -109,26 +151,33 @@ function App() {
 		setSort(isDefault ? "BA" : isLowestToHighest ? "AB" : "default")
 	}
 
-	function handleCounter(e) {
-		e.preventDefault()
-		e.stopPropagation()
+	// function handleCounter(e) {
+	// 	e.preventDefault()
+	// 	e.stopPropagation()
 
-		const buttonType = e.target.id // "increase" or "decrease"
-		const productID = Number(e.target.closest("[data-product-id]").dataset.productId)
-		const productSelected = getProductByID(productList, productID)
+	// 	const getSection = e.target.closest(".cart") || e.target.closest(".product-info")
+	// 	const getClass = getSection.classList.value
 
-		if (buttonType === "increase") productSelected.quantity++
+	// 	const buttonType = e.target.id // "increase" or "decrease"
+	// 	const productID = Number(e.target.closest("[data-product-id]").dataset.productId)
+	// 	const productSelected = getProductByID(productList, productID)
 
-		if ((buttonType === "decrease") & (productSelected.quantity !== 0)) {
-			productSelected.quantity--
-		}
+	// 	if (getClass === "product-info") {
+	// 		console.log("HOLA")
+	// 	}
+	// 	if (getClass === "cart") {
+	// 		if (buttonType === "increase") productSelected.quantity++
+	// 		if ((buttonType === "decrease") & (productSelected.quantity !== 0)) {
+	// 			productSelected.quantity--
+	// 		}
 
-		const newProductList = replaceProductInList(productSelected, productList)
-		const newCartList = replaceProductInList(productSelected, cartList)
+	// 		const newProductList = replaceProductInList(productSelected, productList)
+	// 		const newCartList = replaceProductInList(productSelected, cartList)
 
-		setProductList(newProductList)
-		setCartList(newCartList)
-	}
+	// 		setProductList(newProductList)
+	// 		setCartList(newCartList)
+	// 	}
+	// }
 
 	const cartQuantity = cartList.length
 
@@ -151,7 +200,7 @@ function App() {
 					handleClickRemoveCart,
 					handleChangeSearch,
 					handleClickSort,
-					handleCounter,
+					// handleCounter,
 				}}>
 				<Outlet />
 			</ShopContext.Provider>
