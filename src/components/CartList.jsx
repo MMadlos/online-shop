@@ -48,6 +48,8 @@ function CartList() {
 			<Link to="/">Return to shop</Link>
 			<p>Cart</p>
 
+			{cartList.length === 0 && <h2> THERE IS NO PRODUCT IN THE CART</h2>}
+
 			{cartList?.map((product) => {
 				return (
 					<CartProduct
