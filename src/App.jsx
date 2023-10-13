@@ -152,7 +152,6 @@ function App() {
 					handleClickRemoveCart,
 					handleChangeSearch,
 					handleClickSort,
-					// handleCounter,
 				}}>
 				<Outlet />
 			</ShopContext.Provider>
