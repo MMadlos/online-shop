@@ -29,6 +29,7 @@ function App() {
 	const categoryList = ["All categories", ...getCategories(productList)]
 
 	const [selectedCategory, setSelectedCategory] = useState("Men's clothing")
+
 	const [cartList, setCartList] = useState([])
 
 	const [productsToShow, setProductsToShow] = useState([])
@@ -131,11 +132,9 @@ function App() {
 		setSort(isDefault ? "BA" : isLowestToHighest ? "AB" : "default")
 	}
 
-	const cartQuantity = cartList.length
-
 	return (
 		<>
-			<Header cartQuantity={cartQuantity} />
+			<Header cartQuantity={cartList.length} />
 
 			<ShopContext.Provider
 				value={{

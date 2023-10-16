@@ -1,34 +1,39 @@
-import { Menu, MenuButton, MenuList, MenuItem, MenuItemOption, MenuGroup, MenuOptionGroup, MenuDivider } from "@chakra-ui/react"
+import { Menu, MenuButton, MenuList, MenuItem, MenuGroup, MenuDivider } from "@chakra-ui/react"
 import { Button } from "@chakra-ui/react"
 import { ChevronDownIcon } from "@chakra-ui/icons"
+import { useState } from "react"
 
 function SortButton() {
+	const [selected, setSelected] = useState("asc")
+
 	return (
-		<Menu>
+		<Menu id="sort-btn">
 			<MenuButton
 				as={Button}
 				rightIcon={<ChevronDownIcon />}>
 				Sort
 			</MenuButton>
 			<MenuList>
-				<MenuOptionGroup
-					title="Alfabetically"
-					type="radio"
-					defaultValue="default">
-					<MenuItemOption value="default">Recommended</MenuItemOption>
-					<MenuItemOption value="asc">Ascending</MenuItemOption>
-					<MenuItemOption value="des">Descending</MenuItemOption>
-				</MenuOptionGroup>
+				<MenuItem className={selected === "default" ? "selected" : ""}>Default</MenuItem>
 				<MenuDivider />
-				<MenuOptionGroup title="Price">
-					<MenuItemOption>Lowest first</MenuItemOption>
-					<MenuItemOption>Highest first</MenuItemOption>
-				</MenuOptionGroup>
+				<MenuGroup title="Alphabetically">
+					<MenuItem
+						pl="32px"
+						className={selected === "asc" ? "selected" : ""}>
+						A to Z
+					</MenuItem>
+					<MenuItem pl="32px">Z to A</MenuItem>
+				</MenuGroup>
 				<MenuDivider />
-				<MenuOptionGroup title="Rate">
-					<MenuItemOption>Highest first</MenuItemOption>
-					<MenuItemOption>Lowest first</MenuItemOption>
-				</MenuOptionGroup>
+				<MenuGroup title="Price">
+					<MenuItem pl="32px">Lowest first</MenuItem>
+					<MenuItem pl="32px">Highest first</MenuItem>
+				</MenuGroup>
+				<MenuDivider />
+				<MenuGroup title="Rate">
+					<MenuItem pl="32px">Highest first</MenuItem>
+					<MenuItem pl="32px">Lowest first</MenuItem>
+				</MenuGroup>
 			</MenuList>
 		</Menu>
 	)

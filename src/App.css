@@ -191,3 +191,38 @@ div.product-info {
 		}
 	}
 }
+
+.selected {
+	background-color: lightgrey !important;
+}
+
+.dropdown {
+	--text: #333;
+	--light-grey: #e7e7e7;
+	--dark-grey: #9f9f9f;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 16px;
+
+	padding: 8px 16px;
+
+	border: 1px solid var(--light-grey);
+	border-radius: 4px;
+
+	font-family: "Inter", sans-serif;
+	font-weight: 600;
+	font-size: 14px;
+	color: var(--text);
+
+	&:hover,
+	.selected {
+		background-color: var(--light-grey);
+	}
+
+	.chevron-down {
+		font-size: 24px;
+		color: --dark-grey;
+	}
+}

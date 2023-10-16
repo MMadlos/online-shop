@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { ShopContext } from "../App"
 import SortButton from "./Atoms/Sort"
+import Dropdown from "./Atoms/Dropdown"
 
 function ActionsBar() {
 	const { handleChangeSearch, isProductFound, handleClickSort } = useContext(ShopContext)
@@ -15,8 +16,9 @@ function ActionsBar() {
 			/>
 			{!isProductFound && <p id="search-not-found"> Product not found with your search</p>}
 			<div className="buttons-container">
-				<button>Filter</button>
-				<SortButton />
+				<Dropdown />
+				{/* <button>Filter</button>
+				<SortButton /> */}
 				<button onClick={handleClickSort}>Sort by price</button>
 			</div>
 		</div>
