@@ -196,11 +196,15 @@ div.product-info {
 	background-color: lightgrey !important;
 }
 
-.dropdown {
+/* DROPDOWN */
+
+:root {
 	--text: #333;
 	--light-grey: #e7e7e7;
 	--dark-grey: #9f9f9f;
+}
 
+.dropdown {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -224,5 +228,50 @@ div.product-info {
 	.chevron-down {
 		font-size: 24px;
 		color: --dark-grey;
+	}
+}
+
+.dropdown-menu {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: start;
+	gap: 4px;
+
+	border: 1px solid var(--light-grey);
+	border-radius: 4px;
+	padding: 8px;
+
+	width: 200px;
+
+	.item {
+		width: 100%;
+		padding: 8px 16px;
+		text-align: left;
+		border-radius: 4px;
+
+		&:hover,
+		.selected {
+			background-color: var(--light-grey);
+			font-weight: 600;
+		}
+	}
+
+	.selected {
+		background-color: var(--light-grey);
+		font-weight: 600;
+	}
+
+	.group-title {
+		font-size: 12px;
+		font-weight: 700;
+		color: var(--dark-grey);
+	}
+
+	.divider {
+		height: 1px;
+		background-color: var(--light-grey);
+		width: 100%;
+		margin: 4px 0;
 	}
 }
