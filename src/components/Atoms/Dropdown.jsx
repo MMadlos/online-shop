@@ -2,7 +2,7 @@ import { ChevronDownIcon } from "@chakra-ui/icons"
 
 function Dropdown() {
 	return (
-		<>
+		<div className="dropdown-container">
 			<button className="dropdown">
 				<p>Sort</p>
 				<ChevronDownIcon className="chevron-down" />
@@ -26,7 +26,7 @@ function Dropdown() {
 				<MenuItem text="Highest first" />
 				<MenuItem text="Lowest first" />
 			</Menu>
-		</>
+		</div>
 	)
 }
 
