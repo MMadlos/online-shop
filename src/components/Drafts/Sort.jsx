@@ -14,7 +14,11 @@ function SortButton() {
 				Sort
 			</MenuButton>
 			<MenuList>
-				<MenuItem className={selected === "default" ? "selected" : ""}>Default</MenuItem>
+				<MenuItem
+					className={selected === "default" ? "selected" : ""}
+					onClick={setSelected("def")}>
+					Default
+				</MenuItem>
 				<MenuDivider />
 				<MenuGroup title="Alphabetically">
 					<MenuItem
