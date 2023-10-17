@@ -16,7 +16,6 @@ function ActionsBar() {
 			{!isProductFound && <p id="search-not-found"> Product not found with your search</p>}
 			<div className="buttons-container">
 				<Dropdown />
-				<button onClick={handleClickSort}>Sort by price</button>
 			</div>
 		</div>
 	)

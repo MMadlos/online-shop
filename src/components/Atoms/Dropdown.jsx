@@ -1,5 +1,8 @@
-import { Fragment, useState } from "react"
 import { ChevronDownIcon } from "@chakra-ui/icons"
+
+import { Fragment, useState } from "react"
+import { ShopContext } from "../../App"
+import { useContext } from "react"
 
 const sortItems = [
 	{
@@ -18,18 +21,13 @@ const sortItems = [
 
 function Dropdown() {
 	const [isOpen, setIsOpen] = useState(false)
-	const [sort, setSort] = useState({
-		group: "Default",
-		item: "Default",
-	})
+	const { sort, handleClickSort } = useContext(ShopContext)
 
 	const stylesIfOpen = isOpen ? "dropdown selected" : "dropdown"
 
-	function handleClickMenuItem(e) {
-		const { groupName } = e.target.dataset
-		const itemName = e.target.textContent
-		const selectedItem = { group: groupName, item: itemName }
-		setSort(selectedItem)
+	function handleClickItem(e) {
+		setIsOpen(!isOpen)
+		handleClickSort(e)
 	}
 
 	function checkIfSelected(group, item) {
@@ -51,7 +49,7 @@ function Dropdown() {
 						text="Default"
 						groupName="Default"
 						isSelected={sort.item === "Default"}
-						onClick={handleClickMenuItem}
+						onClick={handleClickItem}
 					/>
 					{sortItems.map((group, index) => {
 						const { groupTitle, items } = group
@@ -66,7 +64,7 @@ function Dropdown() {
 											key={index}
 											text={item}
 											groupName={groupTitle}
-											onClick={handleClickMenuItem}
+											onClick={handleClickItem}
 											isSelected={checkIfSelected(groupTitle, item)}
 										/>
 									)
