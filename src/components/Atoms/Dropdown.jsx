@@ -1,5 +1,3 @@
-import { ChevronDownIcon } from "@chakra-ui/icons"
-
 import { Fragment, useState } from "react"
 import { ShopContext } from "../../App"
 import { useContext } from "react"
@@ -40,7 +38,6 @@ function Dropdown() {
 				className={stylesIfOpen}
 				onClick={() => setIsOpen(!isOpen)}>
 				Sort
-				<ChevronDownIcon className="chevron-down" />
 			</button>
 
 			{isOpen && (
