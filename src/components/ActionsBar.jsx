@@ -3,7 +3,7 @@ import { ShopContext } from "../App"
 import Dropdown from "./Atoms/Dropdown"
 
 function ActionsBar() {
-	const { handleChangeSearch, isProductFound, handleClickSort } = useContext(ShopContext)
+	const { handleChangeSearch, isProductFound } = useContext(ShopContext)
 
 	return (
 		<div className="action-bar">

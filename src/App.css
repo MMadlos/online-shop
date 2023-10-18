@@ -233,6 +233,10 @@ button.dropdown {
 
 .dropdown-menu {
 	position: absolute;
+	transform-origin: top right;
+	right: 0;
+	width: 200px;
+
 	background-color: white;
 
 	display: flex;
@@ -245,8 +249,6 @@ button.dropdown {
 
 	padding: 8px;
 	margin-top: 8px;
-
-	width: 200px;
 
 	.item {
 		width: 100%;

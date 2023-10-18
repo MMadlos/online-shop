@@ -42,7 +42,7 @@ function App() {
 	useEffect(() => {
 		const filteredProducts = filterProductsByCategory(productList, selectedCategory)
 		setProductsToShow(filteredProducts)
-	}, [productList, selectedCategory, sort])
+	}, [productList, selectedCategory])
 
 	const handleClickCategory = (e) => setSelectedCategory(e.target.textContent)
 

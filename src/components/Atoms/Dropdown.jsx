@@ -39,7 +39,7 @@ function Dropdown() {
 			<button
 				className={stylesIfOpen}
 				onClick={() => setIsOpen(!isOpen)}>
-				<p>Sort</p>
+				Sort
 				<ChevronDownIcon className="chevron-down" />
 			</button>
 
