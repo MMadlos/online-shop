@@ -1,4 +1,4 @@
-/* makes sizing simpler */
+/* CSS RESET */
 
 *,
 *::before,
@@ -41,14 +41,4 @@ video {
 #root {
 	max-width: 100vw;
 	height: 100vh;
-	padding: 0 20px;
-}
-
-h1 {
-	font-size: 2rem;
-}
-
-h2 {
-	font-size: 1.25rem;
-	font-weight: 800;
 }
