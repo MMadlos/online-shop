@@ -138,11 +138,11 @@ function App() {
 		const isLowestFirst = sort.item === "Lowest first"
 
 		function sortProducts(product) {
-			if (isDefault) return product.sort((a, b) => a.id - b.id)
-			if (isPrice && isLowestFirst) return product.sort((a, b) => a.price - b.price)
-			if (isPrice && isHighestFirst) return product.sort((a, b) => b.price - a.price)
+			if (isDefault) return product.toSorted((a, b) => a.id - b.id)
+			if (isPrice && isLowestFirst) return product.toSorted((a, b) => a.price - b.price)
+			if (isPrice && isHighestFirst) return product.toSorted((a, b) => b.price - a.price)
 			if (isAlph && isAtoZ) {
-				return product.sort((a, b) => {
+				return product.toSorted((a, b) => {
 					const nameA = a.name.toUpperCase()
 					const nameB = b.name.toUpperCase()
 					if (nameA < nameB) return -1
@@ -151,7 +151,7 @@ function App() {
 				})
 			}
 			if (isAlph && isZtoA) {
-				return product.sort((a, b) => {
+				return product.toSorted((a, b) => {
 					const nameA = a.name.toUpperCase()
 					const nameB = b.name.toUpperCase()
 					if (nameA > nameB) return -1
@@ -159,10 +159,11 @@ function App() {
 					return 0
 				})
 			}
-			if (isRate && isLowestFirst) return product.sort((a, b) => a.rate - b.rate)
-			if (isRate && isHighestFirst) return product.sort((a, b) => b.rate - a.rate)
+			if (isRate && isLowestFirst) return product.toSorted((a, b) => a.rate - b.rate)
+			if (isRate && isHighestFirst) return product.toSorted((a, b) => b.rate - a.rate)
 		}
 
+		if (productsToShow.length === 0) return
 		const productsSorted = sortProducts(productsToShow)
 		setProductsToShow(productsSorted)
 	}, [sort])
