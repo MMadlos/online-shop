@@ -8,12 +8,16 @@ function ActionsBar() {
 
 	return (
 		<div className="action-bar">
-			<input
-				type="search"
-				id="search"
-				placeholder="Mens Cotton Jacket"
-				onChange={handleChangeSearch}
-			/>
+			<form action="search">
+				<i className="fa-solid fa-magnifying-glass"></i>
+				<input
+					name="search"
+					type="search"
+					id="search"
+					placeholder="Backpack"
+					onChange={handleChangeSearch}
+				/>
+			</form>
 			{item !== "Default" && (
 				<p>
 					Sorted: {group} - {item}
