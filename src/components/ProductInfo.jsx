@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { ShopContext } from "../App"
 import { useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 import ErrorProduct from "./Pages/ErrorProduct"
 import Counter from "./Atoms/Counter"
@@ -11,24 +12,32 @@ function ProductDetails({ productSelected }) {
 
 	return (
 		<div
-			className="product-info"
+			className="product-details-container"
 			data-product-id={id}>
-			<img
-				src={url}
-				alt="#"
-			/>
-			<div className="info-container">
-				<h1>{name}</h1>
-				<p>{`${rate} (${countRates})`}</p>
-				<p>{description}</p>
-
-				<p className="price">{`$ ${price}`}</p>
-
-				<Counter
-					context="product"
-					quantity={quantity}
+			<div className="image-container">
+				<img
+					src={url}
+					alt="#"
 				/>
-				<AddCartButton context="info" />
+			</div>
+			<div className="product-details">
+				<div className="details-container">
+					<h1>{name}</h1>
+					<div className="rate-container">
+						<i className="fa-solid fa-star" />
+						<p>{`${rate} (${countRates})`}</p>
+					</div>
+					<p className="description">{description}</p>
+
+					<p className="price">{`$ ${price}`}</p>
+				</div>
+				<div className="add-cart-container">
+					<Counter
+						context="product"
+						quantity={quantity}
+					/>
+					<AddCartButton context="info" />
+				</div>
 			</div>
 		</div>
 	)
@@ -42,7 +51,10 @@ function ProductInfo() {
 
 	return (
 		<section className="product-info">
-			<h2>Product section</h2>
+			<Link to="/">
+				<i className="fa-solid fa-chevron-left"></i>
+				Back to all results
+			</Link>
 
 			{productSelected ? <ProductDetails productSelected={productSelected} /> : <ErrorProduct />}
 		</section>
