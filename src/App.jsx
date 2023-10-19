@@ -13,6 +13,7 @@ export const ShopContext = createContext({
 	productsToShow: [],
 	isProductFound: true,
 	sort: {},
+	setSort: () => {},
 	categoryList: [],
 
 	handleClickCategory: () => {},
@@ -181,6 +182,7 @@ function App() {
 					productsToShow,
 					isProductFound,
 					sort,
+					setSort,
 
 					handleClickCategory,
 					handleClickAddCart,

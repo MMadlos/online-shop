@@ -3,7 +3,7 @@ import { ShopContext } from "../App"
 import Dropdown from "./Atoms/Dropdown"
 
 function ActionsBar() {
-	const { handleChangeSearch, isProductFound, sort } = useContext(ShopContext)
+	const { handleChangeSearch, isProductFound, sort, setSort } = useContext(ShopContext)
 	const { item, group } = sort
 
 	return (
@@ -33,7 +33,9 @@ function ActionsBar() {
 							<p>
 								{group} - {item}
 							</p>
-							<i className="fa-solid fa-circle-xmark"></i>
+							<i
+								className="fa-solid fa-circle-xmark"
+								onClick={() => setSort({ group: "Default", item: "Default" })}></i>
 						</div>
 					</div>
 				)}
