@@ -24,9 +24,7 @@ function ActionsBar() {
 				</p>
 			)}
 			{!isProductFound && <p id="search-not-found"> Product not found with your search</p>}
-			<div className="buttons-container">
-				<Dropdown />
-			</div>
+			<Dropdown />
 		</div>
 	)
 }

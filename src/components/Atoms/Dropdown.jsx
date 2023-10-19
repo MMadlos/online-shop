@@ -35,9 +35,10 @@ function Dropdown() {
 	return (
 		<div className="dropdown-container">
 			<button
+				id="sort"
 				className={stylesIfOpen}
 				onClick={() => setIsOpen(!isOpen)}>
-				Sort
+				Sort <i className="fa-solid fa-chevron-down"></i>
 			</button>
 
 			{isOpen && (
