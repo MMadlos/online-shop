@@ -23,6 +23,7 @@ function CategoryBar() {
 							onClick={handleClickCategory}>
 							{capitalizeText(category)}
 						</Link>
+						<div className={"category-underline" + addClassIfSelected}></div>
 					</div>
 				)
 			})}
