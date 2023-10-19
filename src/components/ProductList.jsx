@@ -20,13 +20,13 @@ function ProductCard({ product }) {
 				<div className="product-info">
 					<div className="product-info-container">
 						<h2 id="name">{name}</h2>
-						<p id="description">{description}</p>
-						<p id="price">{"$ " + price}</p>
 						<div className="rate-container">
 							<i className="fa-solid fa-star" />
 							<p id="rate">{rate}</p>
 							<p id="count-rates">({countRates})</p>
 						</div>
+						<p id="description">{description}</p>
+						<p id="price">{"$ " + price}</p>
 					</div>
 
 					{!isAdded && <AddCartButton context="card" />}
