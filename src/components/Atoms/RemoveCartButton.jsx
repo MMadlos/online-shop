@@ -7,7 +7,7 @@ function RemoveCartButton() {
 		<button
 			id="remove-cart"
 			onClick={handleClickRemoveCart}>
-			Remove from cart
+			Remove
 		</button>
 	)
 }

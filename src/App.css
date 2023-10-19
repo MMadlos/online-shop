@@ -10,6 +10,8 @@
 	--dark-grey: #c7c9d1;
 	--light-black: #72778d;
 	--alert: #fa7373;
+	--light-green: #e3fee4;
+	--green: #15a409;
 
 	/* OTHERS */
 	--padding-section-laterals: 15vw;
@@ -346,15 +348,14 @@ main {
 
 			.product-info {
 				display: flex;
+				justify-content: space-between;
+
 				flex-direction: column;
 				gap: 16px;
 				background-color: var(--light-grey);
+				min-height: 200px;
 				height: 100%;
-
-				.product-info-container {
-					height: 100%;
-					padding: 16px;
-				}
+				padding: 16px;
 
 				.product-info-container {
 					display: flex;
@@ -384,6 +385,7 @@ main {
 					.rate-container {
 						display: flex;
 						align-items: center;
+						margin-top: -8px;
 						gap: 8px;
 						font-size: 12px;
 						color: var(--light-black);
@@ -403,20 +405,73 @@ main {
 					}
 				}
 
-				> button#add-cart {
-					background-color: var(--black);
-					color: var(--white);
+				.product-added-container {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					gap: 24px;
+					width: 100%;
+
+					.product-added {
+						display: flex;
+						align-items: center;
+						gap: 8px;
+						padding: 4px 12px;
+						border: 1px solid var(--green);
+						border-radius: 50px;
+						color: var(--green);
+						font-size: 12px;
+						font-weight: 500;
+						background-color: var(--light-green);
+					}
+
+					> button#remove-cart {
+						font-weight: 700;
+						font-size: 14px;
+						padding: 8px 24px;
+						width: 100%;
+						border-radius: 2px;
+
+						color: var(--light-black);
+						background-color: var(--grey);
+						font-weight: 500;
+
+						&:hover {
+							cursor: pointer;
+							background-color: var(--dark-grey);
+						}
+					}
+				}
+
+				> button#add-cart,
+				button#remove-cart {
 					font-weight: 700;
 					font-size: 14px;
 					padding: 8px 24px;
 
 					border-radius: 2px;
 
-					margin: 0 16px 16px 16px;
-
 					&:hover {
 						cursor: pointer;
+					}
+				}
+
+				> button#add-cart {
+					color: var(--white);
+					background-color: var(--black);
+
+					&:hover {
 						background-color: var(--light-black);
+					}
+				}
+
+				> button#remove-cart {
+					color: var(--light-black);
+					background-color: var(--grey);
+					font-weight: 500;
+
+					&:hover {
+						background-color: var(--dark-grey);
 					}
 				}
 			}

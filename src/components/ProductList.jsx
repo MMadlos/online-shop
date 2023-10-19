@@ -31,13 +31,13 @@ function ProductCard({ product }) {
 
 					{!isAdded && <AddCartButton context="card" />}
 					{isAdded && (
-						<>
+						<div className="product-added-container">
 							<div className="product-added">
 								<i className="fa-solid fa-check" />
-								<p>Added to cart</p>
+								<p>Added</p>
 							</div>
 							<RemoveCartButton />
-						</>
+						</div>
 					)}
 				</div>
 			</div>
