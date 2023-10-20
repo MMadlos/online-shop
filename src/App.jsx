@@ -8,8 +8,10 @@ import Header from "./components/Header"
 
 export const ShopContext = createContext({
 	productList: [],
+	setProductList: () => {},
 	selectedCategory: "Men's clothing",
 	cartList: [],
+	setCartList: () => {},
 	productsToShow: [],
 	isProductFound: true,
 	sort: {},
@@ -50,12 +52,6 @@ function App() {
 	function handleClickAddCart(e) {
 		e.preventDefault()
 		e.stopPropagation()
-
-		// There are 2 scenarios:
-		//  -> HomePage
-		//  - Adds quantity from 0 to 1. If it's > 0, it displays a AddedChip()
-		//  -> ProductPage
-		// - Adds to the cart.quantity the number displaying in the counter. Eg: If there are 2 items already added, and the counter shows 3. It will add 3 to the current quantity -> 5
 
 		const getSection = e.target.closest(".product-card") || e.target.closest(".product-details-container")
 		const getClass = getSection.classList.value
@@ -190,6 +186,8 @@ function App() {
 					isProductFound,
 					sort,
 					setSort,
+					setProductList,
+					setCartList,
 
 					handleClickCategory,
 					handleClickAddCart,
