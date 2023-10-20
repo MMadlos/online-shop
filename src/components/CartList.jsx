@@ -49,7 +49,8 @@ function CartProduct({ product }) {
 function CartList() {
 	const { cartList } = useContext(ShopContext)
 
-	const totalToPay = 300
+	const sumCart = cartList.reduce((acc, curr) => acc + curr.price * curr.quantity, 0)
+	const totalToPay = sumCart.toFixed(2)
 
 	return (
 		<section id="cart">
