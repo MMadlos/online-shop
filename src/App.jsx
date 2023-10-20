@@ -51,7 +51,13 @@ function App() {
 		e.preventDefault()
 		e.stopPropagation()
 
-		const getSection = e.target.closest(".product-card") || e.target.closest(".product-info")
+		// There are 2 scenarios:
+		//  -> HomePage
+		//  - Adds quantity from 0 to 1. If it's > 0, it displays a AddedChip()
+		//  -> ProductPage
+		// - Adds to the cart.quantity the number displaying in the counter. Eg: If there are 2 items already added, and the counter shows 3. It will add 3 to the current quantity -> 5
+
+		const getSection = e.target.closest(".product-card") || e.target.closest(".product-details-container")
 		const getClass = getSection.classList.value
 		const { dataset } = getSection
 
@@ -65,14 +71,15 @@ function App() {
 			const newProductList = toggleIsProductAddedTo(true, productSelected, productList)
 			setProductList(newProductList)
 		}
-		if (getClass === "product-info") {
-			const containerElement = e.target.closest(".info-container")
+		if (getClass === "product-details-container") {
+			const containerElement = e.target.closest(".add-cart-container")
 			const counterElement = containerElement.querySelector(".counter > p")
 			const counterQuantity = Number(counterElement.textContent)
 
 			productSelected.quantity += counterQuantity
 
 			const isProductInCart = cartList.some((product) => product.id === productSelected.id)
+
 			if (isProductInCart) {
 				const newCartList = replaceProductInList(productSelected, cartList)
 				setCartList(newCartList)
