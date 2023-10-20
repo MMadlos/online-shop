@@ -7,7 +7,7 @@ import Counter from "./Atoms/Counter"
 function CartProduct({ product }) {
 	const { handleClickRemoveCart } = useContext(ShopContext)
 
-	const { id, name, price, url, quantity } = product
+	const { id, name, price, url, quantity, description } = product
 
 	return (
 		<Link to={`/product/${id}`}>
@@ -16,15 +16,21 @@ function CartProduct({ product }) {
 				className="product-card cart"
 				data-product-id={id}>
 				<div className="product-info">
-					<img
-						src={url}
-						alt=""
-					/>
+					<div className="product-info-details-container">
+						<img
+							src={url}
+							alt=""
+						/>
 
-					<p>
-						<strong>{name}</strong>
-					</p>
-					<p>{price}</p>
+						<div className="produt-info-name-price-container">
+							<p className="name">
+								<strong>{name}</strong>
+							</p>
+							<p className="description">{description}</p>
+							<p className="price">$ {price}</p>
+						</div>
+					</div>
+
 					<Counter
 						context="cart"
 						currentQuantity={quantity}
@@ -43,10 +49,16 @@ function CartProduct({ product }) {
 function CartList() {
 	const { cartList } = useContext(ShopContext)
 
+	const totalToPay = 300
+
 	return (
 		<section id="cart">
-			<Link to="/">Return to shop</Link>
-			<p>Cart</p>
+			<div className="return-container">
+				<i className="fa-solid fa-chevron-left"></i>
+				<Link to="/">Return to shop</Link>
+			</div>
+
+			<h1>Order</h1>
 
 			{cartList.length === 0 && <h2> THERE IS NO PRODUCT IN THE CART</h2>}
 
@@ -58,6 +70,16 @@ function CartList() {
 					/>
 				)
 			})}
+
+			<div className="check-out-container">
+				<div className="total-container">
+					<p>
+						Total amount:
+						<span>$ {totalToPay}</span>
+					</p>
+				</div>
+				<button id="checkout">Checkout</button>
+			</div>
 		</section>
 	)
 }
