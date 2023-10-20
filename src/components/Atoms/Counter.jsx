@@ -16,7 +16,7 @@ function Counter({ context, currentQuantity }) {
 		e.preventDefault()
 		e.stopPropagation()
 
-		const buttonType = e.target.id
+		const buttonType = e.target.closest("button").id
 
 		setQuantity(buttonType === "increase" ? quantity + 1 : quantity - 1)
 	}
