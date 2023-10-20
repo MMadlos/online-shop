@@ -690,7 +690,7 @@ section#cart {
 				max-width: 60%;
 
 				> img {
-					--side: 150px;
+					--side: 100px;
 					max-height: var(--side);
 					max-width: var(--side);
 					aspect-ratio: 1 / 1;
