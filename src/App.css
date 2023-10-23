@@ -641,7 +641,7 @@ section.product-info {
 
 /* SECTION - CART */
 section#cart {
-	padding: 16px var(--padding-section-laterals);
+	padding: 16px var(--padding-section-laterals) 40px var(--padding-section-laterals);
 
 	display: flex;
 	flex-direction: column;
@@ -826,6 +826,15 @@ section#cart {
 			}
 		}
 	}
+
+	.cart-emtpy {
+		display: flex;
+		justify-content: center;
+		padding: 40px 0;
+		border: 4px;
+		color: var(--light-black);
+		background-color: var(--light-grey);
+	}
 }
 
 /* RECOMMENDATION SECTION */
@@ -833,7 +842,6 @@ section#cart {
 section.recommendation {
 	--padding-top-bottom: 40px;
 
-	margin-top: 80px;
 	padding: var(--padding-top-bottom) var(--padding-section-laterals);
 	background-color: var(--grey);
 
@@ -849,26 +857,26 @@ section.recommendation {
 		grid-template-columns: repeat(4, 1fr);
 		align-items: center;
 		gap: 16px;
-		
+
 		> a {
 			height: 100%;
 
 			.product-card {
 				background-color: var(--light-grey);
 				width: 100%;
-	
+
 				overflow: hidden;
 				display: flex;
 				flex-direction: column;
 				height: 100%;
-	
+
 				border: 1px solid var(--dark-grey);
 				border-radius: 4px;
-	
+
 				&:hover {
 					border: 1px solid var(--black);
 				}
-	
+
 				> img {
 					min-height: 150px;
 					max-height: 250px;
@@ -878,21 +886,21 @@ section.recommendation {
 					padding: 32px 64px;
 					background-color: var(--white);
 				}
-	
+
 				.product-info {
 					display: flex;
 					justify-content: space-between;
-	
+
 					flex-direction: column;
 					gap: 16px;
 					background-color: var(--light-grey);
 					padding: 16px;
-	
+
 					.product-info-container {
 						display: flex;
 						flex-direction: column;
 						gap: 12px;
-	
+
 						#name {
 							-webkit-line-clamp: 2;
 							-webkit-box-orient: vertical;
@@ -905,29 +913,26 @@ section.recommendation {
 						}
 
 						.rate-container {
-						display: flex;
+							display: flex;
 							align-items: center;
 							margin-top: -8px;
 							gap: 8px;
 							font-size: 12px;
 							color: var(--light-black);
-	
+
 							.fa-star {
 								color: var(--yellow-star);
 							}
 						}
-	
-	
+
 						#price {
 							font-size: 14px;
 							font-weight: 600;
 							color: var(--light-black);
 						}
 					}
-	
-	
+				}
 			}
 		}
-	
-		}
+	}
 }

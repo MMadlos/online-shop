@@ -54,9 +54,13 @@ function CartList() {
 
 	const isCartEmpty = cartList.length === 0
 
-	if (isCartEmpty) {
-		return <h2> THERE IS NO PRODUCT IN THE CART</h2>
-	} else {
+	if (isCartEmpty)
+		return (
+			<div className="cart-emtpy">
+				<h2> YOUR CART IS EMPTY</h2>
+			</div>
+		)
+	if (!isCartEmpty) {
 		return (
 			<>
 				{cartList?.map((product) => {
