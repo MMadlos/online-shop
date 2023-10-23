@@ -1,12 +1,38 @@
-import { useContext } from "react"
-import { ShopContext } from "../App"
+// import { useContext } from "react"
+// import { ShopContext } from "../App"
 import { Link } from "react-router-dom"
 
 import AddCartButton from "./Atoms/AddCartButton"
 import RemoveCartButton from "./Atoms/RemoveCartButton"
 
-function ProductCard({ product }) {
+function ProductCard({ product, cardSize }) {
 	const { id, name, description, price, url, rate, countRates, isAdded } = product
+
+	if (cardSize === "small") {
+		return (
+			<Link to={`/${id}`}>
+				<div
+					className="product-card"
+					data-product-id={id}>
+					<img
+						src={url}
+						alt="#"
+					/>
+					<div className="product-info">
+						<div className="product-info-container">
+							<h2 id="name">{name}</h2>
+							<div className="rate-container">
+								<i className="fa-solid fa-star" />
+								<p id="rate">{rate}</p>
+								<p id="count-rates">({countRates})</p>
+							</div>
+							<p id="price">{"$ " + price}</p>
+						</div>
+					</div>
+				</div>
+			</Link>
+		)
+	}
 
 	return (
 		<Link to={`product/${id}`}>
@@ -45,21 +71,21 @@ function ProductCard({ product }) {
 	)
 }
 
-function ProductList() {
-	const { productsToShow } = useContext(ShopContext)
+// function ProductList() {
+// 	const { productsToShow } = useContext(ShopContext)
 
-	return (
-		<main>
-			{productsToShow.map((product) => {
-				return (
-					<ProductCard
-						key={product.id}
-						product={product}
-					/>
-				)
-			})}
-		</main>
-	)
-}
+// 	return (
+// 		<main>
+// 			{productsToShow.map((product) => {
+// 				return (
+// 					<ProductCard
+// 						key={product.id}
+// 						product={product}
+// 					/>
+// 				)
+// 			})}
+// 		</main>
+// 	)
+// }
 
-export default ProductList
+export default ProductCard
