@@ -1,6 +1,6 @@
 import CategoryBar from "../CategoryBar"
 import ActionsBar from "../ActionsBar"
-import ProductCard from "../ProductList"
+import ProductCard from "../ProductCard"
 import { useContext } from "react"
 import { ShopContext } from "../../App"
 
@@ -22,7 +22,6 @@ function HomePage() {
 					)
 				})}
 			</main>
-			{/* <ProductList /> */}
 		</>
 	)
 }

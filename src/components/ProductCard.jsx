@@ -1,6 +1,7 @@
 // import { useContext } from "react"
 // import { ShopContext } from "../App"
 import { Link } from "react-router-dom"
+// import { useParams } from "react-router-dom"
 
 import AddCartButton from "./Atoms/AddCartButton"
 import RemoveCartButton from "./Atoms/RemoveCartButton"
@@ -10,7 +11,7 @@ function ProductCard({ product, cardSize }) {
 
 	if (cardSize === "small") {
 		return (
-			<Link to={`/${id}`}>
+			<Link to={`/product/${id}`}>
 				<div
 					className="product-card"
 					data-product-id={id}>
@@ -70,22 +71,5 @@ function ProductCard({ product, cardSize }) {
 		</Link>
 	)
 }
-
-// function ProductList() {
-// 	const { productsToShow } = useContext(ShopContext)
-
-// 	return (
-// 		<main>
-// 			{productsToShow.map((product) => {
-// 				return (
-// 					<ProductCard
-// 						key={product.id}
-// 						product={product}
-// 					/>
-// 				)
-// 			})}
-// 		</main>
-// 	)
-// }
 
 export default ProductCard
