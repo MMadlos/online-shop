@@ -68,4 +68,39 @@ function replaceProductInList(productSelected, productList) {
 	return newProductList
 }
 
-export { mapProductList, capitalizeText, getCategories, filterProductsByCategory, getProductByID, toggleIsProductAddedTo, replaceProductInList }
+function getRandomIntInclusive(min, max) {
+	min = Math.ceil(min)
+	max = Math.floor(max)
+	return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+function getMultipleUniqueRandomInt(length, minNumRange, maxNumRange, excludeNum) {
+	let randomNumbers = []
+
+	for (let i = 0; i < length; i++) {
+		loopRandomNumsUntilFound()
+	}
+
+	function loopRandomNumsUntilFound() {
+		const randomNumber = getRandomIntInclusive(minNumRange, maxNumRange)
+		if (!randomNumbers.includes(randomNumber)) {
+			randomNumbers.push(randomNumber)
+			return
+		}
+		if (randomNumbers.includes(randomNumber) || randomNumber === excludeNum) loopRandomNumsUntilFound()
+	}
+
+	return randomNumbers
+}
+
+export {
+	mapProductList,
+	capitalizeText,
+	getCategories,
+	filterProductsByCategory,
+	getProductByID,
+	toggleIsProductAddedTo,
+	replaceProductInList,
+	getRandomIntInclusive,
+	getMultipleUniqueRandomInt,
+}

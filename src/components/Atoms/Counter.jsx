@@ -27,16 +27,13 @@ function Counter({ context, currentQuantity }) {
 		setQuantity(newQuantity)
 
 		if (context === "cart") {
-			// Detect the product
 			const productID = Number(e.target.closest(".product-card").dataset.productId)
 			const productSelected = getProductByID(productList, productID)
 			productSelected.quantity = newQuantity
 
-			// Change the quantity to CartList
 			const newCartList = replaceProductInList(productSelected, cartList)
 			setCartList(newCartList)
 
-			// Change the quantity to productList
 			const newProductList = replaceProductInList(productSelected, productList)
 			setProductList(newProductList)
 		}

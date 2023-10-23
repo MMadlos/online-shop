@@ -827,3 +827,35 @@ section#cart {
 		}
 	}
 }
+
+/* RECOMMENDATION SECTION */
+
+section.recommendation {
+	--padding-top-bottom: 40px;
+
+	margin-top: 80px;
+	padding: var(--padding-top-bottom) var(--padding-section-laterals);
+	background-color: var(--grey);
+
+	> h2 {
+		font-size: 1.5rem;
+		font-weight: 600;
+		color: var(--accent-purple);
+		margin-bottom: 40px;
+	}
+	.recommendation-container {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+
+		.recommendation-card {
+			background-color: var(--light-grey);
+
+			width: 100%;
+
+			.recommendation-card-details {
+				padding: 16px;
+			}
+		}
+	}
+}
