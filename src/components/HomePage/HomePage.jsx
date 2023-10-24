@@ -1,5 +1,5 @@
 import CategoryBar from "../CategoryBar"
-import ActionsBar from "../ActionsBar"
+import ActionsBar from "./ActionsBar"
 import ProductCard from "../ProductCard"
 import { useContext } from "react"
 import { ShopContext } from "../../App"

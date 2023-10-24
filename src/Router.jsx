@@ -1,12 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import App from "./App.jsx"
 
-import HomePage from "./components/Pages/HomePage.jsx"
-import ProductPage from "./components/Pages/ProductPage.jsx"
-import CartPage from "./components/Pages/CartPage.jsx"
+import HomePage from "./components/HomePage/HomePage.jsx"
+import ProductPage from "./components/ProductPage/ProductPage.jsx"
+import CartPage from "./components/CartPage/CartPage.jsx"
 
-import ErrorProduct from "./components/Pages/ErrorProduct.jsx"
-import ErrorPage from "./components/Pages/ErrorPage.jsx"
+import ErrorProduct from "./components/Error/ErrorProduct.jsx"
+import ErrorPage from "./components/Error/ErrorPage.jsx"
 
 const Router = () => {
 	const router = createBrowserRouter([

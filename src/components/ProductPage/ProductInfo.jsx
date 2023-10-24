@@ -1,11 +1,11 @@
 import { useContext } from "react"
-import { ShopContext } from "../App"
+import { ShopContext } from "../../App"
 import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
 
-import ErrorProduct from "./Pages/ErrorProduct"
-import Counter from "./Atoms/Counter"
-import AddCartButton from "./Atoms/AddCartButton"
+import ErrorProduct from "../Error/ErrorProduct"
+import Counter from "../Atoms/Counter"
+import AddCartButton from "../Atoms/AddCartButton"
 
 function ProductDetails({ productSelected }) {
 	const { id, name, description, price, url, rate, countRates, quantity } = productSelected

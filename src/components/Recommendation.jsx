@@ -8,8 +8,7 @@ function Recommendation() {
 	const { productList } = useContext(ShopContext)
 	const currentProductID = useParams().productID
 
-	const getRandomIDs = getMultipleUniqueRandomInt(4, 0, productList.length, currentProductID)
-
+	const getRandomIDs = getMultipleUniqueRandomInt(4, 1, productList.length - 1, currentProductID)
 	return (
 		<section className="recommendation">
 			<h2>Recommended products</h2>

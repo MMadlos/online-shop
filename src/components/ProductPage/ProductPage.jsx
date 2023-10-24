@@ -1,4 +1,4 @@
-import ProductInfo from "../ProductInfo"
+import ProductInfo from "./ProductInfo"
 import CategoryBar from "../CategoryBar"
 import Recommendation from "../Recommendation"
 

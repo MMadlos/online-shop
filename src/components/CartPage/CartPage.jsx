@@ -1,4 +1,4 @@
-import CartList from "../CartList"
+import CartList from "./CartList"
 import { Link } from "react-router-dom"
 import Recommendation from "../Recommendation"
 
