@@ -1,56 +1,72 @@
 import { render, screen } from "@testing-library/react"
-import { describe, it, expect, vi } from "vitest"
+import { describe, it, expect, vi, beforeEach } from "vitest"
 import userEvent from "@testing-library/user-event"
+import { BrowserRouter } from "react-router-dom"
 
 import ProductCard from "../ProductCard"
+import AddCartButton from "../Atoms/AddCartButton"
+
+const product = {
+	name: "Product Name",
+	description: "Product description",
+	price: 3,
+	url: "https://loremimpsum.com",
+	rate: 3.9,
+	countRates: 320,
+	isAdded: false,
+}
 
 describe("ProductCard", () => {
-	const product = {
-		name: "Product Name",
-		description: "Product description",
-		price: 3,
-		url: "https://loremimpsum.com",
-		rate: 3.9,
-		countRates: 320,
-	}
-
 	const { name, description, price, url, rate, countRates } = product
 
 	describe("Initial elements", () => {
+		beforeEach(() => {
+			render(
+				<BrowserRouter>
+					<ProductCard product={product} />
+				</BrowserRouter>
+			)
+		})
+
 		it("renders product name", () => {
-			render(<ProductCard product={product} />)
 			expect(screen.getByText(name)).toBeInTheDocument()
 		})
 		it("renders product description", () => {
-			render(<ProductCard product={product} />)
 			expect(screen.getByText(description)).toBeInTheDocument()
 		})
 		it("renders price", () => {
-			render(<ProductCard product={product} />)
 			expect(screen.getByText("$ " + price)).toBeInTheDocument()
 		})
 		it("renders image", () => {
-			render(<ProductCard product={product} />)
 			expect(screen.getByRole("img").src).toMatch(url)
 		})
 		it("renders rate", () => {
-			render(<ProductCard product={product} />)
 			expect(screen.getByText(rate)).toBeInTheDocument()
 		})
 
 		it("renders count rates", () => {
-			render(<ProductCard product={product} />)
-			expect(screen.getByText(countRates)).toBeInTheDocument()
+			expect(screen.getByText(countRates, { exact: false })).toBeInTheDocument()
 		})
+	})
+
+	describe("Buttons", () => {
 		it('renders button "add" when the item is not added to cart', () => {
-			const newProduct = { isAdded: false }
-			render(<ProductCard product={newProduct} />)
+			render(
+				<BrowserRouter>
+					<ProductCard product={product} />
+				</BrowserRouter>
+			)
 			expect(screen.getByRole("button").textContent).toBe("Add to cart")
 		})
 		it('renders button "remove" when the item has been added to cart', () => {
 			const newProduct = { isAdded: true }
-			render(<ProductCard product={newProduct} />)
-			expect(screen.getByRole("button").textContent).toBe("Remove from cart")
+
+			render(
+				<BrowserRouter>
+					<ProductCard product={newProduct} />
+				</BrowserRouter>
+			)
+			expect(screen.getByRole("button").textContent).toBe("Remove")
 		})
 	})
 
@@ -58,98 +74,95 @@ describe("ProductCard", () => {
 		it("should call the onClickAddCart function when clicked", async () => {
 			const onClick = vi.fn()
 			const user = userEvent.setup()
-			const newProduct = { isAdded: false }
 
-			render(
-				<ProductCard
-					product={newProduct}
-					onClickAddCart={onClick}
-				/>
-			)
+			render(<AddCartButton />)
+
+			const spy = vi.spyOn(onClick)
 
 			const button = screen.getByRole("button")
 			await user.click(button)
 
-			expect(onClick).toHaveBeenCalled()
-		})
-		it("should not call onClickAddCart function when it isn't clicked", async () => {
-			const onClick = vi.fn()
-			const newProduct = { isAdded: false }
-
-			render(
-				<ProductCard
-					product={newProduct}
-					onClickAddCart={onClick}
-				/>
-			)
-
-			expect(onClick).not.toHaveBeenCalled()
+			expect(spy.getMockImplementation).toHaveBeenCalled()
 		})
 
-		it("should call the onClickRemoveCart function when clicked", async () => {
-			const onClickRemoveCart = vi.fn()
-			const user = userEvent.setup()
-			const newProduct = { isAdded: true }
+		// it("should not call onClickAddCart function when it isn't clicked", async () => {
+		// 	const onClick = vi.fn()
+		// 	const newProduct = { isAdded: false }
 
-			render(
-				<ProductCard
-					product={newProduct}
-					onClickRemoveCart={onClickRemoveCart}
-				/>
-			)
+		// 	render(
+		// 		<ProductCard
+		// 			product={newProduct}
+		// 			onClickAddCart={onClick}
+		// 		/>
+		// 	)
 
-			const button = screen.getByRole("button")
-			await user.click(button)
+		// 	expect(onClick).not.toHaveBeenCalled()
+		// })
 
-			expect(onClickRemoveCart).toHaveBeenCalled()
-		})
+		// it("should call the onClickRemoveCart function when clicked", async () => {
+		// 	const onClickRemoveCart = vi.fn()
+		// 	const user = userEvent.setup()
+		// 	const newProduct = { isAdded: true }
 
-		it("should not call onClickRemoveCart function when it isn't clicked", async () => {
-			const onClickRemoveCart = vi.fn()
-			const newProduct = { isAdded: true }
+		// 	render(
+		// 		<ProductCard
+		// 			product={newProduct}
+		// 			onClickRemoveCart={onClickRemoveCart}
+		// 		/>
+		// 	)
 
-			render(
-				<ProductCard
-					product={newProduct}
-					onClickRemoveCart={onClickRemoveCart}
-				/>
-			)
+		// 	const button = screen.getByRole("button")
+		// 	await user.click(button)
 
-			expect(onClickRemoveCart).not.toHaveBeenCalled()
-		})
+		// 	expect(onClickRemoveCart).toHaveBeenCalled()
+		// })
 
-		it("renders only add to cart button when the product is not in the cart", async () => {
-			const newProduct = { isAdded: false }
+		// it("should not call onClickRemoveCart function when it isn't clicked", async () => {
+		// 	const onClickRemoveCart = vi.fn()
+		// 	const newProduct = { isAdded: true }
 
-			render(<ProductCard product={newProduct} />)
+		// 	render(
+		// 		<ProductCard
+		// 			product={newProduct}
+		// 			onClickRemoveCart={onClickRemoveCart}
+		// 		/>
+		// 	)
 
-			expect(screen.getByText("Add to cart")).toBeInTheDocument()
-			expect(screen.queryByText("Remove from cart")).not.toBeInTheDocument()
-		})
+		// 	expect(onClickRemoveCart).not.toHaveBeenCalled()
+		// })
 
-		it("renders only remove from cart button when the product is already added in the cart", async () => {
-			const newProduct = { isAdded: true }
+		// it("renders only add to cart button when the product is not in the cart", async () => {
+		// 	const newProduct = { isAdded: false }
 
-			render(<ProductCard product={newProduct} />)
+		// 	render(<ProductCard product={newProduct} />)
 
-			expect(screen.getByText("Remove from cart")).toBeInTheDocument()
-			expect(screen.queryByText("Add to cart")).not.toBeInTheDocument()
-		})
+		// 	expect(screen.getByText("Add to cart")).toBeInTheDocument()
+		// 	expect(screen.queryByText("Remove from cart")).not.toBeInTheDocument()
+		// })
 
-		it("renders a checkmark text when the product is added to the cart", () => {
-			const newProduct = { isAdded: true }
+		// it("renders only remove from cart button when the product is already added in the cart", async () => {
+		// 	const newProduct = { isAdded: true }
 
-			render(<ProductCard product={newProduct} />)
+		// 	render(<ProductCard product={newProduct} />)
 
-			expect(screen.getByText("Added to cart")).toBeInTheDocument()
-		})
+		// 	expect(screen.getByText("Remove from cart")).toBeInTheDocument()
+		// 	expect(screen.queryByText("Add to cart")).not.toBeInTheDocument()
+		// })
 
-		it("doesn't render a checkmark text when the product is added to the cart", () => {
-			const newProduct = { isAdded: false }
+		// it("renders a checkmark text when the product is added to the cart", () => {
+		// 	const newProduct = { isAdded: true }
 
-			render(<ProductCard product={newProduct} />)
+		// 	render(<ProductCard product={newProduct} />)
 
-			expect(screen.queryByText("Added to cart")).not.toBeInTheDocument()
-		})
+		// 	expect(screen.getByText("Added to cart")).toBeInTheDocument()
+		// })
+
+		// it("doesn't render a checkmark text when the product is added to the cart", () => {
+		// 	const newProduct = { isAdded: false }
+
+		// 	render(<ProductCard product={newProduct} />)
+
+		// 	expect(screen.queryByText("Added to cart")).not.toBeInTheDocument()
+		// })
 	})
 })

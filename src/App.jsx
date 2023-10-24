@@ -54,7 +54,6 @@ function App() {
 		e.stopPropagation()
 
 		const getSection = e.target.closest(".product-card") || e.target.closest(".product-details-container")
-		console.log(getSection)
 
 		const getClass = getSection.classList.value
 		const { dataset } = getSection
