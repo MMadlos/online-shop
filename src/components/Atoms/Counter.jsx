@@ -4,13 +4,6 @@ import { getProductByID } from "../../utilities/utilities"
 import { replaceProductInList } from "../../utilities/utilities"
 
 function Counter({ context, currentQuantity }) {
-	// TODO - If counter is in ProductPage, minimum quantity is "1"
-	// TODO - IF counter is in Cart, when counter is 0, it deletes the product from the Cart List
-
-	// TODO - quantity es diferente en la página de producto que en Cart.
-	// -> En ProductPage() es del >= 1 independientemente de la cantidad que haya en el carrito
-	// -> En CartPage() es = a la cantidad que haya en el carrito.
-
 	const { productList, setProductList, cartList, setCartList } = useContext(ShopContext)
 
 	const initialQuantity = context === "product" ? 1 : currentQuantity
