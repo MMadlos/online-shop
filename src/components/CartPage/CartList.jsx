@@ -3,10 +3,9 @@ import { useContext } from "react"
 import { ShopContext } from "../../App"
 
 import Counter from "../Atoms/Counter"
+import RemoveCartButton from "../Atoms/RemoveCartButton"
 
 function CartProduct({ product }) {
-	const { handleClickRemoveCart } = useContext(ShopContext)
-
 	const { id, name, price, url, quantity, description } = product
 
 	return (
@@ -35,11 +34,7 @@ function CartProduct({ product }) {
 						context="cart"
 						currentQuantity={quantity}
 					/>
-					<button
-						id="remove-cart"
-						onClick={handleClickRemoveCart}>
-						Remove
-					</button>
+					<RemoveCartButton />
 				</div>
 			</div>
 		</Link>

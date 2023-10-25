@@ -1,0 +1,235 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`HomePage > Renders ProductList() 1`] = `
+<div>
+  <main>
+    <a
+      href="/product/0"
+    >
+      <div
+        class="product-card"
+        data-product-id="0"
+      >
+        <img
+          alt="#"
+        />
+        <div
+          class="product-info"
+        >
+          <div
+            class="product-info-container"
+          >
+            <h2
+              id="name"
+            >
+              firstTest
+            </h2>
+            <div
+              class="rate-container"
+            >
+              <i
+                class="fa-solid fa-star"
+              />
+              <p
+                id="rate"
+              />
+              <p
+                id="count-rates"
+              >
+                (
+                )
+              </p>
+            </div>
+            <p
+              id="description"
+            />
+            <p
+              id="price"
+            >
+              $ undefined
+            </p>
+          </div>
+          <button
+            data-context="card"
+            id="add-cart"
+          >
+            Add to cart
+          </button>
+        </div>
+      </div>
+    </a>
+    <a
+      href="/product/1"
+    >
+      <div
+        class="product-card"
+        data-product-id="1"
+      >
+        <img
+          alt="#"
+        />
+        <div
+          class="product-info"
+        >
+          <div
+            class="product-info-container"
+          >
+            <h2
+              id="name"
+            >
+              secondTest
+            </h2>
+            <div
+              class="rate-container"
+            >
+              <i
+                class="fa-solid fa-star"
+              />
+              <p
+                id="rate"
+              />
+              <p
+                id="count-rates"
+              >
+                (
+                )
+              </p>
+            </div>
+            <p
+              id="description"
+            />
+            <p
+              id="price"
+            >
+              $ undefined
+            </p>
+          </div>
+          <button
+            data-context="card"
+            id="add-cart"
+          >
+            Add to cart
+          </button>
+        </div>
+      </div>
+    </a>
+  </main>
+</div>
+`;
+
+exports[`HomePage > Renders products 1`] = `
+<div>
+  <main>
+    <a
+      href="/product/0"
+    >
+      <div
+        class="product-card"
+        data-product-id="0"
+      >
+        <img
+          alt="#"
+        />
+        <div
+          class="product-info"
+        >
+          <div
+            class="product-info-container"
+          >
+            <h2
+              id="name"
+            >
+              firstTest
+            </h2>
+            <div
+              class="rate-container"
+            >
+              <i
+                class="fa-solid fa-star"
+              />
+              <p
+                id="rate"
+              />
+              <p
+                id="count-rates"
+              >
+                (
+                )
+              </p>
+            </div>
+            <p
+              id="description"
+            />
+            <p
+              id="price"
+            >
+              $ undefined
+            </p>
+          </div>
+          <button
+            data-context="card"
+            id="add-cart"
+          >
+            Add to cart
+          </button>
+        </div>
+      </div>
+    </a>
+    <a
+      href="/product/1"
+    >
+      <div
+        class="product-card"
+        data-product-id="1"
+      >
+        <img
+          alt="#"
+        />
+        <div
+          class="product-info"
+        >
+          <div
+            class="product-info-container"
+          >
+            <h2
+              id="name"
+            >
+              secondTest
+            </h2>
+            <div
+              class="rate-container"
+            >
+              <i
+                class="fa-solid fa-star"
+              />
+              <p
+                id="rate"
+              />
+              <p
+                id="count-rates"
+              >
+                (
+                )
+              </p>
+            </div>
+            <p
+              id="description"
+            />
+            <p
+              id="price"
+            >
+              $ undefined
+            </p>
+          </div>
+          <button
+            data-context="card"
+            id="add-cart"
+          >
+            Add to cart
+          </button>
+        </div>
+      </div>
+    </a>
+  </main>
+</div>
+`;
