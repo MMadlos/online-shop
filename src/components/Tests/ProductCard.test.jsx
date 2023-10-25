@@ -52,6 +52,32 @@ describe("ProductCard", () => {
 	})
 
 	describe("Buttons", () => {
+		it("renders buttons when the card is not small", () => {
+			render(
+				<BrowserRouter>
+					<ProductCard
+						product={product}
+						cardSize=""
+					/>
+				</BrowserRouter>
+			)
+
+			expect(screen.getByRole("button")).toBeInTheDocument()
+		})
+
+		it("doesn't render buttons when the call is small", () => {
+			render(
+				<BrowserRouter>
+					<ProductCard
+						product={product}
+						cardSize={"small"}
+					/>
+				</BrowserRouter>
+			)
+
+			expect(screen.queryByRole("button")).not.toBeInTheDocument()
+		})
+
 		it('renders button "add" when the item is not added to cart', () => {
 			render(
 				<BrowserRouter>
