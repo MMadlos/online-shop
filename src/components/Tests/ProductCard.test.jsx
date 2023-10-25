@@ -2,9 +2,11 @@ import { render, screen } from "@testing-library/react"
 import { describe, it, expect, vi, beforeEach } from "vitest"
 import userEvent from "@testing-library/user-event"
 import { BrowserRouter } from "react-router-dom"
+import { ShopContext } from "../../App"
 
 import ProductCard from "../ProductCard"
 import AddCartButton from "../Atoms/AddCartButton"
+import RemoveCartButton from "../Atoms/RemoveCartButton"
 
 const product = {
 	name: "Product Name",
@@ -70,99 +72,67 @@ describe("ProductCard", () => {
 		})
 	})
 
-	describe("Actions and dynamic elements", () => {
-		it("should call the onClickAddCart function when clicked", async () => {
+	describe("Click buttons", () => {
+		it("calls onClick function when AddCartButton is clicked ", async () => {
 			const onClick = vi.fn()
+			const handleClick = { handleClickAddCart: onClick }
+
 			const user = userEvent.setup()
 
-			render(<AddCartButton />)
-
-			const spy = vi.spyOn(onClick)
+			render(
+				<ShopContext.Provider value={handleClick}>
+					<AddCartButton />
+				</ShopContext.Provider>
+			)
 
 			const button = screen.getByRole("button")
 			await user.click(button)
 
-			expect(spy.getMockImplementation).toHaveBeenCalled()
+			expect(onClick).toHaveBeenCalled()
 		})
 
-		// it("should not call onClickAddCart function when it isn't clicked", async () => {
-		// 	const onClick = vi.fn()
-		// 	const newProduct = { isAdded: false }
+		it("doesn't call onClick function when AddCartButton isn't clicked", async () => {
+			const onClick = vi.fn()
+			const handleClick = { handleClickAddCart: onClick }
 
-		// 	render(
-		// 		<ProductCard
-		// 			product={newProduct}
-		// 			onClickAddCart={onClick}
-		// 		/>
-		// 	)
+			render(
+				<ShopContext.Provider value={handleClick}>
+					<AddCartButton />
+				</ShopContext.Provider>
+			)
 
-		// 	expect(onClick).not.toHaveBeenCalled()
-		// })
+			expect(onClick).not.toHaveBeenCalled()
+		})
 
-		// it("should call the onClickRemoveCart function when clicked", async () => {
-		// 	const onClickRemoveCart = vi.fn()
-		// 	const user = userEvent.setup()
-		// 	const newProduct = { isAdded: true }
+		it("calls onClick function when RemoveCartButton() is clicked ", async () => {
+			const onClick = vi.fn()
+			const handleClick = { handleClickRemoveCart: onClick }
 
-		// 	render(
-		// 		<ProductCard
-		// 			product={newProduct}
-		// 			onClickRemoveCart={onClickRemoveCart}
-		// 		/>
-		// 	)
+			const user = userEvent.setup()
 
-		// 	const button = screen.getByRole("button")
-		// 	await user.click(button)
+			render(
+				<ShopContext.Provider value={handleClick}>
+					<RemoveCartButton />
+				</ShopContext.Provider>
+			)
 
-		// 	expect(onClickRemoveCart).toHaveBeenCalled()
-		// })
+			const button = screen.getByRole("button")
+			await user.click(button)
 
-		// it("should not call onClickRemoveCart function when it isn't clicked", async () => {
-		// 	const onClickRemoveCart = vi.fn()
-		// 	const newProduct = { isAdded: true }
+			expect(onClick).toHaveBeenCalled()
+		})
 
-		// 	render(
-		// 		<ProductCard
-		// 			product={newProduct}
-		// 			onClickRemoveCart={onClickRemoveCart}
-		// 		/>
-		// 	)
+		it("doesn't call onClick function when RemoveCartButton() isn't clicked", async () => {
+			const onClick = vi.fn()
+			const handleClick = { handleClickRemoveCart: onClick }
 
-		// 	expect(onClickRemoveCart).not.toHaveBeenCalled()
-		// })
+			render(
+				<ShopContext.Provider value={handleClick}>
+					<RemoveCartButton />
+				</ShopContext.Provider>
+			)
 
-		// it("renders only add to cart button when the product is not in the cart", async () => {
-		// 	const newProduct = { isAdded: false }
-
-		// 	render(<ProductCard product={newProduct} />)
-
-		// 	expect(screen.getByText("Add to cart")).toBeInTheDocument()
-		// 	expect(screen.queryByText("Remove from cart")).not.toBeInTheDocument()
-		// })
-
-		// it("renders only remove from cart button when the product is already added in the cart", async () => {
-		// 	const newProduct = { isAdded: true }
-
-		// 	render(<ProductCard product={newProduct} />)
-
-		// 	expect(screen.getByText("Remove from cart")).toBeInTheDocument()
-		// 	expect(screen.queryByText("Add to cart")).not.toBeInTheDocument()
-		// })
-
-		// it("renders a checkmark text when the product is added to the cart", () => {
-		// 	const newProduct = { isAdded: true }
-
-		// 	render(<ProductCard product={newProduct} />)
-
-		// 	expect(screen.getByText("Added to cart")).toBeInTheDocument()
-		// })
-
-		// it("doesn't render a checkmark text when the product is added to the cart", () => {
-		// 	const newProduct = { isAdded: false }
-
-		// 	render(<ProductCard product={newProduct} />)
-
-		// 	expect(screen.queryByText("Added to cart")).not.toBeInTheDocument()
-		// })
+			expect(onClick).not.toHaveBeenCalled()
+		})
 	})
 })
