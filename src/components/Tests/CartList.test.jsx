@@ -20,7 +20,7 @@ describe("CartList()", () => {
 			expect(screen.getByRole("heading").textContent).toMatch(/your cart is empty/i)
 		})
 
-		it("renders product if cart is not empty", () => {
+		it("renders product list if cart is not empty", () => {
 			const testValue = {
 				cartList: [
 					{
@@ -46,6 +46,32 @@ describe("CartList()", () => {
 			expect(screen.getByText("secondProduct")).toBeInTheDocument()
 			expect(screen.getByText("Checkout")).toBeInTheDocument()
 			expect(screen.getByText(/total amount/i)).toBeInTheDocument()
+			expect(screen.getByText(/checkout/i)).toBeInTheDocument()
+		})
+
+		it("renders total amount to pay", () => {
+			const testValue = {
+				cartList: [
+					{
+						quantity: 2,
+						price: 8,
+					},
+					{
+						quantity: 1,
+						price: 4,
+					},
+				],
+			}
+
+			render(
+				<ShopContext.Provider value={testValue}>
+					<BrowserRouter>
+						<CartList />
+					</BrowserRouter>
+				</ShopContext.Provider>
+			)
+
+			expect(screen.getByText(/20/i)).toBeInTheDocument()
 		})
 	})
 })
