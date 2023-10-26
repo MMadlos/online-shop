@@ -42,8 +42,6 @@ describe("ProductDetails()", () => {
 		it("renders quantity = 1", () => {
 			expect(screen.getByText(/1/i)).toBeInTheDocument()
 			expect(screen.queryByText(/5/i)).not.toBeInTheDocument()
-
-			screen.debug()
 		})
 
 		it("renders all buttons", () => {

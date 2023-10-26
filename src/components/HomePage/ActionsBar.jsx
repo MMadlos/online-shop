@@ -1,9 +1,9 @@
 import { useContext } from "react"
-import { ShopContext } from "../../App"
+import { SearchAndSortContext } from "../../App"
 import Dropdown from "../Atoms/Dropdown"
 
 function ActionsBar() {
-	const { handleChangeSearch, isProductFound, sort, setSort } = useContext(ShopContext)
+	const { handleChangeSearch, isProductFound, sort, setSort } = useContext(SearchAndSortContext)
 	const { item, group } = sort
 
 	return (

@@ -13,22 +13,26 @@ export const ShopContext = createContext({
 	cartList: [],
 	setCartList: () => {},
 	productsToShow: [],
-	isProductFound: true,
-	sort: {},
-	setSort: () => {},
 	categoryList: [],
 
 	handleClickCategory: () => {},
 	handleClickAddCart: () => {},
 	handleClickRemoveCart: () => {},
-	handleChangeSearch: () => {},
+})
+
+export const SearchAndSortContext = createContext({
+	sort: {},
+	isProductFound: true,
+
+	setSort: () => {},
 	handleClickSort: () => {},
+	handleChangeSearch: () => {},
 })
 
 function App() {
-	const mappedProducts = mapProductList(mockProducts)
+	const [productList, setProductList] = useState([])
+	// const [error, setError] = useState(null)
 
-	const [productList, setProductList] = useState(mappedProducts)
 	const categoryList = ["All categories", ...getCategories(productList)]
 
 	const [selectedCategory, setSelectedCategory] = useState("Men's clothing")
@@ -41,6 +45,16 @@ function App() {
 		group: "Default",
 		item: "Default",
 	})
+
+	useEffect(() => {
+		fetch("https://fakestoreapi.com/products", { mode: "cors" })
+			.then((res) => res.json())
+			.then((json) => {
+				const mappedProducts = mapProductList(json)
+				setProductList(mappedProducts)
+			})
+			.catch((error) => console.error(error))
+	}, [])
 
 	useEffect(() => {
 		const filteredProducts = filterProductsByCategory(productList, selectedCategory)
@@ -185,18 +199,16 @@ function App() {
 					cartList,
 					productsToShow,
 					isProductFound,
-					sort,
-					setSort,
 					setProductList,
 					setCartList,
 
 					handleClickCategory,
 					handleClickAddCart,
 					handleClickRemoveCart,
-					handleChangeSearch,
-					handleClickSort,
 				}}>
-				<Outlet />
+				<SearchAndSortContext.Provider value={{ sort, isProductFound, setSort, handleChangeSearch, handleClickSort }}>
+					<Outlet />
+				</SearchAndSortContext.Provider>
 			</ShopContext.Provider>
 			{/* <footer>
 				<p>Created by M.Madlos</p>

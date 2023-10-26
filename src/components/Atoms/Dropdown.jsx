@@ -1,5 +1,5 @@
 import { Fragment, useState } from "react"
-import { ShopContext } from "../../App"
+import { SearchAndSortContext } from "../../App"
 import { useContext } from "react"
 
 const sortItems = [
@@ -19,7 +19,7 @@ const sortItems = [
 
 function Dropdown() {
 	const [isOpen, setIsOpen] = useState(false)
-	const { sort, handleClickSort } = useContext(ShopContext)
+	const { sort, handleClickSort } = useContext(SearchAndSortContext)
 
 	const stylesIfOpen = isOpen ? "dropdown selected" : "dropdown"
 
