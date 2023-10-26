@@ -1,12 +1,13 @@
 import "./App.css"
 import { Outlet } from "react-router-dom"
 import { createContext, useEffect, useState } from "react"
-import { mockProducts } from "./consts/mockProducts"
 import { mapProductList, filterProductsByCategory, getProductByID, toggleIsProductAddedTo, getCategories, replaceProductInList } from "./utilities/utilities"
 
 import Header from "./components/Header"
 
 export const ShopContext = createContext({
+	error: null,
+	loading: true,
 	productList: [],
 	setProductList: () => {},
 	selectedCategory: "Men's clothing",
@@ -31,7 +32,8 @@ export const SearchAndSortContext = createContext({
 
 function App() {
 	const [productList, setProductList] = useState([])
-	// const [error, setError] = useState(null)
+	const [error, setError] = useState(null)
+	const [loading, setLoading] = useState(true)
 
 	const categoryList = ["All categories", ...getCategories(productList)]
 
@@ -48,12 +50,19 @@ function App() {
 
 	useEffect(() => {
 		fetch("https://fakestoreapi.com/products", { mode: "cors" })
-			.then((res) => res.json())
+			.then((res) => {
+				if (res.status >= 400) {
+					throw new Error("server error")
+				}
+
+				return res.json()
+			})
 			.then((json) => {
 				const mappedProducts = mapProductList(json)
 				setProductList(mappedProducts)
 			})
-			.catch((error) => console.error(error))
+			.catch((error) => setError(error))
+			.finally(() => setLoading(false))
 	}, [])
 
 	useEffect(() => {
@@ -193,6 +202,8 @@ function App() {
 
 			<ShopContext.Provider
 				value={{
+					error,
+					loading,
 					productList,
 					categoryList,
 					selectedCategory,
