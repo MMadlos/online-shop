@@ -93,6 +93,56 @@ function getMultipleUniqueRandomInt(length, minNumRange, maxNumRange, excludeNum
 	return randomNumbers
 }
 
+function getSortType(object) {
+	const { group, item } = object
+
+	const isDefault = group === "Default"
+	const isAlph = group === "Alphabetically"
+	const isPrice = group === "By price"
+	const isRate = group === "By rate"
+
+	const isAtoZ = item === "A to Z"
+	const isZtoA = item === "Z to A"
+	const isHighestFirst = item === "Highest first"
+	const isLowestFirst = item === "Lowest first"
+
+	return { isDefault, isAlph, isPrice, isRate, isAtoZ, isZtoA, isHighestFirst, isLowestFirst }
+}
+
+function sortProducts(
+	product,
+	sortType = {
+		group: "Default",
+		item: "Default",
+	}
+) {
+	const { isDefault, isAlph, isPrice, isRate, isAtoZ, isZtoA, isHighestFirst, isLowestFirst } = getSortType(sortType)
+
+	if (isDefault) return product.toSorted((a, b) => a.id - b.id)
+	if (isPrice && isLowestFirst) return product.toSorted((a, b) => a.price - b.price)
+	if (isPrice && isHighestFirst) return product.toSorted((a, b) => b.price - a.price)
+	if (isAlph && isAtoZ) {
+		return product.toSorted((a, b) => {
+			const nameA = a.name.toUpperCase()
+			const nameB = b.name.toUpperCase()
+			if (nameA < nameB) return -1
+			if (nameA > nameB) return 1
+			return 0
+		})
+	}
+	if (isAlph && isZtoA) {
+		return product.toSorted((a, b) => {
+			const nameA = a.name.toUpperCase()
+			const nameB = b.name.toUpperCase()
+			if (nameA > nameB) return -1
+			if (nameA < nameB) return 1
+			return 0
+		})
+	}
+	if (isRate && isLowestFirst) return product.toSorted((a, b) => a.rate - b.rate)
+	if (isRate && isHighestFirst) return product.toSorted((a, b) => b.rate - a.rate)
+}
+
 export {
 	mapProductList,
 	capitalizeText,
@@ -103,4 +153,5 @@ export {
 	replaceProductInList,
 	getRandomIntInclusive,
 	getMultipleUniqueRandomInt,
+	sortProducts,
 }
