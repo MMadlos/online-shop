@@ -29,7 +29,6 @@ export const SearchAndSortContext = createContext({
 	isProductFound: true,
 
 	setSort: () => {},
-	handleClickSort: () => {},
 	handleChangeSearch: () => {},
 })
 
@@ -125,13 +124,6 @@ function App() {
 		setProductsToShow(productsFound.length === 0 ? filteredProducts : productsFound)
 	}
 
-	function handleClickSort(e) {
-		const { groupName } = e.target.dataset
-		const itemName = e.target.textContent
-		const selectedItem = { group: groupName, item: itemName }
-		setSort(selectedItem)
-	}
-
 	return (
 		<>
 			<Header cartQuantity={cartList.length} />
@@ -152,7 +144,7 @@ function App() {
 					handleClickAddCart,
 					handleClickRemoveCart,
 				}}>
-				<SearchAndSortContext.Provider value={{ sort, isProductFound, setSort, handleChangeSearch, handleClickSort }}>
+				<SearchAndSortContext.Provider value={{ sort, isProductFound, setSort, handleChangeSearch }}>
 					<Outlet />
 				</SearchAndSortContext.Provider>
 			</ShopContext.Provider>

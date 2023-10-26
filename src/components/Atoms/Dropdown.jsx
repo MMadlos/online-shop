@@ -19,13 +19,20 @@ const sortItems = [
 
 function Dropdown() {
 	const [isOpen, setIsOpen] = useState(false)
-	const { sort, handleClickSort } = useContext(SearchAndSortContext)
+	const { sort, setSort } = useContext(SearchAndSortContext)
 
 	const stylesIfOpen = isOpen ? "dropdown selected" : "dropdown"
 
 	function handleClickItem(e) {
 		setIsOpen(!isOpen)
 		handleClickSort(e)
+	}
+
+	function handleClickSort(e) {
+		const { groupName } = e.target.dataset
+		const itemName = e.target.textContent
+		const selectedItem = { group: groupName, item: itemName }
+		setSort(selectedItem)
 	}
 
 	function checkIfSelected(group, item) {
@@ -42,7 +49,7 @@ function Dropdown() {
 			</button>
 
 			{isOpen && (
-				<Menu>
+				<div className="dropdown-menu">
 					<MenuItem
 						text="Default"
 						groupName="Default"
@@ -70,14 +77,10 @@ function Dropdown() {
 							</Fragment>
 						)
 					})}
-				</Menu>
+				</div>
 			)}
 		</div>
 	)
-}
-
-function Menu({ children }) {
-	return <div className="dropdown-menu">{children}</div>
 }
 
 function MenuItem({ text, isSelected = false, onClick, groupName }) {
