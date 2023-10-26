@@ -83,11 +83,12 @@ function getMultipleUniqueRandomInt(length, minNumRange, maxNumRange, excludeNum
 
 	function loopRandomNumsUntilFound() {
 		const randomNumber = getRandomIntInclusive(minNumRange, maxNumRange)
-		if (!randomNumbers.includes(randomNumber)) {
-			randomNumbers.push(randomNumber)
-			return
+
+		if (randomNumbers.includes(randomNumber) || randomNumber === excludeNum) {
+			return loopRandomNumsUntilFound()
+		} else {
+			return randomNumbers.push(randomNumber)
 		}
-		if (randomNumbers.includes(randomNumber) || randomNumber === excludeNum) loopRandomNumsUntilFound()
 	}
 
 	return randomNumbers

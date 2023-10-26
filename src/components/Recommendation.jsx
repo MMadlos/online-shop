@@ -10,10 +10,16 @@ function Recommendation() {
 
 	const [randomIDs, setRandomIDs] = useState([])
 
+	// TODO - Check why I can't access directly to /product/:id. It appears an error page because "productList" is empty. It also happens if I go to /cart directly.
+	// console.log(productList) -> []
+	// If I access through the main page, it renders correctly.
+
 	useEffect(() => {
-		const getRandomIDs = getMultipleUniqueRandomInt(4, 1, productList.length - 1, currentProductID)
+		const maxNum = productList.length === 0 ? 20 : productList.length - 1
+		const currentID = currentProductID ? currentProductID : 0
+		const getRandomIDs = getMultipleUniqueRandomInt(4, 1, maxNum, currentID)
 		setRandomIDs(getRandomIDs)
-	}, [currentProductID, productList.length])
+	}, [])
 
 	return (
 		<section className="recommendation">
