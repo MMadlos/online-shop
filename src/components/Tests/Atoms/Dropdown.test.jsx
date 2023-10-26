@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react"
 import { describe, it, expect } from "vitest"
 import userEvent from "@testing-library/user-event"
 
-import Dropdown from "../Atoms/Dropdown"
+import Dropdown from "../../Atoms/Dropdown"
 
 const sortItems = [
 	{
