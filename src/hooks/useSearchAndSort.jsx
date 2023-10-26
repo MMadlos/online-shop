@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { sortProducts } from "../utilities/utilities"
 
-const useDisplayAndSort = () => {
+const useSearchAndSort = () => {
 	const [productsToShow, setProductsToShow] = useState([])
 	const [sort, setSort] = useState({
 		group: "Default",
@@ -17,4 +17,4 @@ const useDisplayAndSort = () => {
 	return { sort, setSort, productsToShow, setProductsToShow }
 }
 
-export default useDisplayAndSort
+export default useSearchAndSort

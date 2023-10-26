@@ -3,9 +3,13 @@ import { Link } from "react-router-dom"
 
 import { useContext } from "react"
 import { ShopContext } from "../App"
+import { getCategories } from "../utilities/utilities"
 
 function CategoryBar() {
-	const { categoryList, handleClickCategory, selectedCategory } = useContext(ShopContext)
+	const { productList, selectedCategory, setSelectedCategory } = useContext(ShopContext)
+
+	const categoryList = ["All categories", ...getCategories(productList)]
+	const handleClickCategory = (e) => setSelectedCategory(e.target.textContent)
 
 	return (
 		<div className="category-container">

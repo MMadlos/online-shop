@@ -1,10 +1,10 @@
 import "./App.css"
 import { Outlet } from "react-router-dom"
 import { createContext, useEffect, useState } from "react"
-import { filterProductsByCategory, getProductByID, toggleIsProductAddedTo, replaceProductInList, getCategories } from "./utilities/utilities"
+import { filterProductsByCategory, getProductByID, toggleIsProductAddedTo, replaceProductInList } from "./utilities/utilities"
 
 import useFetchProducts from "./hooks/useFetchProducts"
-import useDisplayAndSort from "./hooks/useDisplayndSort"
+import useSearchAndSort from "./hooks/useSearchAndSort"
 
 import Header from "./components/Header"
 
@@ -14,12 +14,11 @@ export const ShopContext = createContext({
 	productList: [],
 	setProductList: () => {},
 	selectedCategory: "Men's clothing",
+	setSelectedCategory: () => {},
 	cartList: [],
 	setCartList: () => {},
 	productsToShow: [],
-	categoryList: [],
 
-	handleClickCategory: () => {},
 	handleClickAddCart: () => {},
 	handleClickRemoveCart: () => {},
 })
@@ -29,25 +28,23 @@ export const SearchAndSortContext = createContext({
 	isProductFound: true,
 
 	setSort: () => {},
+	setIsProductFound: () => {},
 	handleChangeSearch: () => {},
 })
 
 function App() {
 	const { productList, setProductList, error, loading } = useFetchProducts()
-
-	const categoryList = ["All categories", ...getCategories(productList)]
 	const [selectedCategory, setSelectedCategory] = useState("Men's clothing")
-	const { sort, setSort, productsToShow, setProductsToShow } = useDisplayAndSort()
+
+	const { sort, setSort, productsToShow, setProductsToShow } = useSearchAndSort()
+	const [isProductFound, setIsProductFound] = useState(true)
 
 	const [cartList, setCartList] = useState([])
-	const [isProductFound, setIsProductFound] = useState(true)
 
 	useEffect(() => {
 		const filteredProducts = filterProductsByCategory(productList, selectedCategory)
 		setProductsToShow(filteredProducts)
 	}, [productList, selectedCategory])
-
-	const handleClickCategory = (e) => setSelectedCategory(e.target.textContent)
 
 	function handleClickAddCart(e) {
 		e.preventDefault()
@@ -133,14 +130,13 @@ function App() {
 					error,
 					loading,
 					productList,
-					categoryList,
 					selectedCategory,
 					cartList,
 					productsToShow,
 					setProductList,
 					setCartList,
+					setSelectedCategory,
 
-					handleClickCategory,
 					handleClickAddCart,
 					handleClickRemoveCart,
 				}}>
