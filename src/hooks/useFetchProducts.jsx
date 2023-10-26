@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { useEffect } from "react"
-import { mapProductList } from "./utilities"
-import { getCategories } from "./utilities"
+import { mapProductList } from "../utilities/utilities"
 
 const useFetchProducts = () => {
 	const [productList, setProductList] = useState([])
@@ -25,9 +24,7 @@ const useFetchProducts = () => {
 			.finally(() => setLoading(false))
 	}, [])
 
-	const categoryList = ["All categories", ...getCategories(productList)]
-
-	return { productList, setProductList, error, loading, categoryList }
+	return { productList, setProductList, error, loading }
 }
 
 export default useFetchProducts

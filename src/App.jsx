@@ -1,9 +1,10 @@
 import "./App.css"
 import { Outlet } from "react-router-dom"
 import { createContext, useEffect, useState } from "react"
-import { filterProductsByCategory, getProductByID, toggleIsProductAddedTo, getCategories, replaceProductInList } from "./utilities/utilities"
+import { filterProductsByCategory, getProductByID, toggleIsProductAddedTo, replaceProductInList, getCategories } from "./utilities/utilities"
 
-import useFetchProducts from "./utilities/custom-hook"
+import useFetchProducts from "./hooks/useFetchProducts"
+import useDisplayAndSort from "./hooks/useDisplayndSort"
 
 import Header from "./components/Header"
 
@@ -33,20 +34,14 @@ export const SearchAndSortContext = createContext({
 })
 
 function App() {
-	const { productList, setProductList, error, loading, categoryList } = useFetchProducts()
+	const { productList, setProductList, error, loading } = useFetchProducts()
 
-	// const categoryList = ["All categories", ...getCategories(productList)]
-
+	const categoryList = ["All categories", ...getCategories(productList)]
 	const [selectedCategory, setSelectedCategory] = useState("Men's clothing")
+	const { sort, setSort, productsToShow, setProductsToShow } = useDisplayAndSort()
 
 	const [cartList, setCartList] = useState([])
-
-	const [productsToShow, setProductsToShow] = useState([])
 	const [isProductFound, setIsProductFound] = useState(true)
-	const [sort, setSort] = useState({
-		group: "Default",
-		item: "Default",
-	})
 
 	useEffect(() => {
 		const filteredProducts = filterProductsByCategory(productList, selectedCategory)
@@ -137,48 +132,6 @@ function App() {
 		setSort(selectedItem)
 	}
 
-	useEffect(() => {
-		const isDefault = sort.group === "Default"
-		const isAlph = sort.group === "Alphabetically"
-		const isPrice = sort.group === "By price"
-		const isRate = sort.group === "By rate"
-
-		const isAtoZ = sort.item === "A to Z"
-		const isZtoA = sort.item === "Z to A"
-		const isHighestFirst = sort.item === "Highest first"
-		const isLowestFirst = sort.item === "Lowest first"
-
-		function sortProducts(product) {
-			if (isDefault) return product.toSorted((a, b) => a.id - b.id)
-			if (isPrice && isLowestFirst) return product.toSorted((a, b) => a.price - b.price)
-			if (isPrice && isHighestFirst) return product.toSorted((a, b) => b.price - a.price)
-			if (isAlph && isAtoZ) {
-				return product.toSorted((a, b) => {
-					const nameA = a.name.toUpperCase()
-					const nameB = b.name.toUpperCase()
-					if (nameA < nameB) return -1
-					if (nameA > nameB) return 1
-					return 0
-				})
-			}
-			if (isAlph && isZtoA) {
-				return product.toSorted((a, b) => {
-					const nameA = a.name.toUpperCase()
-					const nameB = b.name.toUpperCase()
-					if (nameA > nameB) return -1
-					if (nameA < nameB) return 1
-					return 0
-				})
-			}
-			if (isRate && isLowestFirst) return product.toSorted((a, b) => a.rate - b.rate)
-			if (isRate && isHighestFirst) return product.toSorted((a, b) => b.rate - a.rate)
-		}
-
-		if (productsToShow.length === 0) return
-		const productsSorted = sortProducts(productsToShow)
-		setProductsToShow(productsSorted)
-	}, [sort])
-
 	return (
 		<>
 			<Header cartQuantity={cartList.length} />
@@ -192,7 +145,6 @@ function App() {
 					selectedCategory,
 					cartList,
 					productsToShow,
-					isProductFound,
 					setProductList,
 					setCartList,
 
