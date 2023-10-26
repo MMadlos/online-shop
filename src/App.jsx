@@ -1,7 +1,9 @@
 import "./App.css"
 import { Outlet } from "react-router-dom"
 import { createContext, useEffect, useState } from "react"
-import { mapProductList, filterProductsByCategory, getProductByID, toggleIsProductAddedTo, getCategories, replaceProductInList } from "./utilities/utilities"
+import { filterProductsByCategory, getProductByID, toggleIsProductAddedTo, getCategories, replaceProductInList } from "./utilities/utilities"
+
+import useFetchProducts from "./utilities/custom-hook"
 
 import Header from "./components/Header"
 
@@ -31,11 +33,9 @@ export const SearchAndSortContext = createContext({
 })
 
 function App() {
-	const [productList, setProductList] = useState([])
-	const [error, setError] = useState(null)
-	const [loading, setLoading] = useState(true)
+	const { productList, setProductList, error, loading, categoryList } = useFetchProducts()
 
-	const categoryList = ["All categories", ...getCategories(productList)]
+	// const categoryList = ["All categories", ...getCategories(productList)]
 
 	const [selectedCategory, setSelectedCategory] = useState("Men's clothing")
 
@@ -47,23 +47,6 @@ function App() {
 		group: "Default",
 		item: "Default",
 	})
-
-	useEffect(() => {
-		fetch("https://fakestoreapi.com/products", { mode: "cors" })
-			.then((res) => {
-				if (res.status >= 400) {
-					throw new Error("server error")
-				}
-
-				return res.json()
-			})
-			.then((json) => {
-				const mappedProducts = mapProductList(json)
-				setProductList(mappedProducts)
-			})
-			.catch((error) => setError(error))
-			.finally(() => setLoading(false))
-	}, [])
 
 	useEffect(() => {
 		const filteredProducts = filterProductsByCategory(productList, selectedCategory)
