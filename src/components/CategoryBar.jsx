@@ -12,28 +12,28 @@ function CategoryBar() {
 	const handleClickCategory = (e) => setSelectedCategory(e.target.textContent)
 
 	return (
-		<div className="category-container">
-			{/* <div className="filler-container">
-				<div className="filler"></div>
-			</div> */}
-			{categoryList.map((category) => {
-				const isCategorySelected = selectedCategory.toLowerCase() === category.toLowerCase()
-				const addClassIfSelected = isCategorySelected ? " selected" : ""
+		<div className="category-section">
+			<div className="filler"></div>
+			<div className="category-container">
+				{categoryList.map((category) => {
+					const isCategorySelected = selectedCategory.toLowerCase() === category.toLowerCase()
+					const addClassIfSelected = isCategorySelected ? " selected" : ""
 
-				return (
-					<div
-						key={category}
-						className={"category" + addClassIfSelected}>
-						<Link
+					return (
+						<div
 							key={category}
-							to="/"
-							onClick={handleClickCategory}>
-							{capitalizeText(category)}
-						</Link>
-						<div className={"category-underline" + addClassIfSelected}></div>
-					</div>
-				)
-			})}
+							className={"category" + addClassIfSelected}>
+							<Link
+								key={category}
+								to="/"
+								onClick={handleClickCategory}>
+								{capitalizeText(category)}
+							</Link>
+							<div className={"category-underline" + addClassIfSelected}></div>
+						</div>
+					)
+				})}
+			</div>
 		</div>
 	)
 }

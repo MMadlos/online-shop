@@ -97,23 +97,24 @@ header {
 }
 
 /* CATEGORY LIST */
-.category-container {
-	display: flex;
-	justify-content: space-between;
-	gap: 40px;
-	padding: 0 var(--padding-section-laterals);
 
+.category-section {
 	background-color: var(--grey);
 	border: 1px solid var(--dark-grey);
-
+	padding: 0 var(--padding-section-laterals);
 	font-size: 14px;
 	font-weight: 600;
 
-	overflow-x: scroll;
+	overflow-x: hidden;
+}
 
-	.filler {
-		display: none;
-	}
+.filler {
+	display: none;
+}
+
+.category-container {
+	display: flex;
+	gap: 40px;
 
 	.category {
 		display: flex;
@@ -122,77 +123,79 @@ header {
 		align-items: center;
 
 		> a {
-			padding: 12px 16px;
+			/* padding: 12px 16px; */
+			padding: 12px 0px;
 		}
-	}
 
-	.category:hover {
-		cursor: pointer;
-
-		> a {
-			color: grey;
-		}
-	}
-
-	.category.selected {
-		> a {
-			font-weight: 700;
-			color: var(--accent-purple);
-
-			&:hover {
-				cursor: default;
-			}
-		}
-	}
-
-	.category-underline {
-		width: 100%;
-		height: 4px;
-		background-color: transparent;
-
-		&.selected {
-			background-color: var(--accent-purple);
-		}
-	}
-}
-
-@media (max-width: 500px) {
-	.category-container {
-		gap: 24px;
-		padding: 0 var(--padding-media-small);
-
-		font-size: 12px;
-		overflow-x: scroll;
-
-		&::-webkit-scrollbar {
-			display: none;
-		}
-		/* 
-		position: relative;
-
-		.filler {
-			display: block;
-			position: absolute;
-			width: 100%;
-			height: 45px;
-			background: linear-gradient(to right, transparent 65%, var(--grey) 90%);
-		} */
-
-		.category {
-			flex-shrink: 0;
+		&:hover {
+			cursor: pointer;
 
 			> a {
-				padding: 12px 0;
+				color: grey;
 			}
 		}
 
-		.category.selected {
+		&.selected {
 			> a {
 				font-weight: 700;
 				color: var(--accent-purple);
 
 				&:hover {
 					cursor: default;
+				}
+			}
+		}
+
+		.category-underline {
+			width: 100%;
+			height: 4px;
+			background-color: transparent;
+
+			&.selected {
+				background-color: var(--accent-purple);
+			}
+		}
+	}
+}
+
+@media (max-width: 500px) {
+	.category-section {
+		position: relative;
+		padding: 0 var(--padding-media-small);
+	}
+
+	.filler {
+		display: block;
+		width: 100px;
+		height: 100%;
+		background: linear-gradient(to right, transparent 20%, var(--grey));
+		position: absolute;
+		right: 0;
+	}
+
+	.category-container {
+		gap: 16px;
+		padding-right: 50px;
+		overflow-x: scroll;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+
+		.category {
+			flex-shrink: 0;
+
+			> a {
+				padding: 8px 0;
+			}
+
+			.category-underline {
+				width: 100%;
+				height: 4px;
+				background-color: transparent;
+
+				&.selected {
+					background-color: var(--accent-purple);
 				}
 			}
 		}
