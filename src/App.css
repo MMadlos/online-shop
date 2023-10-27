@@ -1206,49 +1206,12 @@ section#cart {
 		}
 
 		.check-out-container {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-
-			gap: 16px;
-			padding: 16px 16px;
-
-			border-radius: 6px;
-			background-color: var(--light-grey);
-
-			.total-container > p {
-				font-size: 1.25rem;
-
-				> span {
-					padding-left: 16px;
-					font-weight: 700;
-				}
-			}
+			flex-direction: column;
+			padding: 16px 8px;
 
 			> button#checkout {
-				font-size: 16px;
-				font-weight: 700;
-				padding: 8px 32px;
-				border-radius: 2px;
-				letter-spacing: 0.25px;
-
-				color: var(--white);
-				background-color: var(--accent-purple);
-
-				&:hover {
-					cursor: pointer;
-					opacity: 50%;
-				}
+				width: 100%;
 			}
-		}
-
-		.cart-emtpy {
-			display: flex;
-			justify-content: center;
-			padding: 40px 0;
-			border: 4px;
-			color: var(--light-black);
-			background-color: var(--light-grey);
 		}
 	}
 }
