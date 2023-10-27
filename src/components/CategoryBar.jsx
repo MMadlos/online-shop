@@ -13,9 +13,9 @@ function CategoryBar() {
 
 	return (
 		<div className="category-container">
-			<div className="filler-container">
+			{/* <div className="filler-container">
 				<div className="filler"></div>
-			</div>
+			</div> */}
 			{categoryList.map((category) => {
 				const isCategorySelected = selectedCategory.toLowerCase() === category.toLowerCase()
 				const addClassIfSelected = isCategorySelected ? " selected" : ""

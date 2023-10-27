@@ -111,7 +111,7 @@ header {
 
 	overflow-x: scroll;
 
-	.filler-container {
+	.filler {
 		display: none;
 	}
 
@@ -167,22 +167,16 @@ header {
 		&::-webkit-scrollbar {
 			display: none;
 		}
-
+		/* 
 		position: relative;
 
-		.filler-container {
+		.filler {
 			display: block;
 			position: absolute;
 			width: 100%;
 			height: 45px;
-
-			.filler {
-				width: 100%;
-				height: 100%;
-				display: block;
-				background: linear-gradient(to right, transparent 65%, var(--grey) 90%);
-			}
-		}
+			background: linear-gradient(to right, transparent 65%, var(--grey) 90%);
+		} */
 
 		.category {
 			flex-shrink: 0;
