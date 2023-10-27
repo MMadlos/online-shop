@@ -111,6 +111,10 @@ header {
 
 	overflow-x: scroll;
 
+	.filler {
+		display: none;
+	}
+
 	.category {
 		display: flex;
 		flex-direction: column;
@@ -162,6 +166,16 @@ header {
 
 		&::-webkit-scrollbar {
 			display: none;
+		}
+
+		position: relative;
+
+		.filler {
+			display: block;
+			position: fixed;
+			width: 100%;
+			height: 45px;
+			background: linear-gradient(to right, transparent 65%, var(--grey) 90%);
 		}
 
 		.category {
@@ -445,6 +459,10 @@ main {
 	gap: 8px;
 	background-color: var(--white);
 
+	@media (max-width: 500px) {
+		padding: 0 var(--padding-media-small);
+	}
+
 	> a {
 		height: 100%;
 		width: 100%;
@@ -470,6 +488,11 @@ main {
 				object-position: center;
 				padding: 32px 64px;
 				background-color: var(--white);
+
+				@media (max-width: 500px) {
+					padding: 8px;
+					max-height: 50px;
+				}
 			}
 
 			.product-info {
