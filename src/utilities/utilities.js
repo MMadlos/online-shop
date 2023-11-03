@@ -1,10 +1,3 @@
-function capitalizeText(text) {
-	const firstLetter = text.slice(0, 1).toUpperCase()
-	const restText = text.slice(1)
-	const word = firstLetter + restText
-	return word
-}
-
 function getCategories(productList) {
 	let categoriesList = []
 	productList.forEach((product) => {
@@ -146,7 +139,6 @@ function sortProducts(
 
 export {
 	mapProductList,
-	capitalizeText,
 	getCategories,
 	filterProductsByCategory,
 	getProductByID,
