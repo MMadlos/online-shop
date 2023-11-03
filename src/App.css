@@ -646,10 +646,12 @@ main {
 
 						#name {
 							font-weight: 600;
+							order: 1;
 						}
 
 						.rate-container {
 							margin-top: 0;
+							order: 3;
 						}
 
 						#description {
@@ -659,6 +661,7 @@ main {
 						#price {
 							font-size: 14px;
 							font-weight: 600;
+							order: 2;
 						}
 					}
 				}
@@ -878,9 +881,46 @@ section.product-info {
 					}
 				}
 
-				.quantity {
-					font-size: 14px;
+				.add-cart-container {
+					.counter {
+						min-width: fit-content;
+						width: 100%;
+
+						display: flex;
+						align-items: center;
+						gap: 8px;
+
+						#increase,
+						#decrease {
+							font-size: 12px;
+							padding: 8px 24px;
+							/* width: 35px; */
+							aspect-ratio: 1/1;
+
+							border-radius: 50px;
+
+							> i {
+								display: flex;
+								justify-content: center;
+								color: var(--light-black);
+							}
+						}
+
+						.quantity {
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							padding: 8px 24px;
+							font-weight: 600;
+							border-radius: 4px;
+							width: 100%;
+						}
+					}
 				}
+
+				/* .quantity {
+					font-size: 14px;
+				} */
 			}
 		}
 	}
