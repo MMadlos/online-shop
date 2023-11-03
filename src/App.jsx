@@ -7,6 +7,7 @@ import useFetchProducts from "./hooks/useFetchProducts"
 import useSearchAndSort from "./hooks/useSearchAndSort"
 
 import Header from "./components/Header/Header"
+import CategoryPage from "./components/Header/CategoryPage"
 
 export const ShopContext = createContext({
 	error: null,
@@ -139,6 +140,8 @@ function App() {
 			}}>
 			<SearchAndSortContext.Provider value={{ sort, isProductFound, setSort, handleChangeSearch }}>
 				<Header cartQuantity={cartList.length} />
+				<CategoryPage />
+
 				<Outlet />
 			</SearchAndSortContext.Provider>
 		</ShopContext.Provider>
