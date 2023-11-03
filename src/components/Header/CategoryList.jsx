@@ -5,7 +5,7 @@ import { getCategories } from "../../utilities/utilities"
 
 function CategoryList() {
 	const { productList, selectedCategory, setSelectedCategory } = useContext(ShopContext)
-	const categoryList = ["All categories", ...getCategories(productList)]
+	const categoryList = ["All products", ...getCategories(productList)]
 	const handleClickCategory = (e) => setSelectedCategory(e.target.textContent)
 
 	return (
