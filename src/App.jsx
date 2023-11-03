@@ -122,32 +122,26 @@ function App() {
 	}
 
 	return (
-		<>
-			<Header cartQuantity={cartList.length} />
+		<ShopContext.Provider
+			value={{
+				error,
+				loading,
+				productList,
+				selectedCategory,
+				cartList,
+				productsToShow,
+				setProductList,
+				setCartList,
+				setSelectedCategory,
 
-			<ShopContext.Provider
-				value={{
-					error,
-					loading,
-					productList,
-					selectedCategory,
-					cartList,
-					productsToShow,
-					setProductList,
-					setCartList,
-					setSelectedCategory,
-
-					handleClickAddCart,
-					handleClickRemoveCart,
-				}}>
-				<SearchAndSortContext.Provider value={{ sort, isProductFound, setSort, handleChangeSearch }}>
-					<Outlet />
-				</SearchAndSortContext.Provider>
-			</ShopContext.Provider>
-			{/* <footer>
-				<p>Created by M.Madlos</p>
-			</footer> */}
-		</>
+				handleClickAddCart,
+				handleClickRemoveCart,
+			}}>
+			<SearchAndSortContext.Provider value={{ sort, isProductFound, setSort, handleChangeSearch }}>
+				<Header cartQuantity={cartList.length} />
+				<Outlet />
+			</SearchAndSortContext.Provider>
+		</ShopContext.Provider>
 	)
 }
 
