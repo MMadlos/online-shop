@@ -6,7 +6,7 @@ import { filterProductsByCategory, getProductByID, toggleIsProductAddedTo, repla
 import useFetchProducts from "./hooks/useFetchProducts"
 import useSearchAndSort from "./hooks/useSearchAndSort"
 
-import Header from "./components/Header"
+import Header from "./components/Header/Header"
 
 export const ShopContext = createContext({
 	error: null,
