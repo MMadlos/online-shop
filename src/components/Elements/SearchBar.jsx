@@ -3,9 +3,12 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
 
 function SearchBar() {
 	return (
-		<div>
+		<div className="search-container">
 			<FontAwesomeIcon icon={faMagnifyingGlass} />
-			<input type="search" />
+			<input
+				type="search"
+				placeholder="Casual jacket"
+			/>
 		</div>
 	)
 }
