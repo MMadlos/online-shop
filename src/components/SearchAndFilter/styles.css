@@ -11,3 +11,70 @@
 		align-items: center;
 	}
 }
+
+.filters-list.mobile {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	z-index: 9;
+
+	padding: 40px 24px;
+	background: radial-gradient(circle at top left, var(--light-purple) 25%, var(--white) 100%);
+
+	color: var(--black);
+	text-transform: uppercase;
+
+	.title {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		color: #72778d;
+
+		> p {
+			font-size: 12px;
+			font-weight: 700;
+		}
+
+		> svg {
+			padding: 12px;
+			font-size: 1rem;
+		}
+	}
+
+	.separator {
+		width: 100%;
+		background-color: #72778d;
+		height: 1px;
+	}
+
+	.sort-item {
+		&:first-of-type {
+			margin: 40px 0;
+		}
+
+		font-size: 24px;
+		font-weight: 700;
+
+		&.selected {
+			color: var(--accent-purple);
+		}
+
+		&:hover:not(.selected) {
+			color: var(--accent-purple);
+			cursor: pointer;
+		}
+	}
+
+	.sort-group {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		margin-bottom: 40px;
+		.group-title {
+			font-size: 12px;
+			font-weight: 700;
+		}
+	}
+}
