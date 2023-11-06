@@ -3,7 +3,7 @@ import { faFilter } from "@fortawesome/free-solid-svg-icons"
 
 function Filter() {
 	return (
-		<div>
+		<div className="filter-btn">
 			<FontAwesomeIcon icon={faFilter} />
 			<p>Filter</p>
 		</div>

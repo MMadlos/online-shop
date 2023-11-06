@@ -1,0 +1,40 @@
+.chip {
+	width: fit-content;
+	padding: 4px 16px;
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: uppercase;
+	border-radius: 50px;
+
+	&.default {
+		background-color: var(--black);
+		color: var(--white);
+	}
+
+	&.option {
+		background-color: var(--accent-purple);
+		color: var(--white);
+
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 16px;
+	}
+
+	&.accent {
+		background-color: var(--accent-yellow);
+		color: var(--accent-purple);
+	}
+}
+
+.filter-btn {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+
+	color: var(--accent-purple);
+	font-size: 12px;
+	font-weight: 700;
+	text-transform: uppercase;
+	padding: 12px 0;
+}

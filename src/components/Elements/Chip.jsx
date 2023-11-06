@@ -1,3 +1,5 @@
+import "./styles.css"
+
 function Chip({ text, type, iconRight }) {
 	// Types: default / option / accent
 	return (

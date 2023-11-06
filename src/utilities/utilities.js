@@ -137,6 +137,10 @@ function sortProducts(
 	if (isRate && isHighestFirst) return product.toSorted((a, b) => b.rate - a.rate)
 }
 
+function capitalizeFirstLetter(string) {
+	return string.charAt(0).toUpperCase() + string.slice(1)
+}
+
 export {
 	mapProductList,
 	getCategories,
@@ -147,4 +151,5 @@ export {
 	getRandomIntInclusive,
 	getMultipleUniqueRandomInt,
 	sortProducts,
+	capitalizeFirstLetter,
 }
