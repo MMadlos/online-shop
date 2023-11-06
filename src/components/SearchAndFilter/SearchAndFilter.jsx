@@ -31,7 +31,7 @@ function SearchAndFilter() {
 				<Filter onClick={() => setIsFilterOpen(true)} />
 				{!isSortDefault && (
 					<Chip
-						text={sort.item}
+						text={`${sort.group}: ${sort.item}`}
 						type="option"
 						iconRight={
 							<FontAwesomeIcon
