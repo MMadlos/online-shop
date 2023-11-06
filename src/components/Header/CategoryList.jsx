@@ -3,7 +3,7 @@ import { useContext } from "react"
 import { ShopContext } from "../../App"
 import { getCategories } from "../../utilities/utilities"
 
-function CategoryList({ styles }) {
+function CategoryList({ styles, onClickCategory }) {
 	const { productList, selectedCategory, setSelectedCategory } = useContext(ShopContext)
 
 	const categoryList = ["All products", ...getCategories(productList)]
@@ -19,7 +19,8 @@ function CategoryList({ styles }) {
 					return (
 						<li
 							key={index}
-							className={"category" + addClassIfSelected}>
+							className={"category" + addClassIfSelected}
+							onClick={onClickCategory}>
 							<Link
 								to="/"
 								onClick={handleClickCategory}>

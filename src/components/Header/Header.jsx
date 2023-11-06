@@ -19,12 +19,20 @@ function HeaderContainer({ children }) {
 }
 
 function Header({ cartQuantity }) {
-	const [isNavOpen, setIsNavOpen] = useState(true)
+	const [isNavOpen, setIsNavOpen] = useState(false)
 
 	return (
 		<HeaderContainer>
-			{isNavOpen && <CategoryPage />}
-			<FontAwesomeIcon icon={faBars} />
+			{isNavOpen && (
+				<CategoryPage
+					onClickClose={() => setIsNavOpen(false)}
+					onClickCategory={() => setIsNavOpen(false)}
+				/>
+			)}
+			<FontAwesomeIcon
+				icon={faBars}
+				onClick={() => setIsNavOpen(true)}
+			/>
 			<h1>OSHOP</h1>
 
 			<CategoryList />
