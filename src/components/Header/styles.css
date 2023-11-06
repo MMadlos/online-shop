@@ -113,7 +113,7 @@ header {
 
 /* CATEGORY PAGE - Menu that opens in mobile version*/
 
-.categories.mobile {
+.categories {
 	@media (min-width: 1024px) {
 		display: none;
 	}
@@ -125,8 +125,6 @@ header {
 	width: 100vw;
 	height: 100vh;
 	z-index: 9;
-
-	color: var(--black);
 
 	padding: 40px 24px;
 	background: var(--accent-yellow);
@@ -154,5 +152,31 @@ header {
 		width: 100%;
 		background-color: #72778d;
 		height: 1px;
+	}
+
+	.category-list.mobile {
+		display: block;
+
+		> ul {
+			display: flex;
+			flex-direction: column;
+			gap: 32px;
+			margin-top: 40px;
+		}
+
+		.category {
+			color: var(--black);
+			font-size: 24px;
+			font-weight: 700;
+			text-transform: uppercase;
+
+			&.selected {
+				color: var(--accent-purple);
+			}
+
+			> a {
+				color: inherit;
+			}
+		}
 	}
 }

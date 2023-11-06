@@ -19,7 +19,7 @@ function HeaderContainer({ children }) {
 }
 
 function Header({ cartQuantity }) {
-	const [isNavOpen, setIsNavOpen] = useState(false)
+	const [isNavOpen, setIsNavOpen] = useState(true)
 
 	return (
 		<HeaderContainer>
