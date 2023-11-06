@@ -5,10 +5,39 @@
 	flex-direction: column;
 	gap: 12px;
 
-	.filter {
+	.filter-container {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+
+		.filter-btn {
+			color: var(--black);
+
+			&.selected {
+				color: var(--accent-purple);
+			}
+		}
+	}
+
+	@media (min-width: 1024px) {
+		flex-direction: row;
+		justify-content: space-between;
+
+		padding: 16px 10vw;
+
+		.chip {
+			display: none;
+		}
+
+		.filter-container {
+			order: 1;
+			gap: 16px;
+		}
+
+		.search-container {
+			order: 2;
+			width: 50%;
+		}
 	}
 }
 

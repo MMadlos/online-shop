@@ -7,7 +7,7 @@ header {
 	padding: 0;
 
 	@media (min-width: 1024px) {
-		padding: 0 10vh;
+		padding: 0 10vw;
 		height: 62px;
 	}
 
@@ -79,6 +79,10 @@ header {
 			color: var(--white);
 			position: relative;
 			margin-right: 16px;
+
+			@media (min-width: 1024px) {
+				margin-right: 0;
+			}
 
 			.cart-counter {
 				height: 20px;

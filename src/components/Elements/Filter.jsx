@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFilter } from "@fortawesome/free-solid-svg-icons"
 
-function Filter({ onClick }) {
+function Filter({ onClick, isActive }) {
 	return (
 		<div
-			className="filter-btn"
+			className={isActive ? "filter-btn selected" : "filter-btn"}
 			onClick={onClick}>
 			<FontAwesomeIcon icon={faFilter} />
 			<p>Filter</p>

@@ -27,8 +27,11 @@ function SearchAndFilter() {
 
 			<SearchBar />
 
-			<div className="filter">
-				<Filter onClick={() => setIsFilterOpen(true)} />
+			<div className="filter-container">
+				<Filter
+					onClick={() => setIsFilterOpen(true)}
+					isActive={!isSortDefault}
+				/>
 				{!isSortDefault && (
 					<Chip
 						text={`${sort.group}: ${sort.item}`}
