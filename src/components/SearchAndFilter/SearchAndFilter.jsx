@@ -6,8 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
 
 import Chip from "../Elements/Chip"
-import Filter from "../Elements/Filter"
-import SearchBar from "../Elements/SearchBar"
+import Filter from "./Filter"
+import SearchBar from "./SearchBar"
 import FilterPage from "./FilterPage"
 
 function SearchAndFilter() {
