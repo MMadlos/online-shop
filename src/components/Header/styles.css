@@ -1,3 +1,5 @@
+/* HEADER */
+
 header {
 	background: var(--black);
 	box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.05);
@@ -15,7 +17,6 @@ header {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		color: var(--white);
 
 		.fa-bars {
 			font-size: 24px;
@@ -41,75 +42,76 @@ header {
 		}
 
 		.category-list {
-			@media (max-width: 1024px) {
-				display: none;
-			}
+			display: none;
 
-			> ul {
-				display: flex;
-				gap: 24px;
+			@media (min-width: 1024px) {
+				display: block;
 
-				.category {
-					color: var(--white);
-					font-size: 14px;
-					font-weight: 700;
-					text-transform: uppercase;
+				> ul {
+					display: flex;
+					gap: 24px;
 
-					&.selected {
-						color: var(--accent-yellow);
-						cursor: default;
-					}
-
-					&:not(.selected):hover {
-						opacity: 50%;
+					.category {
+						font-size: 14px;
+						font-weight: 700;
+						text-transform: uppercase;
 						cursor: pointer;
-					}
 
-					> a {
-						color: inherit;
-						cursor: inherit;
+						&.selected {
+							color: var(--accent-yellow);
+							cursor: default;
+						}
+
+						&:not(.selected):hover {
+							opacity: 50%;
+						}
+
+						> a {
+							color: inherit;
+							cursor: inherit;
+						}
 					}
 				}
 			}
 		}
 
-		> a {
-			color: inherit;
+		.icon-cart {
+			color: var(--white);
+			position: relative;
+			margin-right: 16px;
 
-			.icon-cart {
-				position: relative;
-				margin-right: 16px;
+			.cart-counter {
+				height: 20px;
+				width: 20px;
+				padding: 4px;
 
-				.cart-counter {
-					background-color: var(--accent-yellow);
-					border-radius: 50%;
-					height: 24px;
-					width: 24px;
-					padding: 4px;
-					border: 2px solid var(--black);
+				background-color: var(--accent-yellow);
+				border-radius: 50%;
+				border: 2px solid var(--black);
 
-					position: absolute;
-					right: 0;
-					transform: translateX(50%) translateY(-50%);
+				position: absolute;
+				right: 0;
+				transform: translateX(50%) translateY(-50%);
 
-					display: flex;
-					justify-content: center;
-					align-items: center;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 
-					> p {
-						color: var(--black);
-						font-size: 12px;
-						font-weight: 800;
-					}
+				> p {
+					color: var(--black);
+					font-size: 10px;
+					font-weight: 800;
 				}
+			}
 
-				.fa-cart-shopping {
-					font-size: 24px;
-				}
+			.fa-cart-shopping {
+				font-size: 25px;
 			}
 		}
 	}
 }
+
+/* CATEGORY PAGE - Menu that opens in mobile version*/
 
 .categories.mobile {
 	@media (min-width: 1024px) {
@@ -125,9 +127,10 @@ header {
 	z-index: 9;
 
 	color: var(--black);
-	background: radial-gradient(91.2% 94.29% at 0% 43.33%, var(--accent-yellow) 67.77%, var(--white) 100%), var(--white);
 
 	padding: 40px 24px;
+	background: var(--accent-yellow);
+	background: radial-gradient(circle at top left, var(--accent-yellow) 25%, var(--white) 100%);
 
 	.title {
 		display: flex;
@@ -151,26 +154,5 @@ header {
 		width: 100%;
 		background-color: #72778d;
 		height: 1px;
-	}
-
-	.category-list {
-		margin-top: 40px;
-		font-size: 24px;
-		font-weight: 700;
-		text-transform: uppercase;
-
-		> ul {
-			display: flex;
-			flex-direction: column;
-			gap: 32px;
-
-			> .category.selected {
-				color: var(--accent-purple);
-
-				> a {
-					color: inherit;
-				}
-			}
-		}
 	}
 }

@@ -3,13 +3,14 @@ import { useContext } from "react"
 import { ShopContext } from "../../App"
 import { getCategories } from "../../utilities/utilities"
 
-function CategoryList() {
+function CategoryList({ styles }) {
 	const { productList, selectedCategory, setSelectedCategory } = useContext(ShopContext)
+
 	const categoryList = ["All products", ...getCategories(productList)]
 	const handleClickCategory = (e) => setSelectedCategory(e.target.textContent)
 
 	return (
-		<div className="category-list">
+		<div className={styles ? `category-list ${styles}` : "category-list"}>
 			<ul>
 				{categoryList.map((category, index) => {
 					const isCategorySelected = selectedCategory.toLowerCase() === category.toLowerCase()

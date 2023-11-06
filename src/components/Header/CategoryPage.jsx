@@ -11,7 +11,7 @@ function CategoryPage() {
 			</div>
 			<div className="separator"></div>
 
-			<CategoryList />
+			<CategoryList styles="mobile" />
 		</nav>
 	)
 }
