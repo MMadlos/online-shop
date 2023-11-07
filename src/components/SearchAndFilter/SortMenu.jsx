@@ -31,7 +31,7 @@ function SortMenu({ onClickClose }) {
 	}
 
 	return (
-		<div className="sort-list mobile">
+		<div className="sort-menu-container">
 			<div className="title">
 				<p>Sort</p>
 				<FontAwesomeIcon
