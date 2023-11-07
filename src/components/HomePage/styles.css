@@ -6,6 +6,11 @@
 	> main {
 		background-color: transparent;
 	}
+
+	@media (min-width: 1024px) {
+		background: radial-gradient(89.5% 103.53% at 0% 94.71%, var(--accent-yellow) 35.24%, rgba(255, 255, 255, 0) 100%),
+			radial-gradient(60.66% 79.45% at 100% 4.84%, var(--accent-yellow) 22.53%, rgba(255, 255, 255, 0) 100%), #fff;
+	}
 }
 
 /* Product list */
@@ -61,6 +66,12 @@
 					color: var(--light-black);
 					font-size: 14px;
 					font-weight: 500;
+
+					-webkit-box-orient: vertical;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					display: -webkit-box;
+					-webkit-line-clamp: 2;
 				}
 			}
 		}
