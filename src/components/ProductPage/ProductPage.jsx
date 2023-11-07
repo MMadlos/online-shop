@@ -1,3 +1,4 @@
+import "./styles.css"
 import ProductInfo from "./ProductInfo"
 import Recommendation from "../Recommendation"
 

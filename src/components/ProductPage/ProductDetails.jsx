@@ -5,7 +5,7 @@ function ProductDetails({ productSelected }) {
 
 	return (
 		<div
-			className="product-details-container"
+			className="product-container"
 			data-product-id={id}>
 			<div className="image-container">
 				<img
@@ -14,12 +14,17 @@ function ProductDetails({ productSelected }) {
 				/>
 			</div>
 			<div className="product-header-container">
-				<h1>{name}</h1>
+				<h1 className="product-header">{name}</h1>
 				<div className="rate-container">
-					<i className="fa-solid fa-star" />
-					<p>{`${rate} (${countRates})`}</p>
-					<p className="price">{`$ ${price}`}</p>
+					<div className="star-container">
+						<i className="fa-solid fa-star" />
+						<i className="fa-solid fa-star" />
+						<i className="fa-solid fa-star" />
+						<i className="fa-solid fa-star" />
+					</div>
+					<p className="rate">{`${rate} (${countRates})`}</p>
 				</div>
+				<p className="price">{`$ ${price}`}</p>
 			</div>
 			<AddCartBtn />
 

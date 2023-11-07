@@ -14,7 +14,9 @@ function ProductInfo() {
 
 	return (
 		<section className="product-info">
-			<Link to="/">
+			<Link
+				to="/"
+				className="link-back">
 				<i className="fa-solid fa-chevron-left"></i>
 				Back to all results
 			</Link>
