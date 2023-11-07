@@ -142,6 +142,18 @@ section.product-info {
 					line-height: 150%; /* 17.5px */
 					letter-spacing: 0.21px;
 
+					height: 100%;
+
+					@media (max-width: 1024px) {
+						> p:not(.full) {
+							-webkit-box-orient: vertical;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							display: -webkit-box;
+							-webkit-line-clamp: 2;
+						}
+					}
+
 					@media (min-width: 1024px) {
 						font-size: 16px;
 						letter-spacing: 0.24px;
@@ -158,7 +170,8 @@ section.product-info {
 						-webkit-line-clamp: 2;
 					}
 
-					.see-more-btn {
+					.see-more-btn,
+					.see-less-btn {
 						display: flex;
 						align-items: center;
 						gap: 8px;
