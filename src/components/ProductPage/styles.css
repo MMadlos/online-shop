@@ -128,6 +128,10 @@ section.product-info {
 				}
 
 				.product-about {
+					display: flex;
+					flex-direction: column;
+					gap: 16px;
+
 					padding: 16px 16px;
 					border-radius: 4px;
 					line-height: 115%;
@@ -152,6 +156,13 @@ section.product-info {
 						text-overflow: ellipsis;
 						display: -webkit-box;
 						-webkit-line-clamp: 2;
+					}
+
+					.see-more-btn {
+						display: flex;
+						align-items: center;
+						gap: 8px;
+						color: var(--light-black);
 					}
 				}
 			}
