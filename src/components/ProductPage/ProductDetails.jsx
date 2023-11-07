@@ -1,5 +1,6 @@
 import AddCartBtn from "../Elements/AddCartBtn"
 import Rating from "./Rating"
+import ProductAbout from "./ProductAbout"
 import promoImage from "/public/promo-image-tiny.png"
 
 function ProductDetails({ productSelected }) {
@@ -31,13 +32,7 @@ function ProductDetails({ productSelected }) {
 				</div>
 
 				<AddCartBtn />
-
-				<div className="product-about-container">
-					<p>About the product</p>
-					<div className="product-about">
-						<p>{description}</p>
-					</div>
-				</div>
+				<ProductAbout description={description} />
 			</div>
 		</div>
 	)
