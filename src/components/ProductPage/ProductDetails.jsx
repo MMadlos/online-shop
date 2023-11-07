@@ -14,20 +14,24 @@ function ProductDetails({ productSelected }) {
 					alt="#"
 				/>
 			</div>
-			<div className="product-header-container">
-				<h1 className="product-header">{name}</h1>
-				<Rating
-					rate={rate}
-					countRates={countRates}
-				/>
-				<p className="price">{`$ ${price}`}</p>
-			</div>
-			<AddCartBtn />
 
-			<div className="description-container">
-				<p>About the product</p>
-				<div className="product-description">
-					<p>{description}</p>
+			<div className="product-details">
+				<div className="product-header-container">
+					<h1 className="product-header">{name}</h1>
+					<Rating
+						rate={rate}
+						countRates={countRates}
+					/>
+					<p className="price">{`$ ${price}`}</p>
+				</div>
+
+				<AddCartBtn />
+
+				<div className="product-about-container">
+					<p>About the product</p>
+					<div className="product-about">
+						<p>{description}</p>
+					</div>
 				</div>
 			</div>
 		</div>
