@@ -19,6 +19,8 @@
 	--padding-section-laterals: 15vw;
 	--padding-media-small: 16px;
 	--font-main: "Inter", sans-serif;
+	--radial-topleft-purple: radial-gradient(circle at top left, var(--light-purple) 25%, var(--white) 100%);
+	--radial-topright-purple: radial-gradient(circle at top right, var(--light-purple) 25%, var(--white) 100%);
 }
 
 /* GENERIC */
@@ -309,7 +311,7 @@ button {
 
 /* MAIN */
 
-main {
+/* main {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
 	padding: 0 var(--padding-section-laterals);
@@ -521,7 +523,7 @@ main {
 			}
 		}
 	}
-}
+} */
 
 /* PRODUCT INFO */
 section.product-info {
@@ -1253,3 +1255,11 @@ section.recommendation {
 		}
 	}
 }
+
+/* .home {
+	background-color: var(--accent-yellow);
+
+	> main {
+		background-color: transparent;
+	}
+} */
