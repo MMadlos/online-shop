@@ -1,12 +1,12 @@
 import "./styles.css"
-import { ShopContext } from "../../App"
+import { ShopContext } from "../../../App"
 import { useContext } from "react"
 
-import Chip from "../Elements/Chip"
+import Chip from "../../Elements/Chip"
 import SearchBar from "./SearchBar"
 import Sort from "./Sort"
 
-function SearchAndFilter() {
+function SearchAndSort() {
 	const { selectedCategory } = useContext(ShopContext)
 	return (
 		<div className="search-sort">
@@ -20,4 +20,4 @@ function SearchAndFilter() {
 	)
 }
 
-export default SearchAndFilter
+export default SearchAndSort

@@ -1,12 +1,12 @@
 // import ActionsBar from "./ActionsBar"
 import ProductList from "./ProductList"
-import SearchAndFilter from "../SearchAndFilter/SearchAndFilter"
+import SearchAndSort from "./SearchAndSort/SearchAndSort"
 
 function HomePage() {
 	return (
 		<>
 			<div className="home">
-				<SearchAndFilter />
+				<SearchAndSort />
 				<ProductList />
 			</div>
 		</>

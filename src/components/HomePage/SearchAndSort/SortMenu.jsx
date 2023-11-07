@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons"
 
 import { useContext } from "react"
-import { SearchAndSortContext } from "../../App"
+import { SearchAndSortContext } from "../../../App"
 
 const sortItems = [
 	{

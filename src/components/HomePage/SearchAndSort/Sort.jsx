@@ -1,11 +1,11 @@
 import { useState, useContext } from "react"
-import { SearchAndSortContext } from "../../App"
+import { SearchAndSortContext } from "../../../App"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
 
 import SortButton from "./SortButton"
-import Chip from "../Elements/Chip"
+import Chip from "../../Elements/Chip"
 import SortMenu from "./SortMenu"
 
 function Sort() {
