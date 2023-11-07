@@ -143,6 +143,10 @@ function App() {
 				<Header cartQuantity={cartList.length} />
 
 				<Outlet />
+
+				<footer>
+					<p>TEST</p>
+				</footer>
 			</SearchAndSortContext.Provider>
 		</ShopContext.Provider>
 	)
