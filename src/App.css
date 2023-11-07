@@ -24,8 +24,23 @@
 }
 
 /* GENERIC */
-#root {
+
+body {
 	font-family: var(--font-main);
+}
+
+#root {
+	/* Added to grow the main content when it doesn't fill the available heigh*/
+	height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.footer {
+	background-color: var(--black);
+	color: var(--white);
+	padding: 20px 10vw;
 }
 
 h1 {

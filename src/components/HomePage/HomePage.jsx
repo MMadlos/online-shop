@@ -7,7 +7,6 @@ function HomePage() {
 		<>
 			<div className="home">
 				<SearchAndFilter />
-				{/* <ActionsBar /> */}
 				<ProductList />
 			</div>
 		</>

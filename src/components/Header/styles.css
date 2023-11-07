@@ -1,15 +1,14 @@
 /* HEADER */
 
 header {
-	width: 100vw;
+	width: 100%;
 	background: var(--black);
 	box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.05);
 	color: var(--white);
 	padding: 0;
 
 	@media (min-width: 1024px) {
-		padding: 0 10vw;
-		height: 62px;
+		padding: 16px 10vw;
 	}
 
 	.header-container {
