@@ -26,3 +26,19 @@
 		color: var(--accent-purple);
 	}
 }
+
+#add-cart {
+	min-width: fit-content;
+	width: 100%;
+	padding: 12px 24px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+
+	border-radius: 4px;
+	background-color: var(--black);
+	color: var(--white);
+	font-weight: 700;
+}
