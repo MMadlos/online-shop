@@ -4,7 +4,6 @@ import { useContext } from "react"
 import { ShopContext } from "../../App"
 
 import ProductCard from "../ProductCard"
-import { NewProductCard } from "../ProductCard"
 
 function ProductList() {
 	const { loading, error, productsToShow } = useContext(ShopContext)
@@ -16,11 +15,7 @@ function ProductList() {
 		<main className="product-list">
 			{productsToShow.map((product) => {
 				return (
-					// <ProductCard
-					// 	key={product.id}
-					// 	product={product}
-					// />
-					<NewProductCard
+					<ProductCard
 						key={product.id}
 						product={product}
 					/>
