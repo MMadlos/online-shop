@@ -1,5 +1,7 @@
 import AddCartBtn from "../Elements/AddCartBtn"
 import Rating from "./Rating"
+// import promoImage from "/home/michael/repos/online-shop/public/promo-image - Optim.png"
+import promoImage from "/public/promo-image-tiny.png"
 
 function ProductDetails({ productSelected }) {
 	const { id, name, price, url, rate, countRates, description } = productSelected
@@ -8,14 +10,20 @@ function ProductDetails({ productSelected }) {
 		<div
 			className="product-container"
 			data-product-id={id}>
-			<div className="image-container">
-				<img
-					src={url}
-					alt="#"
-				/>
-			</div>
+			{/* <div className="image-container"> */}
+			<img
+				src={url}
+				alt="#"
+				className="product-image"
+			/>
+			{/* </div> */}
 
 			<div className="product-details">
+				<img
+					src={promoImage}
+					alt=""
+					className="promo-image"
+				/>
 				<div className="product-header-container">
 					<h1 className="product-header">{name}</h1>
 					<Rating

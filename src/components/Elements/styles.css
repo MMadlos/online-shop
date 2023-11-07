@@ -41,4 +41,10 @@
 	background-color: var(--black);
 	color: var(--white);
 	font-weight: 700;
+
+	&:hover {
+		background-color: var(--accent-purple);
+		color: var(--white);
+		cursor: pointer;
+	}
 }
