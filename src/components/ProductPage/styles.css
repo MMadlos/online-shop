@@ -65,22 +65,14 @@ section.product-info {
 
 				@media (min-width: 1024px) and (min-height: 850px) {
 					display: block;
-					height: 100%;
-					width: 100%;
 					object-fit: contain;
 					object-position: center;
-					flex-shrink: 1;
-					flex-basis: 500px;
 				}
 			}
 
 			.product-header-container {
 				@media (min-width: 1024px) {
 					order: 1;
-
-					.rate-container .star-container {
-						color: var(--accent-purple);
-					}
 				}
 
 				> h1 {
@@ -100,6 +92,10 @@ section.product-info {
 					.star-container {
 						color: var(--yellow-star);
 						margin-right: 4px;
+
+						@media (min-width: 1024px) {
+							color: var(--accent-purple);
+						}
 					}
 				}
 
