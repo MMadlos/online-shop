@@ -1,52 +1,21 @@
 import "./styles.css"
-import { ShopContext, SearchAndSortContext } from "../../App"
-import { useContext, useState } from "react"
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faXmark } from "@fortawesome/free-solid-svg-icons"
+import { ShopContext } from "../../App"
+import { useContext } from "react"
 
 import Chip from "../Elements/Chip"
-import Filter from "./Filter"
 import SearchBar from "./SearchBar"
-import FilterPage from "./FilterPage"
+import Sort from "./Sort"
 
 function SearchAndFilter() {
-	const [isFilterOpen, setIsFilterOpen] = useState(false)
-
 	const { selectedCategory } = useContext(ShopContext)
-	const { sort, setSort } = useContext(SearchAndSortContext)
-
-	const isSortDefault = sort.item === "Default"
-
 	return (
-		<div className="search-filter">
+		<div className="search-sort">
 			<Chip
 				text={selectedCategory}
 				type="default"
 			/>
-
 			<SearchBar />
-
-			<div className="filter-container">
-				<Filter
-					onClick={() => setIsFilterOpen(true)}
-					isActive={!isSortDefault}
-				/>
-				{!isSortDefault && (
-					<Chip
-						text={`${sort.group}: ${sort.item}`}
-						type="option"
-						iconRight={
-							<FontAwesomeIcon
-								icon={faXmark}
-								onClick={() => setSort({ group: "Default", item: "Default" })}
-							/>
-						}
-					/>
-				)}
-			</div>
-
-			{isFilterOpen && <FilterPage onClickClose={() => setIsFilterOpen(false)} />}
+			<Sort />
 		</div>
 	)
 }

@@ -1,4 +1,4 @@
-.search-filter {
+.search-sort {
 	padding: 12px 8px;
 
 	display: flex;
@@ -49,13 +49,13 @@
 		}
 	}
 
-	.filter-container {
+	.sort-container {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		min-height: 23px;
 
-		.filter-btn {
+		.sort-btn {
 			display: flex;
 			align-items: center;
 			gap: 8px;
@@ -88,14 +88,14 @@
 			width: 50%;
 		}
 
-		.filter-container {
+		.sort-container {
 			order: 1;
 			gap: 16px;
 		}
 	}
 }
 
-.filters-list.mobile {
+.sort-list.mobile {
 	position: absolute;
 	top: 0;
 	left: 0;

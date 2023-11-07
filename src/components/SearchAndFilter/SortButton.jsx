@@ -1,15 +1,15 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFilter } from "@fortawesome/free-solid-svg-icons"
 
-function Filter({ onClick, isActive }) {
+function SortButton({ onClick, isActive }) {
 	return (
 		<div
-			className={isActive ? "filter-btn selected" : "filter-btn"}
+			className={isActive ? "sort-btn selected" : "sort-btn"}
 			onClick={onClick}>
 			<FontAwesomeIcon icon={faFilter} />
-			<p>Filter</p>
+			<p>Sort</p>
 		</div>
 	)
 }
 
-export default Filter
+export default SortButton

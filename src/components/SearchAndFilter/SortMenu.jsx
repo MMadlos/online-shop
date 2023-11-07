@@ -19,15 +19,21 @@ const sortItems = [
 	},
 ]
 
-function FilterPage({ onClickClose }) {
+function SortMenu({ onClickClose }) {
 	const { sort, setSort } = useContext(SearchAndSortContext)
 
 	const isSortDefault = sort.group === "Default"
 
+	function handleClickSortItem(groupName, itemName) {
+		const sortItem = { group: groupName, item: itemName }
+		setSort(sortItem)
+		onClickClose()
+	}
+
 	return (
-		<div className="filters-list mobile">
+		<div className="sort-list mobile">
 			<div className="title">
-				<p>Filters</p>
+				<p>Sort</p>
 				<FontAwesomeIcon
 					icon={faChevronLeft}
 					onClick={onClickClose}
@@ -38,10 +44,7 @@ function FilterPage({ onClickClose }) {
 			<p
 				className={isSortDefault ? "sort-item selected" : "sort-item"}
 				data-group-name="Default"
-				onClick={() => {
-					setSort({ group: "Default", item: "Default" })
-					onClickClose()
-				}}>
+				onClick={() => handleClickSortItem("Default", "Default")}>
 				Default
 			</p>
 
@@ -62,10 +65,7 @@ function FilterPage({ onClickClose }) {
 									key={index}
 									className={isSelected ? "sort-item selected" : "sort-item"}
 									data-group-name={groupTitle}
-									onClick={() => {
-										setSort({ group: groupTitle, item: item })
-										onClickClose()
-									}}>
+									onClick={() => handleClickSortItem(groupTitle, item)}>
 									{item}
 								</p>
 							)
@@ -77,4 +77,4 @@ function FilterPage({ onClickClose }) {
 	)
 }
 
-export default FilterPage
+export default SortMenu
