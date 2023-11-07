@@ -1,4 +1,5 @@
 import AddCartBtn from "../Elements/AddCartBtn"
+import Rating from "./Rating"
 
 function ProductDetails({ productSelected }) {
 	const { id, name, price, url, rate, countRates, description } = productSelected
@@ -15,15 +16,10 @@ function ProductDetails({ productSelected }) {
 			</div>
 			<div className="product-header-container">
 				<h1 className="product-header">{name}</h1>
-				<div className="rate-container">
-					<div className="star-container">
-						<i className="fa-solid fa-star" />
-						<i className="fa-solid fa-star" />
-						<i className="fa-solid fa-star" />
-						<i className="fa-solid fa-star" />
-					</div>
-					<p className="rate">{`${rate} (${countRates})`}</p>
-				</div>
+				<Rating
+					rate={rate}
+					countRates={countRates}
+				/>
 				<p className="price">{`$ ${price}`}</p>
 			</div>
 			<AddCartBtn />
