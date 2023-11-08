@@ -13,10 +13,12 @@
 /* Cart product component */
 .cart-product {
 	display: flex;
-	gap: 16px;
+	gap: 24px;
 
 	.cart-product-image {
+		min-height: 100px;
 		max-height: 150px;
+		max-width: 75px;
 		object-fit: contain;
 		object-position: center;
 	}
@@ -29,11 +31,17 @@
 
 		.cart-header-container {
 			display: flex;
+			gap: 24px;
 			justify-content: space-between;
 			font-size: 16px;
 
 			.name {
 				font-weight: 600;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
 			}
 
 			.fa-trash-can {

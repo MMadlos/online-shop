@@ -33,7 +33,10 @@ function Header({ cartQuantity }) {
 				icon={faBars}
 				onClick={() => setIsNavOpen(true)}
 			/>
-			<h1>OSHOP</h1>
+
+			<h1>
+				<Link to="/">OSHOP </Link>
+			</h1>
 
 			<CategoryList />
 

@@ -39,6 +39,10 @@ header {
 				font-size: 24px;
 				letter-spacing: 1.2px;
 			}
+
+			> a {
+				color: inherit;
+			}
 		}
 
 		.category-list {
