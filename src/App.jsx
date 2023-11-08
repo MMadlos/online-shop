@@ -53,45 +53,26 @@ function App() {
 		e.preventDefault()
 		e.stopPropagation()
 
-		const getSection = e.target.closest(".product-card") || e.target.closest(".product-details-container")
-
-		const getClass = getSection.classList.value
-		const { dataset } = getSection
-
+		const getIdElement = e.target.closest(".product-container")
+		const { dataset } = getIdElement
 		const productID = Number(dataset.productId)
-		const productSelected = getProductByID(productsToShow, productID)
 
-		if (getClass === "product-card") {
-			setCartList((prev) => [...prev, productSelected])
+		const isProductInCart = cartList.some((product) => product.id === productID)
 
+		if (!isProductInCart) {
+			const productSelected = getProductByID(productList, productID)
 			productSelected.quantity++
-			const newProductList = toggleIsProductAddedTo(true, productSelected, productList)
-			setProductList(newProductList)
+
+			setCartList((prev) => [...prev, productSelected])
 		}
-		if (getClass === "product-details-container") {
-			const containerElement = e.target.closest(".add-cart-container")
-			const counterElement = containerElement.querySelector(".counter > p")
-			const counterQuantity = Number(counterElement.textContent)
 
-			productSelected.quantity += counterQuantity
+		if (isProductInCart) {
+			const productInCart = getProductByID(cartList, productID)
+			productInCart.quantity++
 
-			const isProductInCart = cartList.some((product) => product.id === productSelected.id)
-
-			if (isProductInCart) {
-				const newCartList = replaceProductInList(productSelected, cartList)
-				setCartList(newCartList)
-
-				const newProductList = replaceProductInList(productSelected, productList)
-				setProductList(newProductList)
-				return
-			}
-			if (!isProductInCart) {
-				setCartList((prev) => [...prev, productSelected])
-
-				const newProductList = toggleIsProductAddedTo(true, productSelected, productList)
-				setProductList(newProductList)
-				return
-			}
+			// Replace it in cartList
+			const newCartList = replaceProductInList(productInCart, cartList)
+			setCartList(newCartList)
 		}
 	}
 

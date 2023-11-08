@@ -16,7 +16,7 @@ function mapProductList(products) {
 		url: product.image,
 		rate: product.rating.rate,
 		countRates: product.rating.count,
-		isAdded: false,
+		// isAdded: false,
 		quantity: 0,
 	}))
 }

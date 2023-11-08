@@ -3,6 +3,7 @@ import { sortProducts } from "../utilities/utilities"
 
 const useSearchAndSort = () => {
 	const [productsToShow, setProductsToShow] = useState([])
+
 	const [sort, setSort] = useState({
 		group: "Default",
 		item: "Default",
