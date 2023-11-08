@@ -13,6 +13,10 @@
 	border-radius: 8px;
 	background: #e3d9ff;
 
+	@media (min-width: 1024px) {
+		max-width: 477px;
+	}
+
 	.shipping-image {
 		max-height: 150px;
 		object-fit: contain;
