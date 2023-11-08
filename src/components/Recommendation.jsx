@@ -2,7 +2,7 @@ import { getMultipleUniqueRandomInt, getProductByID } from "../utilities/utiliti
 import { useContext, useEffect, useState } from "react"
 import { ShopContext } from "../App"
 import { useParams } from "react-router-dom"
-import ProductCard from "./ProductCard"
+import ProductCard from "./Elements/ProductCard"
 
 function Recommendation() {
 	const { productList } = useContext(ShopContext)

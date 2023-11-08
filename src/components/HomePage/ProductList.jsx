@@ -3,7 +3,7 @@ import "./styles.css"
 import { useContext } from "react"
 import { ShopContext } from "../../App"
 
-import ProductCard from "../ProductCard"
+import ProductCard from "../Elements/ProductCard"
 
 function ProductList() {
 	const { loading, error, productsToShow } = useContext(ShopContext)
