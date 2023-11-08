@@ -9,6 +9,10 @@ function CartList() {
 	const { cartList } = useContext(ShopContext)
 
 	const sumCart = cartList.reduce((acc, curr) => acc + curr.price * curr.quantity, 0)
+	const sumItemsCart = cartList.reduce((acc, curr) => acc + curr.quantity, 0)
+
+	console.log(sumItemsCart)
+
 	const totalToPay = sumCart.toFixed(2)
 
 	return (
@@ -27,7 +31,10 @@ function CartList() {
 				)
 			})}
 
-			<Checkout totalToPay={totalToPay} />
+			<Checkout
+				totalToPay={totalToPay}
+				totalItems={sumItemsCart}
+			/>
 		</>
 	)
 }

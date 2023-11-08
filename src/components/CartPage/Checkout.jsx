@@ -2,7 +2,7 @@ import Chip from "../Elements/Chip"
 import shippingIMG from "/public/free-shipping-tiny.png"
 import Button from "../Elements/Button"
 
-function Checkout({ totalToPay }) {
+function Checkout({ totalToPay, totalItems }) {
 	return (
 		<div className="checkout-container">
 			<img
@@ -12,9 +12,14 @@ function Checkout({ totalToPay }) {
 			/>
 			<div className="cost-list">
 				<div className="subtotal">
+					<p>Number of items</p>
+					<p>{totalItems}</p>
+				</div>
+				<div className="subtotal">
 					<p>Subtotal</p>
 					<p>$ {totalToPay}</p>
 				</div>
+				<div className="divider"></div>
 				<div className="shipping-cost">
 					<p>Shipping cost</p>
 					<Chip
@@ -22,7 +27,6 @@ function Checkout({ totalToPay }) {
 						type="accent"
 					/>
 				</div>
-				<div className="divider"></div>
 				<div className="total-amount">
 					<p>TOTAL</p>
 					<p>$ {totalToPay}</p>
