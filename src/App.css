@@ -475,7 +475,7 @@ section#cart {
 		}
 	}
 
-	.check-out-container {
+	/* .check-out-container {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -510,7 +510,7 @@ section#cart {
 				opacity: 50%;
 			}
 		}
-	}
+	} */
 
 	.cart-emtpy {
 		display: flex;
@@ -644,14 +644,14 @@ section#cart {
 			}
 		}
 
-		.check-out-container {
+		/* .check-out-container {
 			flex-direction: column;
 			padding: 16px 8px;
 
 			> button#checkout {
 				width: 100%;
 			}
-		}
+		} */
 	}
 }
 

@@ -1,0 +1,49 @@
+#cart {
+	padding: 8px;
+}
+
+/* Checkout component */
+
+.checkout-container {
+	display: flex;
+	padding: 32px 16px;
+	flex-direction: column;
+	gap: 16px;
+
+	border-radius: 8px;
+	background: #e3d9ff;
+
+	.shipping-image {
+		max-height: 150px;
+		object-fit: contain;
+		object-position: center;
+	}
+
+	.cost-list {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		font-size: 14px;
+		font-weight: 500;
+
+		> div {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			&:not(.total-amount) > p:first-of-type {
+				color: var(--light-black);
+			}
+		}
+
+		.total-amount {
+			font-size: 16px;
+			font-weight: 700;
+		}
+
+		.taxes {
+			color: var(--light-black);
+			font-weight: 400;
+		}
+	}
+}

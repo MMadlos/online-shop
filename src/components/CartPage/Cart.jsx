@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import CartList from "./CartList"
+import "./styles.css"
 
 function Cart() {
 	return (
