@@ -1,18 +1,21 @@
-import { getMultipleUniqueRandomInt, getProductByID } from "../utilities/utilities"
+import { getMultipleUniqueRandomInt, getProductByID } from "../../utilities/utilities"
 import { useContext, useEffect, useState } from "react"
-import { ShopContext } from "../App"
+import { ShopContext } from "../../App"
 import { useParams } from "react-router-dom"
-import ProductCard from "./Elements/ProductCard"
+import ProductCard from "../Elements/ProductCard"
+
+import "./styles.css"
+import Chip from "../Elements/Chip"
+
+// TODO - Check why I can't access directly to /product/:id. It appears an error page because "productList" is empty. It also happens if I go to /cart directly.
+// console.log(productList) -> []
+// If I access through the main page, it renders correctly.
 
 function Recommendation() {
 	const { productList } = useContext(ShopContext)
 	const currentProductID = useParams().productID
 
 	const [randomIDs, setRandomIDs] = useState([])
-
-	// TODO - Check why I can't access directly to /product/:id. It appears an error page because "productList" is empty. It also happens if I go to /cart directly.
-	// console.log(productList) -> []
-	// If I access through the main page, it renders correctly.
 
 	useEffect(() => {
 		const maxNum = productList.length === 0 ? 20 : productList.length - 1
@@ -23,8 +26,10 @@ function Recommendation() {
 
 	return (
 		<section className="recommendation">
-			<h2>Recommended products</h2>
-
+			<Chip
+				text="Recommended products"
+				type="default"
+			/>
 			<div className="recommendation-container">
 				{randomIDs.map((randomID) => {
 					const productToShow = getProductByID(productList, randomID)
@@ -33,7 +38,6 @@ function Recommendation() {
 						<ProductCard
 							key={productToShow.id}
 							product={productToShow}
-							cardSize="small"
 						/>
 					)
 				})}

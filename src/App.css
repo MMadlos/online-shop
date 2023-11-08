@@ -326,7 +326,7 @@ button {
 
 /* RECOMMENDATION SECTION */
 
-section.recommendation {
+/* section.recommendation {
 	--padding-top-bottom: 40px;
 
 	padding: var(--padding-top-bottom) var(--padding-section-laterals);
@@ -422,9 +422,9 @@ section.recommendation {
 			}
 		}
 	}
-}
+} */
 
-@media (max-width: 500px) {
+/* @media (max-width: 500px) {
 	section.recommendation {
 		padding: var(--padding-top-bottom) var(--padding-media-small);
 		background-color: var(--white);
@@ -465,13 +465,5 @@ section.recommendation {
 				}
 			}
 		}
-	}
-}
-
-/* .home {
-	background-color: var(--accent-yellow);
-
-	> main {
-		background-color: transparent;
 	}
 } */
