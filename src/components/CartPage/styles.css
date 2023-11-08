@@ -45,5 +45,12 @@
 			color: var(--light-black);
 			font-weight: 400;
 		}
+
+		.divider {
+			height: 2px;
+			width: 100%;
+			background-color: var(--grey);
+			margin: 24px 0;
+		}
 	}
 }
