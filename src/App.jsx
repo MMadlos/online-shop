@@ -80,7 +80,7 @@ function App() {
 		e.preventDefault()
 		e.stopPropagation()
 
-		const { dataset } = e.target.closest("[data-product-id]")
+		const { dataset } = e.target.closest(".cart-product")
 		const productID = Number(dataset.productId)
 
 		const newCart = cartList.filter((product) => product.id !== productID)

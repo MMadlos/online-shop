@@ -1,8 +1,14 @@
+import { useContext } from "react"
+import { ShopContext } from "../../App"
+
 function CartProduct({ product }) {
-	const { name, price, url, quantity } = product
+	const { name, price, url, quantity, id } = product
+	const { handleClickRemoveCart } = useContext(ShopContext)
 
 	return (
-		<div className="cart-product">
+		<div
+			className="cart-product"
+			data-product-id={id}>
 			<img
 				src={url}
 				alt=""
@@ -11,7 +17,9 @@ function CartProduct({ product }) {
 			<div className="cart-info-container">
 				<div className="cart-header-container">
 					<p className="name">{name}</p>
-					<i className="fa-regular fa-trash-can"></i>
+					<i
+						className="fa-regular fa-trash-can"
+						onClick={handleClickRemoveCart}></i>
 				</div>
 				<div className="product-quantity-container">
 					<p>{`Quantity: ${quantity}`}</p>
