@@ -22,7 +22,7 @@ function mapProductList(products) {
 }
 
 function filterProductsByCategory(productList, category) {
-	if (category === "All categories") return productList
+	if (category === "All products") return productList
 
 	return productList.filter((product) => product.category.toLowerCase() === category.toLowerCase())
 }

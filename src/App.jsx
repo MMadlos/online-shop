@@ -36,6 +36,7 @@ export const SearchAndSortContext = createContext({
 function App() {
 	const { productList, setProductList } = useMockProducts()
 	// const { productList, setProductList, error, loading } = useFetchProducts()
+
 	const [selectedCategory, setSelectedCategory] = useState("Men's clothing")
 
 	const { sort, setSort, productsToShow, setProductsToShow } = useSearchAndSort()
