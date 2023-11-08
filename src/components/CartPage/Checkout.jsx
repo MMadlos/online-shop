@@ -9,11 +9,10 @@ function Checkout({ totalToPay }) {
 				alt=""
 				className="shipping-image"
 			/>
-
 			<div className="cost-list">
 				<div className="subtotal">
 					<p>Subtotal</p>
-					<p>XXX</p>
+					<p>$ {totalToPay}</p>
 				</div>
 				<div className="shipping-cost">
 					<p>Shipping cost</p>
@@ -29,7 +28,6 @@ function Checkout({ totalToPay }) {
 				</div>
 				<p className="taxes">(Taxes included)</p>
 			</div>
-
 			<button id="checkout">Checkout</button>
 		</div>
 	)
