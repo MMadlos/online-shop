@@ -4,12 +4,46 @@
 
 /* Cart product component */
 .cart-product {
+	display: flex;
+	gap: 16px;
+
 	.cart-product-image {
-		/* TODO */
+		max-height: 150px;
+		object-fit: contain;
+		object-position: center;
 	}
 
 	.cart-info-container {
-		/* TODO */
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		.cart-header-container {
+			display: flex;
+			justify-content: space-between;
+			font-size: 16px;
+
+			.name {
+				font-weight: 600;
+			}
+
+			.fa-trash-can {
+				color: var(--light-black);
+			}
+		}
+
+		.product-quantity-container {
+			display: flex;
+			align-items: center;
+			gap: 16px;
+
+			color: var(--light-black);
+		}
+
+		.price {
+			font-weight: 500;
+		}
 	}
 }
 
