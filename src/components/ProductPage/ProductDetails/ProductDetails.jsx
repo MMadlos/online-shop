@@ -1,9 +1,13 @@
-import AddCartBtn from "../../Elements/AddCartBtn"
+import { useContext } from "react"
+import { ShopContext } from "../../../App"
+
+import Button from "../../Elements/Button"
 import Rating from "./Rating"
 import ProductAbout from "./ProductAbout"
 import promoImage from "/public/promo-image-tiny.png"
 
 function ProductDetails({ productSelected }) {
+	const { handleClickAddCart } = useContext(ShopContext)
 	const { id, name, price, url, rate, countRates, description } = productSelected
 
 	return (
@@ -31,7 +35,12 @@ function ProductDetails({ productSelected }) {
 					<p className="price">{`$ ${price}`}</p>
 				</div>
 
-				<AddCartBtn />
+				<Button
+					btnID="add-cart"
+					onClick={handleClickAddCart}
+					text="Add to cart"
+				/>
+
 				<ProductAbout description={description} />
 			</div>
 		</div>
