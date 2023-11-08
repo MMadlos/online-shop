@@ -1,4 +1,4 @@
-import AddCartBtn from "../Elements/AddCartBtn"
+import AddCartBtn from "../../Elements/AddCartBtn"
 import Rating from "./Rating"
 import ProductAbout from "./ProductAbout"
 import promoImage from "/public/promo-image-tiny.png"

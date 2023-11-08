@@ -3,7 +3,7 @@ import { ShopContext } from "../../App"
 import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
 
-import ProductDetails from "./ProductDetails"
+import ProductDetails from "./ProductDetails/ProductDetails"
 import ErrorProduct from "../Error/ErrorProduct"
 
 function ProductInfo() {
