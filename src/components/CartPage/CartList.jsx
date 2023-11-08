@@ -17,20 +17,21 @@ function CartList() {
 
 	return (
 		<>
-			{cartList?.map((product, index) => {
-				const { id } = product
-				const isLastProduct = index === cartList.length - 1
+			<div className="cart-list-container">
+				{cartList?.map((product, index) => {
+					const { id } = product
+					const isLastProduct = index === cartList.length - 1
 
-				return (
-					<Fragment key={id}>
-						<Link to={`/product/${id}`}>
-							<CartProduct product={product} />
-						</Link>
-						{!isLastProduct && <div className="divider"></div>}
-					</Fragment>
-				)
-			})}
-
+					return (
+						<Fragment key={id}>
+							<Link to={`/product/${id}`}>
+								<CartProduct product={product} />
+							</Link>
+							{!isLastProduct && <div className="divider"></div>}
+						</Fragment>
+					)
+				})}
+			</div>
 			<Checkout
 				totalToPay={totalToPay}
 				totalItems={sumItemsCart}
