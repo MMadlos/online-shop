@@ -5,6 +5,11 @@
 	padding: 8px;
 }
 
+.divider {
+	background: var(--light-grey);
+	height: 2px;
+}
+
 /* Cart product component */
 .cart-product {
 	display: flex;
