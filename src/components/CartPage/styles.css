@@ -3,15 +3,19 @@
 	flex-direction: column;
 	gap: 40px;
 
-	padding: 40px 8px;
+	padding: 40px 16px;
+
+	@media (min-width: 1024px) {
+		padding: 40px 10vw 80px 10vw;
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: 10vw;
+	}
+
 	.cart-list-container {
 		display: flex;
 		flex-direction: column;
 		gap: 24px;
-	}
-
-	@media (min-width: 1024px) {
-		flex-direction: row;
 	}
 }
 
@@ -84,7 +88,10 @@
 	background: #e3d9ff;
 
 	@media (min-width: 1024px) {
+		position: sticky;
+		top: 40px;
 		max-width: 477px;
+		height: fit-content;
 	}
 
 	.shipping-image {
