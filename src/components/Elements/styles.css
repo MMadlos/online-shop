@@ -45,4 +45,9 @@ button {
 		background-color: var(--accent-purple);
 		cursor: pointer;
 	}
+
+	&#checkout {
+		text-transform: uppercase;
+		letter-spacing: 0.24px;
+	}
 }

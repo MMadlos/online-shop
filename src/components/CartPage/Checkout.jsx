@@ -1,5 +1,6 @@
 import Chip from "../Elements/Chip"
 import shippingIMG from "/public/free-shipping-tiny.png"
+import Button from "../Elements/Button"
 
 function Checkout({ totalToPay }) {
 	return (
@@ -28,7 +29,10 @@ function Checkout({ totalToPay }) {
 				</div>
 				<p className="taxes">(Taxes included)</p>
 			</div>
-			<button id="checkout">Checkout</button>
+			<Button
+				text="Checkout"
+				btnID="checkout"
+			/>
 		</div>
 	)
 }

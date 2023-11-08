@@ -9,9 +9,6 @@ function Cart() {
 				<i className="fa-solid fa-chevron-left"></i>
 				<Link to="/">Return to shop</Link>
 			</div>
-
-			<h1>Order</h1>
-
 			<CartList />
 		</section>
 	)
