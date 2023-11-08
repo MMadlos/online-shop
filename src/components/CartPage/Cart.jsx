@@ -1,17 +1,23 @@
-import { Link } from "react-router-dom"
-import CartList from "./CartList"
 import "./styles.css"
 
-function Cart() {
+import CartList from "./CartList"
+
+import { useContext } from "react"
+import { ShopContext } from "../../App"
+
+function CartEmpty() {
 	return (
-		<section id="cart">
-			<div className="return-container">
-				<i className="fa-solid fa-chevron-left"></i>
-				<Link to="/">Return to shop</Link>
-			</div>
-			<CartList />
-		</section>
+		<div className="cart-emtpy">
+			<h2> YOUR CART IS EMPTY</h2>
+		</div>
 	)
+}
+
+function Cart() {
+	const { cartList } = useContext(ShopContext)
+	const isCartEmpty = cartList.length === 0
+
+	return <section id="cart">{isCartEmpty ? <CartEmpty /> : <CartList />}</section>
 }
 
 export default Cart
