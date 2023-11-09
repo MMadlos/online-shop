@@ -163,6 +163,13 @@
 	}
 }
 
+@media (max-width: 1024px) {
+	#root:has(.edit-product-container) {
+		height: 100vh;
+		overflow: hidden;
+	}
+}
+
 .edit-product-container {
 	position: absolute;
 	top: 0;
