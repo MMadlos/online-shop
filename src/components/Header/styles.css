@@ -121,6 +121,11 @@ header {
 
 /* CATEGORY PAGE - Menu that opens in mobile version*/
 
+#root:has(.categories) {
+	height: 100vh;
+	overflow: hidden;
+}
+
 .categories {
 	@media (min-width: 1024px) {
 		display: none;
