@@ -1,6 +1,5 @@
 import { Fragment, useContext } from "react"
 import { ShopContext } from "../../App"
-import { Link } from "react-router-dom"
 
 import CartProduct from "./CartProduct"
 import Checkout from "./Checkout"
@@ -22,9 +21,7 @@ function CartList() {
 
 					return (
 						<Fragment key={id}>
-							<Link to={`/product/${id}`}>
-								<CartProduct product={product} />
-							</Link>
+							<CartProduct product={product} />
 							{!isLastProduct && <div className="divider"></div>}
 						</Fragment>
 					)

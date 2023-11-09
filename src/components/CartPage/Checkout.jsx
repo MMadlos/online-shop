@@ -1,5 +1,5 @@
 import Chip from "../Elements/Chip"
-import shippingIMG from "/public/free-shipping-tiny.png"
+import shippingIMG from "../../assets/free-shipping-tiny.png"
 import Button from "../Elements/Button"
 
 function Checkout({ totalToPay, totalItems }) {

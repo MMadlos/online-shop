@@ -4,7 +4,7 @@ import { ShopContext } from "../../../App"
 import Button from "../../Elements/Button"
 import Rating from "./Rating"
 import ProductAbout from "./ProductAbout"
-import promoImage from "/public/promo-image-tiny.png"
+import promoImage from "../../../assets/promo-image-tiny.png"
 
 function ProductDetails({ productSelected }) {
 	const { handleClickAddCart } = useContext(ShopContext)

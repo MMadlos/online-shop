@@ -1,6 +1,8 @@
 import { useContext } from "react"
 import { ShopContext } from "../../App"
 
+import { Link } from "react-router-dom"
+
 function CartProduct({ product }) {
 	const { name, price, url, quantity, id } = product
 	const { handleClickRemoveCart } = useContext(ShopContext)
@@ -9,14 +11,18 @@ function CartProduct({ product }) {
 		<div
 			className="cart-product"
 			data-product-id={id}>
-			<img
-				src={url}
-				alt=""
-				className="cart-product-image"
-			/>
+			<Link to={`/product/${id}`}>
+				<img
+					src={url}
+					alt=""
+					className="cart-product-image"
+				/>
+			</Link>
 			<div className="cart-info-container">
 				<div className="cart-header-container">
-					<p className="name">{name}</p>
+					<Link to={`/product/${id}`}>
+						<p className="name">{name}</p>
+					</Link>
 					<i
 						className="fa-regular fa-trash-can"
 						onClick={handleClickRemoveCart}></i>
