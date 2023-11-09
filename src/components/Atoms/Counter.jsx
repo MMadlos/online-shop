@@ -40,7 +40,9 @@ function Counter({ context, currentQuantity }) {
 				disabled={quantity === 0 || (context === "product" && quantity === 1)}>
 				<i className="fa-solid fa-minus"></i>
 			</button>
-			<p className="quantity">{quantity}</p>
+			<div className="quantity-container">
+				<p className="quantity">{quantity}</p>
+			</div>
 			<button
 				id="increase"
 				onClick={handleCounter}>
