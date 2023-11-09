@@ -101,6 +101,13 @@
 	}
 }
 
+@media (max-width: 1024px) {
+	#root:has(.sort-menu-container) {
+		height: 100vh;
+		overflow: hidden;
+	}
+}
+
 .sort-menu-container {
 	position: absolute;
 	top: 0;

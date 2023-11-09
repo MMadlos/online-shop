@@ -162,3 +162,59 @@
 		}
 	}
 }
+
+.edit-product-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	height: 100vh;
+	width: 100vw;
+	padding: 20px 10vw;
+
+	background: radial-gradient(76.54% 57.75% at 0% 0%, #e3d9ff 24.12%, rgba(255, 255, 255, 0) 100%),
+		radial-gradient(107.45% 93.42% at 100% 100%, #e3d9ff 55.04%, rgba(255, 255, 255, 0) 100%), #fff;
+
+	.product-card {
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+		padding: 16px;
+		background-color: var(--white);
+		border-radius: 8px;
+		color: var(--black);
+
+		> img {
+			width: 100%;
+			max-height: 300px;
+			object-fit: contain;
+			object-position: center;
+		}
+
+		#price {
+			font-size: 16px;
+			font-weight: 600;
+		}
+
+		#name {
+			color: var(--light-black);
+			font-size: 14px;
+			font-weight: 500;
+			margin-top: 8px;
+		}
+	}
+
+	.counter {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		> p {
+			width: 100%;
+		}
+	}
+}

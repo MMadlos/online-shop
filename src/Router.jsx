@@ -15,7 +15,10 @@ const Router = () => {
 			element: <App />,
 			children: [
 				{ index: true, element: <HomePage /> },
-				{ path: "cart", element: <CartPage /> },
+				{
+					path: "cart",
+					element: <CartPage />,
+				},
 				{ path: "product", element: <ErrorProduct /> },
 				{
 					path: "product/:productID",

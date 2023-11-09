@@ -3,7 +3,7 @@ import { ShopContext } from "../../App"
 
 import { Link } from "react-router-dom"
 
-function CartProduct({ product }) {
+function CartProduct({ product, onClickEdit }) {
 	const { name, price, url, quantity, id } = product
 	const { handleClickRemoveCart } = useContext(ShopContext)
 
@@ -29,7 +29,9 @@ function CartProduct({ product }) {
 				</div>
 				<div className="product-quantity-container">
 					<p>{`Quantity: ${quantity}`}</p>
-					<i className="fa-solid fa-pencil"></i>
+					<i
+						className="fa-solid fa-pencil"
+						onClick={onClickEdit}></i>
 				</div>
 				<p className="price">$ {price}</p>
 			</div>
