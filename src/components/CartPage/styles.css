@@ -557,7 +557,7 @@
 				text-transform: uppercase;
 			}
 
-			> button {
+			> a > button {
 				background-color: var(--accent-purple);
 				display: flex;
 				align-items: center;

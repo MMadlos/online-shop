@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 import Chip from "../Elements/Chip"
 import shippingIMG from "../../assets/free-shipping-tiny.png"
 import Button from "../Elements/Button"
@@ -5,6 +7,8 @@ import Button from "../Elements/Button"
 import CheckoutPage from "./CheckoutPage"
 
 function Checkout({ totalToPay, totalItems }) {
+	const [isCheckoutOpen, setIsCheckoutOpen] = useState(false)
+
 	return (
 		<>
 			<div className="checkout-container">
@@ -39,9 +43,10 @@ function Checkout({ totalToPay, totalItems }) {
 				<Button
 					text="Checkout"
 					btnID="checkout"
+					onClick={() => setIsCheckoutOpen(true)}
 				/>
 			</div>
-			<CheckoutPage />
+			{isCheckoutOpen && <CheckoutPage />}
 		</>
 	)
 }

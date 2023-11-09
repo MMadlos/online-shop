@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 import Chip from "../Elements/Chip"
 import CelebrationIMG from "../../assets/celebration.svg"
 import Button from "../Elements/Button"
@@ -16,9 +18,11 @@ function CheckoutPage() {
 			<div className="checkout-text-container">
 				<h4>The payment process is out of the scope of this project.</h4>
 				<p>{`Thank you for going throught this project! :)`}</p>
-				<button>
-					<i className="fa-solid fa-arrow-left"></i>Back to the shop
-				</button>
+				<Link to="/">
+					<button>
+						<i className="fa-solid fa-arrow-left"></i>Back to the shop
+					</button>
+				</Link>
 			</div>
 			<div className="link-container">
 				<Button
