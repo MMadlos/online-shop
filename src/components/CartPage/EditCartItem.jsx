@@ -11,8 +11,10 @@ function EditCartItem({ productIDtoEdit, onClickClose }) {
 	const [product] = cartList.filter((productCart) => productCart.id === productIDtoEdit)
 
 	const [counterNumber, setCounterNumber] = useState(product.quantity)
+
 	function handleCounter(e) {
 		const buttonType = e.target.closest("button").id
+
 		const newQuantity = buttonType === "increase" ? counterNumber + 1 : counterNumber - 1
 
 		setCounterNumber(newQuantity)
