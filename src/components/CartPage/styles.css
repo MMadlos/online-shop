@@ -258,6 +258,10 @@
 				border-radius: 50px;
 				width: fit-content;
 				padding: 16px;
+
+				&:disabled {
+					opacity: 20%;
+				}
 			}
 
 			.quantity-container {
@@ -415,6 +419,10 @@
 
 							&:hover {
 								opacity: 50%;
+							}
+
+							&:disabled {
+								opacity: 20%;
 							}
 						}
 					}
