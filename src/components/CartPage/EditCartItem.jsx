@@ -3,7 +3,7 @@ import { useContext } from "react"
 import { useState } from "react"
 
 import ProductCard from "../Elements/ProductCard"
-import Counter from "../Atoms/Counter"
+import Counter from "./Counter"
 import Button from "../Elements/Button"
 
 function EditCartItem({ productIDtoEdit, onClickClose }) {
