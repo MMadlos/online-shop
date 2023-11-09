@@ -36,6 +36,14 @@
 		max-width: 75px;
 		object-fit: contain;
 		object-position: center;
+
+		transition-property: transform;
+		transition-duration: 0.25s;
+		transition-timing-function: ease-out;
+
+		&:hover {
+			transform: scale(115%, 115%);
+		}
 	}
 
 	.cart-info-container {
