@@ -15,22 +15,28 @@ function CheckoutPage() {
 				src={CelebrationIMG}
 				alt=""
 			/>
-			<div className="checkout-text-container">
-				<h4>The payment process is out of the scope of this project.</h4>
-				<p>{`Thank you for going throught this project! :)`}</p>
-				<Link to="/">
-					<button>
-						<i className="fa-solid fa-arrow-left"></i>Back to the shop
-					</button>
-				</Link>
-			</div>
-			<div className="link-container">
-				<Button
-					text="Portfolio"
-					btnID="back"
+			<div className="checkout-content-container">
+				<Chip
+					text="Checkout completed!"
+					type="accent"
 				/>
-				<i className="fa-brands fa-github"></i>
-				<i className="fa-brands fa-linkedin-in"></i>
+				<div className="checkout-text-container">
+					<h4>The payment process is out of the scope of this project.</h4>
+					<p>{`Thank you for going throught this project! :)`}</p>
+					<Link to="/">
+						<button>
+							<i className="fa-solid fa-arrow-left"></i>Back to the shop
+						</button>
+					</Link>
+				</div>
+				<div className="link-container">
+					<Button
+						text="Portfolio"
+						btnID="back"
+					/>
+					<i className="fa-brands fa-github"></i>
+					<i className="fa-brands fa-linkedin-in"></i>
+				</div>
 			</div>
 		</div>
 	)
