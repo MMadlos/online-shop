@@ -1,6 +1,6 @@
 import "./styles.css"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -9,6 +9,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons"
 import CartIcon from "./CartIcon"
 import CategoryList from "./CategoryList"
 import CategoryPage from "./CategoryPage"
+import Notification from "./Notification"
 
 function HeaderContainer({ children }) {
 	return (
@@ -20,6 +21,13 @@ function HeaderContainer({ children }) {
 
 function Header({ cartQuantity }) {
 	const [isNavOpen, setIsNavOpen] = useState(false)
+	const [isNotificationOpen, setIsNotificationOpen] = useState(false)
+
+	useEffect(() => {
+		if (cartQuantity !== 0) setIsNotificationOpen(true)
+
+		setTimeout(setIsNotificationOpen, 2000, false)
+	}, [cartQuantity])
 
 	return (
 		<HeaderContainer>
@@ -43,9 +51,7 @@ function Header({ cartQuantity }) {
 			<Link to="/cart">
 				<CartIcon cartQuantity={cartQuantity} />
 			</Link>
-			<div className="notification-add">
-				<p>Added to your cart</p>
-			</div>
+			{isNotificationOpen && <Notification />}
 		</HeaderContainer>
 	)
 }
