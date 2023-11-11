@@ -34,7 +34,7 @@ function Header({ cartQuantity }) {
 		setIsNotificationOpen(true)
 		setCurrentCartQuantity(cartQuantity)
 
-		setTimeout(setIsNotificationOpen, 2000, false)
+		setTimeout(setIsNotificationOpen, 2500, false)
 	}
 
 	return (
