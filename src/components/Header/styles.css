@@ -130,6 +130,13 @@ header {
 			position: absolute;
 			right: 16px;
 			transform: translate(0, 125%);
+
+			@media (min-width: 1024px) {
+				right: 40px;
+				transform: translate(-50%, 100%);
+				padding: 16px 32px;
+				font-size: 16px;
+			}
 		}
 	}
 }
