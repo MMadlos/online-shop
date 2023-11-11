@@ -1,6 +1,6 @@
 import "./styles.css"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Link } from "react-router-dom"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -21,13 +21,21 @@ function HeaderContainer({ children }) {
 
 function Header({ cartQuantity }) {
 	const [isNavOpen, setIsNavOpen] = useState(false)
+
+	const [currentCartQuantity, setCurrentCartQuantity] = useState(cartQuantity)
 	const [isNotificationOpen, setIsNotificationOpen] = useState(false)
 
-	useEffect(() => {
-		if (cartQuantity !== 0) setIsNotificationOpen(true)
+	if (cartQuantity < currentCartQuantity) {
+		setCurrentCartQuantity(cartQuantity)
+		return
+	}
+
+	if (cartQuantity > currentCartQuantity) {
+		setIsNotificationOpen(true)
+		setCurrentCartQuantity(cartQuantity)
 
 		setTimeout(setIsNotificationOpen, 2000, false)
-	}, [cartQuantity])
+	}
 
 	return (
 		<HeaderContainer>
