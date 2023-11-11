@@ -43,6 +43,9 @@ function Header({ cartQuantity }) {
 			<Link to="/cart">
 				<CartIcon cartQuantity={cartQuantity} />
 			</Link>
+			<div className="notification-add">
+				<p>Added to your cart</p>
+			</div>
 		</HeaderContainer>
 	)
 }

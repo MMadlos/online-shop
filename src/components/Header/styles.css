@@ -116,6 +116,18 @@ header {
 				font-size: 25px;
 			}
 		}
+
+		.notification-add {
+			background-color: var(--accent-yellow);
+			padding: 8px 24px;
+			font-size: 12px;
+			font-weight: 600;
+			color: var(--black);
+
+			position: absolute;
+			right: 16px;
+			transform: translate(0, 125%);
+		}
 	}
 }
 
