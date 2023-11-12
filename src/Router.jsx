@@ -8,6 +8,8 @@ import CartPage from "./components/CartPage/CartPage.jsx"
 import ErrorProduct from "./components/Error/ErrorProduct.jsx"
 import ErrorPage from "./components/Error/ErrorPage.jsx"
 
+// TODO -> If the path is "/product", should redirect to the main page (path: "/")
+
 const Router = () => {
 	const router = createBrowserRouter([
 		{
@@ -23,6 +25,7 @@ const Router = () => {
 				{
 					path: "product/:productID",
 					element: <ProductPage />,
+					// errorElement: <ErrorPage />,
 				},
 			],
 			errorElement: <ErrorPage />,
