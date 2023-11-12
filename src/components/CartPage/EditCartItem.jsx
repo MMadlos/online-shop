@@ -28,9 +28,13 @@ function EditCartItem({ productIDtoEdit, onClickClose }) {
 	return (
 		<>
 			<div className="edit-product-container">
-				<i
-					className="fa-solid fa-xmark"
-					onClick={onClickClose}></i>
+				<button
+					className="none"
+					name="close-edit"
+					id="close-edit"
+					onClick={onClickClose}>
+					<i className="fa-solid fa-xmark" />
+				</button>
 				<div className="product-mobile">
 					<ProductCard
 						product={product}
