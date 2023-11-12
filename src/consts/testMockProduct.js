@@ -1,4 +1,6 @@
-export const testMockProduct = [
+import { mapProductList } from "../utilities/utilities"
+
+const mockProduct = [
 	{
 		id: 1,
 		title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -12,3 +14,5 @@ export const testMockProduct = [
 		},
 	},
 ]
+
+export const testMockProduct = mapProductList(mockProduct)
