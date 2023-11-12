@@ -27,7 +27,7 @@
 	}
 }
 
-button {
+button:not(.none) {
 	min-width: fit-content;
 	width: 100%;
 
@@ -50,4 +50,10 @@ button {
 		text-transform: uppercase;
 		letter-spacing: 0.24px;
 	}
+}
+
+button.none {
+	width: fit-content;
+	padding: 0;
+	background: none;
 }
