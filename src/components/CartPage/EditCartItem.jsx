@@ -56,11 +56,20 @@ function EditCartItem({ productIDtoEdit, onClickClose }) {
 					<img
 						src={product.url}
 						alt="#"
+						data-testid="product-desktop-img"
 					/>
 					<div className="product-info-desktop">
 						<div className="product-info-header">
-							<p id="price">{"$ " + product.price}</p>
-							<h2 id="name">{product.name}</h2>
+							<p
+								id="price"
+								data-testid="product-desktop-price">
+								{"$ " + product.price}
+							</p>
+							<h2
+								id="name"
+								data-testid="product-desktop-name">
+								{product.name}
+							</h2>
 						</div>
 						<div className="product-info-actions">
 							<Counter
@@ -78,7 +87,8 @@ function EditCartItem({ productIDtoEdit, onClickClose }) {
 			</div>
 			<div
 				className="overlay"
-				onClick={onClickClose}></div>
+				onClick={onClickClose}
+				data-testid="overlay"></div>
 		</>
 	)
 }
