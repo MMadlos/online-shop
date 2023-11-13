@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom"
 import { ShopContext } from "../../../App"
 import { testMockMultipleProducts } from "../../../consts/testMockProduct"
 
-import CartList from "../CartList"
+import CartList from "../CartListContainer"
 
 vi.mock("../CartProduct", () => ({
 	default: ({ product, onClickEdit }) => (

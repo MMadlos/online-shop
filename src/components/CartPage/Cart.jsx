@@ -2,7 +2,7 @@ import "./styles.css"
 import { useContext } from "react"
 import { ShopContext } from "../../App"
 
-import CartList from "./CartList"
+import CartList from "./CartListContainer"
 import CartEmpty from "./CartEmpty"
 
 function Cart() {
