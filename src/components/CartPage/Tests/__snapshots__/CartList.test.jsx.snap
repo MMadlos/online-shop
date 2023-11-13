@@ -1,0 +1,422 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CartList > renders the component 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="cart-list-container"
+      >
+        <div
+          class="cart-product"
+          data-product-id="1"
+        >
+          <a
+            href="/product/1"
+          >
+            <img
+              alt=""
+              class="cart-product-image"
+              src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+            />
+          </a>
+          <div
+            class="cart-info-container"
+          >
+            <div
+              class="cart-header-container"
+            >
+              <a
+                href="/product/1"
+              >
+                <p
+                  class="name"
+                >
+                  Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
+                </p>
+              </a>
+              <i
+                class="fa-regular fa-trash-can"
+              />
+            </div>
+            <div
+              class="product-quantity-container"
+            >
+              <p>
+                Quantity: 0
+              </p>
+              <i
+                class="fa-solid fa-pencil"
+              />
+            </div>
+            <p
+              class="price"
+            >
+              $ 
+              109.95
+            </p>
+          </div>
+        </div>
+        <div
+          class="divider"
+        />
+        <div
+          class="cart-product"
+          data-product-id="2"
+        >
+          <a
+            href="/product/2"
+          >
+            <img
+              alt=""
+              class="cart-product-image"
+              src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+            />
+          </a>
+          <div
+            class="cart-info-container"
+          >
+            <div
+              class="cart-header-container"
+            >
+              <a
+                href="/product/2"
+              >
+                <p
+                  class="name"
+                >
+                  Mens Casual Premium Slim Fit T-Shirts 
+                </p>
+              </a>
+              <i
+                class="fa-regular fa-trash-can"
+              />
+            </div>
+            <div
+              class="product-quantity-container"
+            >
+              <p>
+                Quantity: 0
+              </p>
+              <i
+                class="fa-solid fa-pencil"
+              />
+            </div>
+            <p
+              class="price"
+            >
+              $ 
+              22.3
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="checkout-container"
+      >
+        <img
+          alt=""
+          class="shipping-image"
+          src="/src/assets/free-shipping-tiny.png"
+        />
+        <div
+          class="cost-list"
+        >
+          <div
+            class="subtotal"
+          >
+            <p>
+              Number of items
+            </p>
+            <p>
+              0
+            </p>
+          </div>
+          <div
+            class="subtotal"
+          >
+            <p>
+              Subtotal
+            </p>
+            <p>
+              $ 
+              0.00
+            </p>
+          </div>
+          <div
+            class="divider"
+          />
+          <div
+            class="shipping-cost"
+          >
+            <p>
+              Shipping cost
+            </p>
+            <div
+              class="chip accent"
+            >
+              <p>
+                FREE
+              </p>
+            </div>
+          </div>
+          <div
+            class="total-amount"
+          >
+            <p>
+              TOTAL
+            </p>
+            <p>
+              $ 
+              0.00
+            </p>
+          </div>
+          <p
+            class="taxes"
+          >
+            (Taxes included)
+          </p>
+        </div>
+        <button
+          id="checkout"
+        >
+          Checkout
+        </button>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="cart-list-container"
+    >
+      <div
+        class="cart-product"
+        data-product-id="1"
+      >
+        <a
+          href="/product/1"
+        >
+          <img
+            alt=""
+            class="cart-product-image"
+            src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+          />
+        </a>
+        <div
+          class="cart-info-container"
+        >
+          <div
+            class="cart-header-container"
+          >
+            <a
+              href="/product/1"
+            >
+              <p
+                class="name"
+              >
+                Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
+              </p>
+            </a>
+            <i
+              class="fa-regular fa-trash-can"
+            />
+          </div>
+          <div
+            class="product-quantity-container"
+          >
+            <p>
+              Quantity: 0
+            </p>
+            <i
+              class="fa-solid fa-pencil"
+            />
+          </div>
+          <p
+            class="price"
+          >
+            $ 
+            109.95
+          </p>
+        </div>
+      </div>
+      <div
+        class="divider"
+      />
+      <div
+        class="cart-product"
+        data-product-id="2"
+      >
+        <a
+          href="/product/2"
+        >
+          <img
+            alt=""
+            class="cart-product-image"
+            src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+          />
+        </a>
+        <div
+          class="cart-info-container"
+        >
+          <div
+            class="cart-header-container"
+          >
+            <a
+              href="/product/2"
+            >
+              <p
+                class="name"
+              >
+                Mens Casual Premium Slim Fit T-Shirts 
+              </p>
+            </a>
+            <i
+              class="fa-regular fa-trash-can"
+            />
+          </div>
+          <div
+            class="product-quantity-container"
+          >
+            <p>
+              Quantity: 0
+            </p>
+            <i
+              class="fa-solid fa-pencil"
+            />
+          </div>
+          <p
+            class="price"
+          >
+            $ 
+            22.3
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="checkout-container"
+    >
+      <img
+        alt=""
+        class="shipping-image"
+        src="/src/assets/free-shipping-tiny.png"
+      />
+      <div
+        class="cost-list"
+      >
+        <div
+          class="subtotal"
+        >
+          <p>
+            Number of items
+          </p>
+          <p>
+            0
+          </p>
+        </div>
+        <div
+          class="subtotal"
+        >
+          <p>
+            Subtotal
+          </p>
+          <p>
+            $ 
+            0.00
+          </p>
+        </div>
+        <div
+          class="divider"
+        />
+        <div
+          class="shipping-cost"
+        >
+          <p>
+            Shipping cost
+          </p>
+          <div
+            class="chip accent"
+          >
+            <p>
+              FREE
+            </p>
+          </div>
+        </div>
+        <div
+          class="total-amount"
+        >
+          <p>
+            TOTAL
+          </p>
+          <p>
+            $ 
+            0.00
+          </p>
+        </div>
+        <p
+          class="taxes"
+        >
+          (Taxes included)
+        </p>
+      </div>
+      <button
+        id="checkout"
+      >
+        Checkout
+      </button>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
