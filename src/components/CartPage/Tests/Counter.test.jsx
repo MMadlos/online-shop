@@ -26,8 +26,6 @@ describe("Counter", () => {
 		const buttons = screen.getAllByRole("button")
 
 		expect(buttons.length).toBe(2)
-		expect(buttons[0]).toBeInTheDocument()
-		expect(buttons[1]).toBeInTheDocument()
 		expect(buttons[0].id).toMatch("decrease")
 		expect(buttons[1].id).toMatch("increase")
 	})

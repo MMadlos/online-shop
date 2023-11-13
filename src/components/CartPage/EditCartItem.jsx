@@ -54,9 +54,9 @@ function EditCartItem({ productIDtoEdit, onClickClose }) {
 					className="product-desktop"
 					data-product-id={product.id}>
 					<img
+						aria-label="product image for desktop"
 						src={product.url}
 						alt="#"
-						data-testid="product-desktop-img"
 					/>
 					<div className="product-info-desktop">
 						<div className="product-info-header">

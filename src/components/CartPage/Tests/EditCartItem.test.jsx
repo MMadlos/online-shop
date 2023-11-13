@@ -19,7 +19,7 @@ describe("EditCartItem", () => {
 		expect(container).toMatchSnapshot()
 	})
 
-	it("renders button to close the component", () => {
+	it("renders button to close the component with the icon close on it", () => {
 		render(
 			<ShopContext.Provider value={cartList}>
 				<EditCartItem productIDtoEdit={testMockProduct[0].id} />
@@ -28,8 +28,10 @@ describe("EditCartItem", () => {
 
 		const closeButton = screen.getAllByRole("button")[0]
 
-		expect(closeButton.innerHTML).toMatch(/i class="fa-solid fa-xmark"/)
+		expect(closeButton).toContainHTML('<i class="fa-solid fa-xmark"></i>')
 		expect(closeButton.querySelector(".fa-xmark")).toBeInTheDocument()
+		expect(closeButton).toHaveClass("none")
+		expect(closeButton).toHaveAttribute("id", "close-edit")
 	})
 
 	it("renders product image for desktop", () => {
@@ -39,11 +41,12 @@ describe("EditCartItem", () => {
 			</ShopContext.Provider>
 		)
 
-		const productImage = screen.getByTestId("product-desktop-img")
+		const productImage = screen.getByRole("img", { name: "product image for desktop" })
 
 		expect(productImage).toBeInTheDocument()
 		expect(productImage).toHaveProperty("src")
-		expect(productImage.src).toMatch(testMockProduct[0].url)
+		expect(productImage).toHaveAttribute("src", `${testMockProduct[0].url}`)
+		expect(productImage).toHaveAttribute("src", testMockProduct[0].url)
 	})
 
 	it("renders price for desktop", () => {
