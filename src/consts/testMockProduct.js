@@ -1,4 +1,5 @@
 import { mapProductList } from "../utilities/utilities"
+import { mockProducts } from "./mockProducts"
 
 const mockProduct = [
 	{
@@ -16,3 +17,4 @@ const mockProduct = [
 ]
 
 export const testMockProduct = mapProductList(mockProduct)
+export const testMockMultipleProducts = mapProductList(mockProducts.slice(0, 2))
