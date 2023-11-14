@@ -5,15 +5,6 @@ import { BrowserRouter } from "react-router-dom"
 import Checkout from "../Checkout"
 import userEvent from "@testing-library/user-event"
 
-// TODO - Qué es lo más importante?
-/*
-- Render componente
-- Renderizado de props: totalToPay / totalItems
-- img tiene URL (da igual cuál)
-- onClick checkout se llama
-- al hacer onCLick, se abre CheckoutPage --> vi.mock(path, () => ({default: function()}))
-*/
-
 const totalToPay = 2
 const totalItems = 1
 
