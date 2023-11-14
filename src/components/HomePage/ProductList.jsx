@@ -15,7 +15,7 @@ function ProductList() {
 
 	return (
 		<main className="product-list">
-			{productsToShow.map((product) => {
+			{productsToShow?.map((product) => {
 				return (
 					<ProductCard
 						key={product.id}

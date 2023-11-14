@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`HomePage > renders component 1`] = `
+<div>
+  <main
+    class="product-list"
+  />
+</div>
+`;
+
+exports[`ProductList > renders component 1`] = `
+<div>
+  <main
+    class="product-list"
+  />
+</div>
+`;
