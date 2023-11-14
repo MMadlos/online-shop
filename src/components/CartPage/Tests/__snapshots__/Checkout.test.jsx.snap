@@ -1,0 +1,78 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Checkout > renders component 1`] = `
+<div>
+  <div
+    class="checkout-container"
+  >
+    <img
+      alt=""
+      class="shipping-image"
+      src="/src/assets/free-shipping-tiny.png"
+    />
+    <div
+      class="cost-list"
+    >
+      <div
+        class="subtotal"
+      >
+        <p>
+          Number of items
+        </p>
+        <p>
+          1
+        </p>
+      </div>
+      <div
+        class="subtotal"
+      >
+        <p>
+          Subtotal
+        </p>
+        <p>
+          $ 
+          2
+        </p>
+      </div>
+      <div
+        class="divider"
+      />
+      <div
+        class="shipping-cost"
+      >
+        <p>
+          Shipping cost
+        </p>
+        <div
+          class="chip accent"
+        >
+          <p>
+            FREE
+          </p>
+        </div>
+      </div>
+      <div
+        class="total-amount"
+      >
+        <p>
+          TOTAL
+        </p>
+        <p>
+          $ 
+          2
+        </p>
+      </div>
+      <p
+        class="taxes"
+      >
+        (Taxes included)
+      </p>
+    </div>
+    <button
+      id="checkout"
+    >
+      Checkout
+    </button>
+  </div>
+</div>
+`;

@@ -20,11 +20,11 @@ function Checkout({ totalToPay, totalItems }) {
 				<div className="cost-list">
 					<div className="subtotal">
 						<p>Number of items</p>
-						<p>{totalItems}</p>
+						<p data-testid="total-items">{totalItems}</p>
 					</div>
 					<div className="subtotal">
 						<p>Subtotal</p>
-						<p>$ {totalToPay}</p>
+						<p data-testid="subtotal-amount">$ {totalToPay}</p>
 					</div>
 					<div className="divider"></div>
 					<div className="shipping-cost">
@@ -36,7 +36,7 @@ function Checkout({ totalToPay, totalItems }) {
 					</div>
 					<div className="total-amount">
 						<p>TOTAL</p>
-						<p>$ {totalToPay}</p>
+						<p data-testid="total-amount">$ {totalToPay}</p>
 					</div>
 					<p className="taxes">(Taxes included)</p>
 				</div>
