@@ -30,16 +30,17 @@ function CartListContainer() {
 				cartList={cartList}
 				onClickEdit={handleClickEdit}
 			/>
+			<Checkout
+				totalToPay={totalToPay}
+				totalItems={sumItemsCart}
+			/>
+
 			{isEditOpen && (
 				<EditCartItem
 					productIDtoEdit={productIdToEdit}
 					onClickClose={() => setIsEditOpen(false)}
 				/>
 			)}
-			<Checkout
-				totalToPay={totalToPay}
-				totalItems={sumItemsCart}
-			/>
 		</>
 	)
 }
