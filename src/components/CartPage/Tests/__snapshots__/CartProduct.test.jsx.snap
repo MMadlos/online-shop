@@ -1,0 +1,56 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Cart Product > renders component 1`] = `
+<div>
+  <div
+    class="cart-product"
+    data-product-id="3"
+  >
+    <a
+      href="/product/3"
+    >
+      <img
+        alt=""
+        class="cart-product-image"
+        src="test/url"
+      />
+    </a>
+    <div
+      class="cart-info-container"
+    >
+      <div
+        class="cart-header-container"
+      >
+        <a
+          href="/product/3"
+        >
+          <p
+            class="name"
+          >
+            Product 1
+          </p>
+        </a>
+        <i
+          class="fa-regular fa-trash-can"
+        />
+      </div>
+      <div
+        class="product-quantity-container"
+      >
+        <p>
+          Quantity: 2
+        </p>
+        <i
+          class="fa-solid fa-pencil"
+        />
+      </div>
+      <p
+        class="price"
+      >
+        $ 
+        1
+      </p>
+    </div>
+  </div>
+</div>
+`;

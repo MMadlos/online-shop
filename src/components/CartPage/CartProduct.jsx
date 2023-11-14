@@ -24,12 +24,14 @@ function CartProduct({ product, onClickEdit }) {
 						<p className="name">{name}</p>
 					</Link>
 					<i
+						data-testid="remove-icon"
 						className="fa-regular fa-trash-can"
 						onClick={handleClickRemoveCart}></i>
 				</div>
 				<div className="product-quantity-container">
 					<p>{`Quantity: ${quantity}`}</p>
 					<i
+						data-testid="edit-icon"
 						className="fa-solid fa-pencil"
 						onClick={onClickEdit}></i>
 				</div>
