@@ -13,12 +13,12 @@ function ProductAbout({ description }) {
 			<p>About the product</p>
 			<div className="product-about">
 				<p className={isSeeMoreOpen ? "description full" : "description"}>{description}</p>
-				<div
-					className="expand-btn"
+				<button
+					className="expand-btn none"
 					onClick={() => setIsSeeMoreOpen(!isSeeMoreOpen)}>
 					<p>{expandBtn.text}</p>
 					<i className={`fa-solid ${expandBtn.icon}`}></i>
-				</div>
+				</button>
 			</div>
 		</div>
 	)
