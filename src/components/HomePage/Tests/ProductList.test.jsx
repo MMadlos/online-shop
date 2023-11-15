@@ -4,16 +4,6 @@ import { ShopContext } from "../../../App"
 
 import ProductList from "../ProductList"
 
-// TODO
-/*
-- Products to show
-- Mock ProductCard
------
-Importante para testear:
-- ProductsToShow = 0
-- Si ProductsToShow = 3, se renderizan 3 elementos
-
-*/
 vi.mock("../../Elements/ProductCard", () => ({
 	default: ({ product }) => {
 		return (
