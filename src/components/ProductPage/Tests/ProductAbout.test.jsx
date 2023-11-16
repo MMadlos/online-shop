@@ -4,19 +4,6 @@ import userEvent from "@testing-library/user-event"
 
 import ProductAbout from "../ProductDetails/ProductAbout"
 
-// Importante:
-/*
-* - Renderiza description (prop)
-* - Renderiza expand button -> div"
-
-* - Description tiene por defecto sólo la clase "description"
-* - Al hacer click en el botón, description tiene, además, la clase "full"
-* - Por defecto, el texto del botón es "See more"
-*- Al hacer click en el botón, el texto es "See less"
-
-Todo -> Revisar visualmente si se ve bien
-*/
-
 const description = "Descripción de ejemplo"
 
 describe("ProductAbout", () => {
