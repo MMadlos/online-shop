@@ -1,0 +1,22 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ProductInfo > renders component 1`] = `
+<div>
+  <section
+    class="product-info"
+  >
+    <a
+      class="link-back"
+      href="/"
+    >
+      <i
+        class="fa-solid fa-chevron-left"
+      />
+      Back to all results
+    </a>
+    <h1>
+      There is no product here
+    </h1>
+  </section>
+</div>
+`;
