@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons"
 import CategoryList from "./CategoryList"
 
-function CategoryPage({ onClickClose, onClickCategory }) {
+function CategoryMobileMenu({ onClickClose, onClickCategory }) {
 	return (
 		<nav className="categories mobile">
 			<div className="title">
@@ -22,4 +22,4 @@ function CategoryPage({ onClickClose, onClickCategory }) {
 	)
 }
 
-export default CategoryPage
+export default CategoryMobileMenu

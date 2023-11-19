@@ -3,7 +3,7 @@ import { useContext } from "react"
 import { ShopContext } from "../../App"
 import { getCategories } from "../../utilities/utilities"
 
-function CategoryList({ styles, onClickCategory }) {
+function CategoryList({ styles = null, onClickCategory }) {
 	const { productList, selectedCategory, setSelectedCategory } = useContext(ShopContext)
 
 	const categoryList = ["All products", ...getCategories(productList)]

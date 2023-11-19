@@ -8,7 +8,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons"
 
 import CartIcon from "./CartIcon"
 import CategoryList from "./CategoryList"
-import CategoryPage from "./CategoryPage"
+import CategoryMobileMenu from "./CategoryMobileMenu"
 import Notification from "./Notification"
 
 function HeaderContainer({ children }) {
@@ -40,7 +40,7 @@ function Header({ cartQuantity }) {
 	return (
 		<HeaderContainer>
 			{isNavOpen && (
-				<CategoryPage
+				<CategoryMobileMenu
 					onClickClose={() => setIsNavOpen(false)}
 					onClickCategory={() => setIsNavOpen(false)}
 				/>
