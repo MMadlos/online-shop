@@ -55,6 +55,27 @@ describe("CategoryList", () => {
 		expect(defaultSelectedCataegory.parentElement).toHaveClass("selected")
 	})
 
+	it("adds class 'selected' if another category than the default is clicked and is removed from the default category", async () => {
+		const onClick = vi.fn()
+		const mockSelectedCategoryFn = vi.fn()
+		const user = userEvent.setup()
+
+		render(
+			<BrowserRouter>
+				<ShopContext.Provider value={{ productList: mockProductList, selectedCategory: mockSelectedCategory, setSelectedCategory: mockSelectedCategoryFn }}>
+					<CategoryList onClickCategory={onClick} />
+				</ShopContext.Provider>
+			</BrowserRouter>
+		)
+
+		const categoryA = screen.getByText(mockProductList[0].category)
+		const defaultCategory = screen.getByText(mockSelectedCategory)
+		await user.click(categoryA)
+
+		expect(categoryA.parentElement).toHaveClass("selected")
+		expect(defaultCategory).not.toHaveClass("selected")
+	})
+
 	it("adds class 'mobile' if it's passed to props (styles)", () => {
 		render(
 			<BrowserRouter>
@@ -91,11 +112,11 @@ describe("CategoryList", () => {
 
 	it("doesn't call onClickCategory if Link is not clicked", () => {
 		const onClick = vi.fn()
-		const mockSelectedCategoryFn = vi.fn()
+		const mockSetSelectedCategoryFn = vi.fn()
 
 		render(
 			<BrowserRouter>
-				<ShopContext.Provider value={{ productList: mockProductList, selectedCategory: mockSelectedCategory, setSelectedCategory: mockSelectedCategoryFn }}>
+				<ShopContext.Provider value={{ productList: mockProductList, selectedCategory: mockSelectedCategory, setSelectedCategory: mockSetSelectedCategoryFn }}>
 					<CategoryList onClickCategory={onClick} />
 				</ShopContext.Provider>
 			</BrowserRouter>
