@@ -93,7 +93,7 @@ describe("CategoryList", () => {
 
 	it("calls onClickCategory if Link is clicked", async () => {
 		const onClick = vi.fn()
-		const mockSelectedCategoryFn = vi.fn()
+		const mockSelectedCategoryFn = vi.fn(onClick)
 		const user = userEvent.setup()
 
 		render(
