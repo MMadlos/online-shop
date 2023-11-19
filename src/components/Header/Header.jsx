@@ -1,7 +1,8 @@
 import "./styles.css"
 
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
+import { ShopContext } from "../../App"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars } from "@fortawesome/free-solid-svg-icons"
@@ -20,6 +21,7 @@ function HeaderContainer({ children }) {
 }
 
 function Header({ cartQuantity }) {
+	const { setSelectedCategory } = useContext(ShopContext)
 	const [isNavOpen, setIsNavOpen] = useState(false)
 
 	const [currentCartQuantity, setCurrentCartQuantity] = useState(cartQuantity)
@@ -51,7 +53,11 @@ function Header({ cartQuantity }) {
 			/>
 
 			<h1>
-				<Link to="/">OSHOP </Link>
+				<Link
+					to="/"
+					onClick={() => setSelectedCategory("All products")}>
+					OSHOP{" "}
+				</Link>
 			</h1>
 
 			<CategoryList />
