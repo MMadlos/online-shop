@@ -76,11 +76,11 @@ describe("CategoryList", () => {
 		expect(defaultCategory).not.toHaveClass("selected")
 	})
 
-	it("adds class 'mobile' if it's passed to props (styles)", () => {
+	it("adds class 'mobile' if isMobile prop is true", () => {
 		render(
 			<BrowserRouter>
 				<ShopContext.Provider value={{ productList: mockProductList, selectedCategory: mockSelectedCategory }}>
-					<CategoryList styles="mobile" />
+					<CategoryList isMobile={true} />
 				</ShopContext.Provider>
 			</BrowserRouter>
 		)
