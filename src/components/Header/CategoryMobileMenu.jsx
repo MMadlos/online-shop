@@ -15,7 +15,7 @@ function CategoryMobileMenu({ onClickClose, onClickCategory }) {
 			<div className="separator"></div>
 
 			<CategoryList
-				styles="mobile"
+				isMobile={true}
 				onClickCategory={onClickCategory}
 			/>
 		</nav>
