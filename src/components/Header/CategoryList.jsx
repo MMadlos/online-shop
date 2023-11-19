@@ -3,7 +3,7 @@ import { useContext } from "react"
 import { ShopContext } from "../../App"
 import { getCategories } from "../../utilities/utilities"
 
-function CategoryList({ styles = null, onClickCategory }) {
+function CategoryList({ isMobile = false, onClickCategory }) {
 	const { productList, selectedCategory, setSelectedCategory } = useContext(ShopContext)
 
 	const categoryList = ["All products", ...getCategories(productList)]
@@ -12,8 +12,10 @@ function CategoryList({ styles = null, onClickCategory }) {
 		onClickCategory
 	}
 
+	const _isMobile = isMobile === true
+
 	return (
-		<div className={styles ? `category-list ${styles}` : "category-list"}>
+		<div className={_isMobile ? `category-list mobile` : "category-list"}>
 			<ul>
 				{categoryList.map((category, index) => {
 					const isCategorySelected = selectedCategory.toLowerCase() === category.toLowerCase()
