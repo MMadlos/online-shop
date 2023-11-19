@@ -25,7 +25,7 @@ function ProductCard({ product, context }) {
 	}
 
 	return (
-		<Link to={`product/${product.id}`}>
+		<Link to={`/product/${product.id}`}>
 			<Card product={product} />
 		</Link>
 	)
