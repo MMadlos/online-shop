@@ -7,7 +7,10 @@ function CategoryList({ styles = null, onClickCategory }) {
 	const { productList, selectedCategory, setSelectedCategory } = useContext(ShopContext)
 
 	const categoryList = ["All products", ...getCategories(productList)]
-	const handleClickCategory = (e) => setSelectedCategory(e.target.textContent)
+	const handleClickCategory = (e) => {
+		setSelectedCategory(e.target.textContent)
+		onClickCategory
+	}
 
 	return (
 		<div className={styles ? `category-list ${styles}` : "category-list"}>
@@ -19,8 +22,7 @@ function CategoryList({ styles = null, onClickCategory }) {
 					return (
 						<li
 							key={index}
-							className={"category" + addClassIfSelected}
-							onClick={onClickCategory}>
+							className={"category" + addClassIfSelected}>
 							<Link
 								to="/"
 								onClick={handleClickCategory}>
