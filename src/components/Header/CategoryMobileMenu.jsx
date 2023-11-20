@@ -16,7 +16,7 @@ function CategoryMobileMenu({ onClick }) {
 
 			<CategoryList
 				isMobile={true}
-				onClickCategory={onClick}
+				onClick={onClick}
 			/>
 		</nav>
 	)

@@ -2,6 +2,7 @@ import "./App.css"
 import { Outlet } from "react-router-dom"
 import { createContext, useEffect, useState } from "react"
 import { filterProductsByCategory, getProductByID, toggleIsProductAddedTo, replaceProductInList } from "./utilities/utilities"
+import { ScrollRestoration } from "react-router-dom"
 
 import useMockProducts from "./hooks/useMockProducts"
 // import useFetchProducts from "./hooks/useFetchProducts"
@@ -131,6 +132,7 @@ function App() {
 				<footer>
 					<p>TEST</p>
 				</footer>
+				<ScrollRestoration />
 			</SearchAndSortContext.Provider>
 		</ShopContext.Provider>
 	)
