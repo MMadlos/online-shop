@@ -1,6 +1,6 @@
 import "./styles.css"
 
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { ShopContext } from "../../App"
 
@@ -20,17 +20,16 @@ function Header() {
 	const [currentCartQuantity, setCurrentCartQuantity] = useState(cartQuantity)
 	const [isNotificationOpen, setIsNotificationOpen] = useState(false)
 
-	if (cartQuantity < currentCartQuantity) {
-		setCurrentCartQuantity(cartQuantity)
-		return
-	}
-
-	if (cartQuantity > currentCartQuantity) {
+	function toggleNotification() {
 		setIsNotificationOpen(true)
-		setCurrentCartQuantity(cartQuantity)
-
 		setTimeout(setIsNotificationOpen, 2200, false)
 	}
+
+	useEffect(() => {
+		if (cartQuantity > currentCartQuantity) toggleNotification()
+
+		setCurrentCartQuantity(cartQuantity)
+	}, [cartQuantity])
 
 	return (
 		<header>
@@ -41,12 +40,7 @@ function Header() {
 					icon={faBars}
 					onClick={() => setIsNavOpen(true)}
 				/>
-				{isNavOpen && (
-					<CategoryMobileMenu
-						onClickClose={() => setIsNavOpen(false)}
-						onClickCategory={() => setIsNavOpen(false)}
-					/>
-				)}
+				{isNavOpen && <CategoryMobileMenu onClick={() => setIsNavOpen(false)} />}
 
 				<h1>
 					<Link

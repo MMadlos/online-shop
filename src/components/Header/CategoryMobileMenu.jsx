@@ -2,21 +2,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons"
 import CategoryList from "./CategoryList"
 
-function CategoryMobileMenu({ onClickClose, onClickCategory }) {
+function CategoryMobileMenu({ onClick }) {
 	return (
 		<nav className="categories mobile">
 			<div className="title">
 				<p>Categories</p>
 				<FontAwesomeIcon
 					icon={faChevronLeft}
-					onClick={onClickClose}
+					onClick={onClick}
 				/>
 			</div>
 			<div className="separator"></div>
 
 			<CategoryList
 				isMobile={true}
-				onClickCategory={onClickCategory}
+				onClickCategory={onClick}
 			/>
 		</nav>
 	)
