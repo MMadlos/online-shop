@@ -12,14 +12,6 @@ import CategoryList from "./CategoryList"
 import CategoryMobileMenu from "./CategoryMobileMenu"
 import Notification from "./Notification"
 
-function HeaderContainer({ children }) {
-	return (
-		<header>
-			<div className="header-container">{children}</div>
-		</header>
-	)
-}
-
 function Header() {
 	const { setSelectedCategory, cartList } = useContext(ShopContext)
 	const cartQuantity = cartList.length
@@ -41,33 +33,37 @@ function Header() {
 	}
 
 	return (
-		<HeaderContainer>
-			{isNavOpen && (
-				<CategoryMobileMenu
-					onClickClose={() => setIsNavOpen(false)}
-					onClickCategory={() => setIsNavOpen(false)}
+		<header>
+			<div className="header-container">
+				<FontAwesomeIcon
+					data-testid="icon-menu-mobile"
+					className="mobile"
+					icon={faBars}
+					onClick={() => setIsNavOpen(true)}
 				/>
-			)}
-			<FontAwesomeIcon
-				icon={faBars}
-				onClick={() => setIsNavOpen(true)}
-			/>
+				{isNavOpen && (
+					<CategoryMobileMenu
+						onClickClose={() => setIsNavOpen(false)}
+						onClickCategory={() => setIsNavOpen(false)}
+					/>
+				)}
 
-			<h1>
-				<Link
-					to="/"
-					onClick={() => setSelectedCategory("All products")}>
-					OSHOP{" "}
+				<h1>
+					<Link
+						to="/"
+						onClick={() => setSelectedCategory("All products")}>
+						OSHOP{" "}
+					</Link>
+				</h1>
+
+				<CategoryList />
+
+				<Link to="/cart">
+					<CartIcon cartQuantity={cartQuantity} />
 				</Link>
-			</h1>
-
-			<CategoryList />
-
-			<Link to="/cart">
-				<CartIcon cartQuantity={cartQuantity} />
-			</Link>
-			{isNotificationOpen && <Notification />}
-		</HeaderContainer>
+				{isNotificationOpen && <Notification />}
+			</div>
+		</header>
 	)
 }
 
