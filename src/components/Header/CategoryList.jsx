@@ -17,7 +17,7 @@ function CategoryList({ isMobile = false, onClickCategory }) {
 	return (
 		<div className={_isMobile ? `category-list mobile` : "category-list"}>
 			<ul>
-				{categoryList.map((category, index) => {
+				{categoryList?.map((category, index) => {
 					const isCategorySelected = selectedCategory.toLowerCase() === category.toLowerCase()
 					const addClassIfSelected = isCategorySelected ? " selected" : ""
 

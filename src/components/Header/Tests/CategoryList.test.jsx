@@ -40,6 +40,21 @@ describe("CategoryList", () => {
 		expect(categoryB).toBeInTheDocument()
 	})
 
+	it("renders only 'All product' category if there is no other categories", () => {
+		render(
+			<BrowserRouter>
+				<CategoryList />
+			</BrowserRouter>
+		)
+
+		const allProductsEl = screen.getByText("All products")
+		const ulEl = allProductsEl.parentElement.parentElement
+		const allLiEl = ulEl.children
+
+		expect(allProductsEl).toBeInTheDocument()
+		expect(allLiEl).toHaveLength(1)
+	})
+
 	it("adds class 'selected' to the selected class by default", () => {
 		render(
 			<BrowserRouter>

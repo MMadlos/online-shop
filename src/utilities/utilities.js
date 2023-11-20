@@ -1,6 +1,6 @@
 function getCategories(productList) {
 	let categoriesList = []
-	productList.forEach((product) => {
+	productList?.forEach((product) => {
 		categoriesList.push(product.category)
 	})
 	return [...new Set(categoriesList)]
