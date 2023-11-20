@@ -9,12 +9,14 @@ import useSearchAndSort from "./hooks/useSearchAndSort"
 
 import Header from "./components/Header/Header"
 
+const DEFAULT_SELECTED_CATEGORY = "All products"
+
 export const ShopContext = createContext({
 	// error: null,
 	// loading: true,
 	productList: [],
 	setProductList: () => {},
-	selectedCategory: "Men's clothing",
+	selectedCategory: DEFAULT_SELECTED_CATEGORY,
 	setSelectedCategory: () => {},
 	cartList: [],
 	setCartList: () => {},
@@ -37,7 +39,7 @@ function App() {
 	const { productList, setProductList } = useMockProducts()
 	// const { productList, setProductList, error, loading } = useFetchProducts()
 
-	const [selectedCategory, setSelectedCategory] = useState("Men's clothing")
+	const [selectedCategory, setSelectedCategory] = useState(DEFAULT_SELECTED_CATEGORY)
 
 	const { sort, setSort, productsToShow, setProductsToShow } = useSearchAndSort()
 	const [isProductFound, setIsProductFound] = useState(true)
