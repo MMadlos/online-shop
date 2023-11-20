@@ -3,7 +3,6 @@ import { render, screen } from "@testing-library/react"
 import Header from "../Header"
 
 import { BrowserRouter } from "react-router-dom"
-import userEvent from "@testing-library/user-event"
 import { ShopContext } from "../../../App"
 
 vi.mock("../CategoryMobileMenu", () => ({
@@ -33,49 +32,6 @@ describe("Header", () => {
 		)
 
 		expect(container).toMatchSnapshot()
-	})
-
-	describe("Mobile menu icon behaviour", () => {
-		it("renders icon faBars with class mobile", () => {
-			render(
-				<BrowserRouter>
-					<Header />
-				</BrowserRouter>
-			)
-
-			const svgEl = screen.getByTestId("icon-menu-mobile")
-
-			expect(svgEl).toHaveClass("fa-bars")
-			expect(svgEl).toHaveClass("mobile")
-		})
-
-		it("opens mobile menu if faBars icon is clicked", async () => {
-			const user = userEvent.setup()
-
-			render(
-				<BrowserRouter>
-					<Header />
-				</BrowserRouter>
-			)
-
-			const svgEl = screen.getByTestId("icon-menu-mobile")
-
-			await user.click(svgEl)
-
-			const categoryMobileMenu = screen.getByTestId("category-mobile-menu")
-			expect(categoryMobileMenu).toBeInTheDocument()
-		})
-
-		it("doesn't open mobile menu if faBars is not clicked", () => {
-			render(
-				<BrowserRouter>
-					<Header />
-				</BrowserRouter>
-			)
-
-			const categoryMobileMenu = screen.queryByTestId("category-mobile-menu")
-			expect(categoryMobileMenu).not.toBeInTheDocument()
-		})
 	})
 
 	describe("Notification behaviour", () => {

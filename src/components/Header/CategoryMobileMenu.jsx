@@ -1,8 +1,11 @@
+import { useState } from "react"
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons"
+import { faChevronLeft, faBars } from "@fortawesome/free-solid-svg-icons"
+
 import CategoryList from "./CategoryList"
 
-function CategoryMobileMenu({ onClick }) {
+function Menu({ onClick }) {
 	return (
 		<nav className="categories mobile">
 			<div className="title">
@@ -19,6 +22,22 @@ function CategoryMobileMenu({ onClick }) {
 				onClick={onClick}
 			/>
 		</nav>
+	)
+}
+
+function CategoryMobileMenu() {
+	const [isNavOpen, setIsNavOpen] = useState(false)
+
+	return (
+		<>
+			<FontAwesomeIcon
+				data-testid="icon-menu-mobile"
+				className="mobile"
+				icon={faBars}
+				onClick={() => setIsNavOpen(true)}
+			/>
+			{isNavOpen && <Menu onClick={() => setIsNavOpen(false)} />}
+		</>
 	)
 }
 
