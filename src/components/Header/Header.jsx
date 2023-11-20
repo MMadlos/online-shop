@@ -20,8 +20,9 @@ function HeaderContainer({ children }) {
 	)
 }
 
-function Header({ cartQuantity }) {
-	const { setSelectedCategory } = useContext(ShopContext)
+function Header() {
+	const { setSelectedCategory, cartList } = useContext(ShopContext)
+	const cartQuantity = cartList.length
 	const [isNavOpen, setIsNavOpen] = useState(false)
 
 	const [currentCartQuantity, setCurrentCartQuantity] = useState(cartQuantity)

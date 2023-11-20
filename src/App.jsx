@@ -124,7 +124,7 @@ function App() {
 				handleClickRemoveCart,
 			}}>
 			<SearchAndSortContext.Provider value={{ sort, isProductFound, setSort, handleChangeSearch }}>
-				<Header cartQuantity={cartList.length} />
+				<Header />
 
 				<Outlet />
 
