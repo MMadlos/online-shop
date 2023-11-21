@@ -9,7 +9,7 @@ function CategoryList({ isMobile = false, onClick }) {
 	const categoryList = ["All products", ...getCategories(productList)]
 	const handleClickCategory = (e) => {
 		setSelectedCategory(e.target.textContent)
-		onClick()
+		if (onClick) onClick()
 	}
 
 	const _isMobile = isMobile === true
