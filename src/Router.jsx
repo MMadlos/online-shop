@@ -25,7 +25,6 @@ const Router = () => {
 				{
 					path: "product/:productID",
 					element: <ProductPage />,
-					// errorElement: <ErrorPage />,
 				},
 			],
 			errorElement: <ErrorPage />,
