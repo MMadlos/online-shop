@@ -9,6 +9,7 @@ import useMockProducts from "./hooks/useMockProducts"
 import useSearchAndSort from "./hooks/useSearchAndSort"
 
 import Header from "./components/Header/Header"
+import Footer from "./components/Footer"
 
 const DEFAULT_SELECTED_CATEGORY = "All products"
 
@@ -126,12 +127,9 @@ function App() {
 			}}>
 			<SearchAndSortContext.Provider value={{ sort, isProductFound, setSort, handleChangeSearch }}>
 				<Header />
-
 				<Outlet />
+				<Footer />
 
-				<footer>
-					<p>TEST</p>
-				</footer>
 				<ScrollRestoration />
 			</SearchAndSortContext.Provider>
 		</ShopContext.Provider>
