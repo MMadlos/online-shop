@@ -9,7 +9,7 @@ import useMockProducts from "./hooks/useMockProducts"
 import useSearchAndSort from "./hooks/useSearchAndSort"
 
 import Header from "./components/Header/Header"
-import Footer from "./components/Footer"
+import Footer from "./components/Footer/Footer"
 
 const DEFAULT_SELECTED_CATEGORY = "All products"
 

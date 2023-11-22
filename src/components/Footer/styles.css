@@ -1,0 +1,154 @@
+footer {
+	display: flex;
+	flex-direction: column;
+	align-items: top;
+	gap: 80px;
+
+	padding-top: 80px;
+	padding-bottom: 80px;
+
+	> section > h3 {
+		font-size: 14px;
+		font-style: italic;
+		font-weight: 900;
+		text-transform: uppercase;
+
+		color: var(--accent-yellow);
+	}
+
+	@media (min-width: 1024px) {
+		flex-direction: row;
+		justify-content: space-between;
+
+		> section {
+			width: 250px;
+		}
+
+		.footer-credits {
+			width: fit-content;
+		}
+	}
+}
+
+.footer-about {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	> p {
+		color: #eaeaea;
+		font-size: 16px;
+		font-weight: 500;
+		margin-bottom: 16px;
+		line-height: 150%;
+		text-wrap: balance;
+	}
+
+	.footer-links {
+		display: flex;
+		align-items: center;
+		gap: 40px;
+
+		> a {
+			color: var(--white);
+			font-size: 16px;
+			font-weight: 500;
+
+			> i {
+				font-size: 24px;
+			}
+
+			@media (min-width: 1024px) {
+				&:hover {
+					color: var(--accent-yellow);
+					text-decoration: underline;
+					text-underline-offset: 8px;
+					font-weight: 600;
+					scale: 1.1;
+				}
+			}
+		}
+	}
+}
+
+.footer-credits {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	gap: 16px;
+
+	> h3 {
+		font-size: 14px;
+		font-style: italic;
+		font-weight: 900;
+		text-transform: uppercase;
+
+		color: var(--accent-yellow);
+	}
+
+	.credit-item-container {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+
+		width: fit-content;
+
+		> h5 {
+			color: #707070;
+			font-size: 16px;
+			font-weight: 500;
+		}
+
+		.credit-link {
+			color: var(--white);
+			font-weight: 500;
+
+			display: flex;
+			align-items: center;
+			gap: 8px;
+
+			> svg {
+				fill: #707070;
+				font-size: 12px;
+			}
+
+			@media (min-width: 1024px) {
+				&:hover {
+					text-decoration: underline;
+					text-underline-offset: 8px;
+					color: var(--accent-yellow);
+					font-weight: 600;
+				}
+			}
+		}
+	}
+}
+
+.footer-menu {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	> ul {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+
+		color: var(--white);
+		font-size: 16px;
+		font-weight: 500;
+
+		@media (min-width: 1024px) {
+			> li > a:hover {
+				font-weight: 600;
+				color: var(--accent-yellow);
+				text-decoration: underline;
+				text-underline-offset: 8px;
+			}
+		}
+	}
+}
+
+a {
+	color: inherit;
+}
