@@ -10,7 +10,7 @@ import CategoryMobileMenu from "./CategoryMobileMenu"
 import Notification from "./Notification"
 
 function Header() {
-	const { cartList } = useContext(ShopContext)
+	const { cartList, setSelectedCategory } = useContext(ShopContext)
 	const cartQuantity = cartList.length
 
 	const [currentCartQuantity, setCurrentCartQuantity] = useState(cartQuantity)
@@ -33,7 +33,10 @@ function Header() {
 				<CategoryMobileMenu />
 				<Logo />
 				<CategoryList />
-				<CartIcon cartQuantity={cartQuantity} />
+				<CartIcon
+					cartQuantity={cartQuantity}
+					onClick={() => setSelectedCategory("none")}
+				/>
 
 				{isNotificationOpen && <Notification />}
 			</div>
