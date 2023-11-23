@@ -6,23 +6,27 @@ import { ShopContext } from "../../App"
 import ProductCard from "../Elements/ProductCard"
 
 function ProductList() {
-	const { productsToShow } = useContext(ShopContext)
+	const { loading, error, productsToShow } = useContext(ShopContext)
 
-	// const { loading, error, productsToShow } = useContext(ShopContext)
+	const isEmpty = productsToShow.length === 0
 
-	// if (loading) return <h2>Loading products...</h2>
-	// if (error) return <h2>A network error was encountered</h2>
+	const loadingElement = <h2>Loading products...</h2>
+	const errorElement = <h2>A network error was encountered</h2>
 
 	return (
 		<main className="product-list">
-			{productsToShow?.map((product) => {
-				return (
-					<ProductCard
-						key={product.id}
-						product={product}
-					/>
-				)
-			})}
+			{loading && loadingElement}
+			{!loading && error && errorElement}
+			{!loading && isEmpty && errorElement}
+			{!isEmpty &&
+				productsToShow.map((product) => {
+					return (
+						<ProductCard
+							key={product.id}
+							product={product}
+						/>
+					)
+				})}
 		</main>
 	)
 }

@@ -4,8 +4,8 @@ import { createContext, useEffect, useState } from "react"
 import { filterProductsByCategory, getProductByID, toggleIsProductAddedTo, replaceProductInList } from "./utilities/utilities"
 import { ScrollRestoration } from "react-router-dom"
 
-import useMockProducts from "./hooks/useMockProducts"
-// import useFetchProducts from "./hooks/useFetchProducts"
+// import useMockProducts from "./hooks/useMockProducts"
+import useFetchProducts from "./hooks/useFetchProducts"
 import useSearchAndSort from "./hooks/useSearchAndSort"
 
 import Header from "./components/Header/Header"
@@ -14,8 +14,8 @@ import Footer from "./components/Footer/Footer"
 const DEFAULT_SELECTED_CATEGORY = "All products"
 
 export const ShopContext = createContext({
-	// error: null,
-	// loading: true,
+	error: null,
+	loading: true,
 	productList: [],
 	setProductList: () => {},
 	selectedCategory: DEFAULT_SELECTED_CATEGORY,
@@ -38,8 +38,8 @@ export const SearchAndSortContext = createContext({
 })
 
 function App() {
-	const { productList, setProductList } = useMockProducts()
-	// const { productList, setProductList, error, loading } = useFetchProducts()
+	// const { productList, setProductList } = useMockProducts()
+	const { productList, setProductList, error, loading } = useFetchProducts()
 
 	const [selectedCategory, setSelectedCategory] = useState(DEFAULT_SELECTED_CATEGORY)
 
@@ -74,7 +74,6 @@ function App() {
 			const productInCart = getProductByID(cartList, productID)
 			productInCart.quantity++
 
-			// Replace it in cartList
 			const newCartList = replaceProductInList(productInCart, cartList)
 			setCartList(newCartList)
 		}
@@ -112,8 +111,8 @@ function App() {
 	return (
 		<ShopContext.Provider
 			value={{
-				// error,
-				// loading,
+				error,
+				loading,
 				productList,
 				selectedCategory,
 				cartList,
