@@ -10,14 +10,22 @@ function Footer() {
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel consectetur veritatis harum, quidem eum saepe eligendi beatae repellendus nesciunt.</p>
 
 				<div className="footer-links">
-					<a href="https://www.linkedin.com/in/michaelmadlos/">
+					<a
+						href="https://www.linkedin.com/in/michaelmadlos/"
+						target="_blank">
 						<i className="fa-brands fa-linkedin-in" />
 					</a>
 
-					<a href="https://github.com/MMadlos/online-shop">
+					<a
+						href="https://github.com/MMadlos/online-shop"
+						target="_blank">
 						<i className="fa-brands fa-github" />
 					</a>
-					<a href="#">Portfolio</a>
+					<a
+						href="#"
+						target="_blank">
+						Portfolio
+					</a>
 				</div>
 			</section>
 
