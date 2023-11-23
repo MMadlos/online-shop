@@ -1,4 +1,4 @@
-function ExternalLinkIcon() {
+export const ExternalLinkIcon = () => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -8,5 +8,3 @@ function ExternalLinkIcon() {
 		</svg>
 	)
 }
-
-export default ExternalLinkIcon

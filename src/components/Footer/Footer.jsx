@@ -1,6 +1,6 @@
 import "./styles.css"
 import { Link } from "react-router-dom"
-import ExternalLinkIcon from "../ExternalLinkIcon"
+import { ExternalLinkIcon } from "../ExternalLinkIcon"
 
 function Footer() {
 	return (
