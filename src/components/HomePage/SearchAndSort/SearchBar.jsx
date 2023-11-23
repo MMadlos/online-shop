@@ -7,6 +7,10 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
 function SearchBar() {
 	const { handleChangeSearch, isProductFound } = useContext(SearchAndSortContext)
 
+	function handleEnterInput(e) {
+		if (e.key === "Enter") e.preventDefault()
+	}
+
 	return (
 		<div className="search-container">
 			<div className="search-bar">
@@ -17,6 +21,7 @@ function SearchBar() {
 						type="search"
 						placeholder="Casual jacket"
 						onChange={handleChangeSearch}
+						onKeyDown={handleEnterInput}
 					/>
 				</form>
 			</div>
